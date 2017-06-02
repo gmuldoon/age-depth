@@ -1,0 +1,25 @@
+---- FILE DESCRIPTION ----
+
+This data file contains an ensemble of 1000 alternative Delta-age solutions for the WAIS Divide ice core, calculated using a firn densification model constrained by d15N-N2 data. Details on the procedure can be found in the reference given below.
+
+For questions or additional materials please contact:
+
+Christo Buizert: buizertc@science.oregonstate.edu
+
+
+
+---- REFERENCE ----
+
+C. Buizert, K. M. Cuffey, J. P. Severinghaus, D. Baggenstos, T. J. Fudge, E. J. Steig, B. R. Markle, M. Winstrup, R. H. Rhodes, E. J. Brook, T. A. Sowers, G. D. Clow, H. Cheng, R. L. Edwards, M. Sigl, J. R. McConnell, and K. C. Taylor: The WAIS Divide deep ice core WD2014 chronology - Part 1: Methane synchronization (68-31 ka BP) and the gas age-ice age difference, Climate of the Past (2015)
+
+Please cite the original reference when using these data
+
+
+---- DATA FORMAT ----
+
+The data set below has 1004 columns:
+Column 1: Depth (m)
+Column 2: Ice age on WD2014 chronology (years before 1950) 
+Column 3: Gas age on WD2014 chronology (years before 1590) 
+Column 4: Optimal Delta-age solution of WD2014 chronology (years) 
+Columns 5 to 1004: alternative Delta-age solution from sensitivity study (years)

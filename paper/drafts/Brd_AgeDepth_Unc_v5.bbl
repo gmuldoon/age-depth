@@ -1,0 +1,75 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{\textit{{Alley}}(2000)}]{alley2000}
+{Alley}, R.~B., {Ice-core evidence of abrupt climate changes},
+  \textit{Proceedings of the National Academy of Science}, \textit{97},
+  1331--1334, \doi{10.1073/pnas.97.4.1331}, 2000.
+
+\bibitem[{\textit{{Bender} et~al.}(2006)\textit{{Bender}, {Floch},
+  {Chappellaz}, {Suwa}, {Barnola}, {Blunier}, {Dreyfus}, {Jouzel}, and
+  {Parrenin}}}]{bender2006}
+{Bender}, M.~L., G.~{Floch}, J.~{Chappellaz}, M.~{Suwa}, J.-M. {Barnola},
+  T.~{Blunier}, G.~{Dreyfus}, J.~{Jouzel}, and F.~{Parrenin}, {Gas age-ice age
+  differences and the chronology of the Vostok ice core, 0-100 ka},
+  \textit{Journal of Geophysical Research (Atmospheres)}, \textit{111}, D21115,
+  \doi{10.1029/2005JD006488}, 2006.
+
+\bibitem[{\textit{{Gow} et~al.}(1968)\textit{{Gow}, {Ueda}, and
+  {Garfield}}}]{gow1968}
+{Gow}, A.~J., H.~T. {Ueda}, and D.~E. {Garfield}, {Antarctic Ice Sheet:
+  Preliminary Results of First Core Hole to Bedrock}, \textit{Science},
+  \textit{161}, 1011--1013, \doi{10.1126/science.161.3845.1011}, 1968.
+
+\bibitem[{\textit{{Hammer} et~al.}(1994)\textit{{Hammer}, {Clausen}, and
+  {Langway}}}]{hammer1994}
+{Hammer}, C.~U., H.~B. {Clausen}, and C.~C. {Langway}, Jr., {Electrical
+  conductivity method (ECM) stratigraphic dating of the Byrd Station ice core,
+  Antarctica}, \textit{Annals of Glaciology}, \textit{20}, 115--120, 1994.
+
+\bibitem[{\textit{{Holt} et~al.}(2006)\textit{{Holt}, {Blankenship}, {Morse},
+  {Young}, {Peters}, {Kempf}, {Richter}, {Vaughan}, and {Corr}}}]{holt2006}
+{Holt}, J.~W., D.~D. {Blankenship}, D.~L. {Morse}, D.~A. {Young}, M.~E.
+  {Peters}, S.~D. {Kempf}, T.~G. {Richter}, D.~G. {Vaughan}, and H.~F.~J.
+  {Corr}, {New boundary conditions for the West Antarctic Ice Sheet: Subglacial
+  topography of the Thwaites and Smith glacier catchments}, \textit{\grl},
+  \textit{33}, L09502, \doi{10.1029/2005GL025561}, 2006.
+
+\bibitem[{\textit{{Joughin} and {Alley}}(2011)}]{joughin&alley2011}
+{Joughin}, I., and R.~B. {Alley}, {Stability of the West Antarctic ice sheet in
+  a warming world}, \textit{Nature Geoscience}, \textit{4}, 506--513,
+  \doi{10.1038/ngeo1194}, 2011.
+
+\bibitem[{\textit{McGranahan et~al.}(2007)\textit{McGranahan, Balk, and
+  Anderson}}]{mcgranahan2007}
+McGranahan, G., D.~Balk, and B.~Anderson, {The rising tide: assessing the risks
+  of climate change and human settlements in low elevation coastal zones},
+  \textit{Environment and Urbanization}, \textit{19}(1), 17--37,
+  \doi{10.1177/0956247807076960}, 2007.
+
+\bibitem[{\textit{{Neftel} et~al.}(1988)\textit{{Neftel}, {Oeschger},
+  {Staffelbach}, and {Stauffer}}}]{neftel1988}
+{Neftel}, A., H.~{Oeschger}, T.~{Staffelbach}, and B.~{Stauffer}, {CO$^{2}$
+  record in the Byrd ice core 50,000-5,000 years bp}, \textit{Nature},
+  \textit{331}, 609--611, \doi{10.1038/331609a0}, 1988.
+
+\bibitem[{\textit{{Schwander} et~al.}(2001)\textit{{Schwander}, {Jouzel},
+  {Hammer}, {Petit}, {Udisti}, and {Wolff}}}]{schwander2001}
+{Schwander}, J., J.~{Jouzel}, C.~U. {Hammer}, J.-R. {Petit}, R.~{Udisti}, and
+  E.~{Wolff}, {A tentative chronology for the EPICA Dome Concordia ice core},
+  \textit{\grl}, \textit{28}, 4243--4246, \doi{10.1029/2000GL011981}, 2001.
+
+\bibitem[{\textit{{Thorsteinsson} et~al.}(2003)\textit{{Thorsteinsson},
+  {Raymond}, {Gudmundsson}, {Bindschadler}, {Vornberger}, and
+  {Joughin}}}]{thorsteinsson2003}
+{Thorsteinsson}, T., C.~F. {Raymond}, G.~H. {Gudmundsson}, R.~A.
+  {Bindschadler}, P.~{Vornberger}, and I.~{Joughin}, {Bed topography and
+  lubrication inferred from surface measurements on fast-flowing ice streams},
+  \textit{Journal of Glaciology}, \textit{49}, 481--490,
+  \doi{10.3189/172756503781830502}, 2003.
+
+\end{thebibliography}

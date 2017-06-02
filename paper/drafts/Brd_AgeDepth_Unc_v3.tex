@@ -1,0 +1,185 @@
+\documentclass[draft,jgrga]{agutex}
+%\usepackage{lineno}
+%\linenumbers*[1]
+
+%\noindent $>$latex file \\
+%\noindent $>$dvips -P pdf -o file.ps file.dvi \\
+%\noindent $>$ps2pdf13 file.ps file.pdf
+
+%\authorrunninghead{GUTOWSKI ET AL.}
+%\titlerunninghead{Radar uncertainty}
+
+\begin{document}
+
+\title{Uncertainty of Dating Ice at the Byrd Ice Core, Antartica}
+\author{Gutowski et al.}
+
+\section{Abstract}
+Data from radar-sounding surveys of West Antarctica are used to determine the age of observed radar horizons near the Byrd ice core, Antarctica (Gow, 1968). We emphasize inclusion of uncertainty in radar- and ice-related sources of uncertainty. The analysis is based on a basic ice-flow model developed by Schwander et al. (2001). The model assumes no basal melting, zero velocity at the bed, and linear strain rate below 1200 meters depth.
+
+A Bayesian uncertainty analysis is performed to reduce uncertainties and make the best use of the available data. The analysis quantifies observational limitations of the analysis, informing future uncertainty reduction through refinement of observational techniques. A Research Plan outlines a Bayesian approach to develop a new chronology of the Byrd ice core which takes into account theoretical and measurement uncertainties in depth and age of prominent layers observed in the ice column. The method employs Markov Chain Monte Carlo modeling to invert for accumulation and strain as functions of depth. 
+
+%\end{abstract}
+
+\section{Introduction}
+
+The West Antarctic Ice Sheet (WAIS) has become an important focus of glaciological research because it is the last marine ice sheet on Earth. A full 75% of the ice sheet is based below sea level, leaving the region susceptible to the Marine Ice Sheet Instability Problem (Joughin and Alley, 2011). This problem is characterized by the unique bedrock topography of West Antarctica, in which the bedrock slopes down toward the interior of the continent. As the ice sheet retreats due to melting or calving at the front, the grounding line moves back to a thicker part of the ice sheet. In the absence of longitudinal forces or a buttressing ice shelf to hold back the ice sheet, discharge will increase, leading to further retreat. This process acts as a positive feedback to the system, resulting in accelerated retreat of the grounding line until the ice sheet reaches a steady state position upstream. 
+	Marine ice sheet instability could therefore be responsible for a rapid disintegration of up to 75% of the West Antarctic ice sheet. This scenario would result in a global sea level rise approaching 5m (Joughin and Alley, 2011). Such a severe rise in sea level would threaten tens of millions of individuals worldwide living in Low Elevation Coastal Regions (McGranahan, 2007). It is therefore important to gain a better understanding of ice flow in West Antarctica in order to gauge its stability in response to climate change.  
+	Isochronous layers within glaciers provide one avenue for developing an understanding of ice dynamics.  Each winter, snow is deposited onto the surface of a glacier. This snow contains signatures of atmospheric conditions and other isotopic clues about climatic conditions at the time of deposition. Over time, each layer is covered with the accumulation of subsequent years, where it is compacted first into a layer of firn and then into ice as it becomes buried in the ice column. This process produced isochronous layering within the glacier that carries a signature of the surface conditions at the time of snowfall.  
+	One such signature is the accumulation rate.  The thickness of an isochronous layer represents the accumulation over the period of deposition of that layer. As the layer is advecting down into the glacier, it will thin as a result of gravitational compaction, but it is possible to correct for this effect and so retain some information about accumulation rate is the period of deposition can be discerned. Accumulation rates and patterns of accumulation are related to several climatic factors of interest including air temperature and atmospheric CO2 concentration (Neftel et al., 1988; Alley, 2000). This makes it possible to begin recreating ancient climates from long-buried layers of ice. 
+	It is also possible to learn about ice flow from drawdown and deformation observed in the layers. Layer draw down, in which layers move deeper in the glacier (with or without a corresponding change in bed topography) may be indicative of basal melting. [e.g. source] In some cases, observation reveal layers disappearing from the bottom of the ice sheet, a sign that ice is melting from the base. This could correspond to areas of fast-moving ice (past or present) such as an ice stream, or may indicate an area of increased geothermal heating.	
+	In addition to their usefulness for understanding ice dynamics, these isochronous ice layers provide a glimpse into the interior of a glacier where other observational methods are rendered useless. Ice-penetrating radar surveys of ice sheets reveal internal layers as radar reflection horizons. These horizons can be tracked over large glacial regions, in some cases tracing ice flow across hundreds of kilometers, as in the case of West Antarctica (e.g. Holt et al., 2006). As mentioned earlier, this allows for studies of paleoclimate over large regions of an ice sheet. In East Antarctica, it presents scientists with the opportunity to compare ice core analyses between stations located throughout the region. This cross-correlation provides an unprecedented opportunity for uncertainty quantification of ice core chronologies. 
+Because internal layering encodes information about accumulation rates and deformation as ice flows, they can be used to develop a picture of ice dynamics. One of the main obstacles in ice sheet modeling is the uncertainty surrounding basal boundary conditions. One way to explore this problem is to use surface observations to invert for basal parameters (Thorsteinsson et al., 2003). Dynamical information about the flow of ice within the column, derived from analyses of internal isochrones can further inform these inversion problems to more accurately describe and reduce uncertainties in basal boundary conditions. 
+Some of the latest technology in aerogeophysical surveys of Earth’s major ice sheets includes focused synthetic aperture radar (SAR) techniques. Focused radar products provide an even better picture of glacial isochrones by including additional clutter reduction and preserving echoes from sloped layers. This enhances our ability to detect and track layers, even in more complex englacial environments (Peters et al., 2006). 
+
+
+
+
+\section{Data}
+
+The radar echo sounding data was obtained in December 2004 as a part
+of the AGASEA project. The flight line passed $~$870 m from the Byrd
+ice core site. The plane was travelling at 67 m/s and was 550 m above the
+ground. It had a slight -0.37$^{\circ}$ roll and was travelling due
+east. The data includes radar times (the time it takes for a radar
+pulse to leave the plane, reflect off a layer, and return to the
+detectors) in microseconds. The data was collected with a 15 Mhz
+bandwidth. The ten unique layers we include here were
+hand chosen using GeoFrame for having some of the strongest reflection amplitudes.
+
+Volcanic data was used to quantitatively compare our calculated
+age-depth relationship to the age of layers in the Byrd ice core. The
+volcanic chronology was developed using the electrical conductivity
+method \citep{Hammer94}. We used a representative subset of dated
+volcanic events to cover an age range from 709 BP to more than 18000 BP. 
+These events correspond to a depth range of 97.8 m to 1890 m below the
+1968 surface on the Byrd ice core \citet{Gow68}.
+
+Density data was used to account for the varying density of ice in the upper part of the ice sheet. This was necessary to properly
+calculate the depth of each radar-detected layer we used (see Section
+\ref{unc} for more on this). We obtained our data from the
+original analysis of the ice core presented by \citet{Gow68}.
+
+
+
+
+\section{Sources of Uncertainty}\label{unc}
+There are many sources of uncertainty inherent to the way in which
+data is collected, analyzed, and understood. We have included the
+following sources of uncertainty.
+
+\subsection{Uncertainty in depth of radar-detected layers}
+
+As mentioned previously, layers are selected by hand using the program
+GeoFrame. This program allows a user to select strong
+reflectors from a radargram and trace them along a flight
+path. However, there is a fundamental limit to how accurately the
+depth of these layers can be tracked given the resolution of radar
+timing and, in turn, the sampling rate. The sampling rate might be
+anywhere from 5ns to 20ns, so we assume a resolution of 
+10 ns when picking the reflection
+from the surface of the ice sheet and for each internal
+layer. We can then treat the two cases of surface and internal layers
+separately.
+
+To put this uncertainty into units of depth, we scale the time by
+the velocity of the electromagnetic wave involved. For example, we
+assume the e/m wave travelled to the surface with a velocity of c, the
+speed of light, but then slowed to the velocity of electromagnetic
+radiation in ice, which we assume to be 1.69 x 10$^8$ m/s (reference?)
+before reaching the internal layers. This results in a 1$\sigma$ depth
+uncertainty of 0.3 m for the surface and 0.17 m for the internal
+layers. We also consider the fact that the uncertainty picking the
+surface represents a systematic error -- it will be the same for each
+of the internal ice layers. However, the uncertainties of each
+internal layer will not necessarily all be the same, so they should be
+modeled as random within the bounds described above.
+
+The radar data used for this study was taken using a radar pulse with
+a 15 MHz bandwidth. The limitation of a finite bandwidth means that
+an even an infinitesimally thin layer of ice will appear in the survey
+to have a finite width. To account for this effect, we assume a
+1$\sigma$ depth uncertainty of 5.63 m. This is obtained from considering both
+the bandwidth frequency and the velocity of electromagnetic radiation
+in ice. This uncertainty is applied as a random error for each of our selected
+layers. See Section \ref{method} for additional discussion about how
+all of the sources of uncertainty were included.
+
+
+
+\subsection{Uncertainty in determination of age}\label{ageunc}
+
+Each year fresh snow accumulates on the top of the ice sheet,
+burying the previous season's snowfall. As layers of ice descend into
+the ice sheet, the layers become thinner, as air from the surface is
+squeezed out and gravity compacts the ice. This thinning makes it
+increasingly difficult to distinguish one layer from another at
+depth while in shallow regions, it maybe be possible to simply count
+layers by eye and therefore determine the age of those layers. 
+
+The uncertainty associated with determining ages for ice layers is a
+function of depth;
+-delta age \\
+-landmarks like 10Be, CH4, F \\
+-ecm method accuracy \\
+-correlation with bc89? \\
+
+\section{Method}\label{method}
+-firn offset \\
+-depth correction from 1968  \\
+1. determination of depth from radar times \\
+2. use metropolis algorithm to invert for accumlation and ratio of
+surface to basal velocity based on volcanic dating (calculate cost
+based on this) \\
+3. use schwander model to calculate ages (include assumptions)\\
+
+
+We used an ice model adapted from \citet{Schwander01} to determine the
+age of internal ice layers near the Byrd ice core drilling site in
+Antarctica. The age was determined assuming an average time-varying
+accumulation, ice flow, and layer depth near the ice core. We
+separated this process into two distinct parts.
+
+First, we use a metropolis algorithm to assign an age to each meter of
+depth at the Byrd ice core. We invert for a piecewise accumulation
+function over the depth of the core and for a parameter that describes
+to the ratio of surface ice velocity to bed ice velocity. We include
+the age uncertainties described in Section~\ref{ageunc}. By
+comparing to the age and depth of known volcanic events, determined
+using the electrical conductivity method (ECM; \citet{Hammer94}), we
+
+
+
+
+
+Next, we utilized a radar uncertainty model to determine depth from
+available radar reflection horizons near the Byrd ice core. Our basic
+approach calculated distance based on the speed of light in ice and
+the time it took for the radar pulses to return to leave and return to
+the aircraft. This method assumes that there is no basal melting and
+that the density throughout the ice depth is constant. For simplicity,
+we assume throughout this work that there is no basal melting, though
+we know that is not the case \citep{Gow68}. We correct for varying
+density in the firn layer using a correction presented by
+\citet{Dowdeswell04}. Ice density was tracked throughout the ice by
+\citet{Gow68}, and we apply these measurements to the Dowdeswell et
+al. correction:
+
+%\equation{Dowdeswell} 
+
+Below the firn layer (64 m, ref:Physics of Glaciers), a constant
+correction of 6.9 m is applied.
+
+
+
+\section{Results}
+
+\section{Discussion}
+
+\section{Conclusion}
+
+\section{References}
+
+\bibliographystyle{apj}
+\bibliography{layers}
+\end{document}

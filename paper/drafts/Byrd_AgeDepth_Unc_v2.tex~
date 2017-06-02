@@ -1,0 +1,236 @@
+\documentclass[draft,jgrga]{agutex}
+%\usepackage{lineno}
+%\linenumbers*[1]
+
+%\noindent $>$latex file \\
+%\noindent $>$dvips -P pdf -o file.ps file.dvi \\
+%\noindent $>$ps2pdf13 file.ps file.pdf
+
+\authorrunninghead{GUTOWSKI ET AL.}
+\titlerunninghead{Radar uncertainty}
+
+\begin{document}
+
+\title{Uncertainty of Dating Ice at the Byrd Ice Core, Antartica}
+
+\begin{abstract}
+Data from radar-sounding surveys of West Antarctica are used to
+determine the age of observed radar horizons near the Byrd ice core,
+Antarctica (Gow reference). We emphasize inclusion of uncertainty in
+radar- and ice-related sources of uncertainty. We present a new
+chronology of the Byrd ice core which takes into account theoretical
+and measurement uncertainties in depth and age of prominent layers
+observed in the ice.
+\end{abstract}
+
+\section{Introduction}
+%Basin-scale radar sounding surveys offer a breadth of information
+%about the history and dynamics of ice sheets. However, this
+%information only becomes available with reliable interpretations of
+%the age of isochronous layers mapped through the domain. 
+
+
+Annual layers within ice sheets have long been recognized as an
+invaluable resource for understanding changes in ice dynamics over
+time. Information imbedded in these layers -- including their chemical
+composition and their position -- provide both climate proxies on both
+millennial (and longer) and shorter, annually-resolved
+scales. Intrinsic to this, is the ability to assign a date to internal
+ice layers that allow for a picture of the underlying dynamics to
+emerge. Such information is pertinent to science ranging from the 
+development of
+large-scale ice sheet models being incorporated into modern general
+circulation models to understanding fundamental ice physics to
+tracking the mass balance of land ice.
+
+Ice cores provide a useful resource for extracting data from annual
+layers, particularly young ones, because these layers can often be
+differentiated by eye in a core sample. However, the resulting
+measurements are inherently localized and depend on the quality and
+completeness of the core sample as it is recovered. 
+
+Increasingly, radar echo sounding has provided a method to obtain 
+information about ice layers over large areas. These operations can 
+be executed more
+quickly and less expensively while provided a wealth of valuable
+data. By comparing these data to that of nearby ice cores, it is
+possible to determine an age-depth relationship for observed
+layers. This relationship can then be used to understand how ice has
+flowed throught large regions of ice sheets such as Greenland and
+Antarctica over the course of thousands of years.
+
+This information is particularly relevant to studies of sea-level
+change; by understanding how ice is flowing, it is possible to
+constrain mass balance calculations and therefore track ice
+melt. Correlating these features to paleoclimate could lead to a
+predictive strategy for estimating sea level rise.
+
+Despite the advancement in our understanding of ice physics, however,
+there has yet to be a thorough review of the uncertainties associated
+with depth estimations of radar echo surveys. While there are several
+existing ice core chronologies that incorporate estimations of age
+uncertainties, they are largely incomplete. Although underdeveloped,
+uncertainty estimations are at the crux of predicting future sea level 
+changes. Without proper uncertainty quanitification, predictions are 
+generally useless in matters of decision-making. The community is in
+need of robust, probabilistic measures of uncertainty pertaining to
+questions of sea-level rise.
+ 
+In this case, uncertainties can be assigned to both the depth of
+layers and their corresponding ages. There is inherent uncertainty in
+both the radar sampling of layers used to determine their depths and
+the myriad of techniques used to determine relative ages of ice layers
+and then correlate them to absolute chronologies using known climatic
+events. In order to determine a complete picture of the uncertainty
+in the age-depth relationship in a region and we emphasize a method
+for doing so here.
+
+
+\section{Data}
+
+The radar echo sounding data was obtained in December 2004 as a part
+of the AGASEA project. The flight line passed $~$870 m from the Byrd
+ice core site. The plane was travelling at 67 m/s and was 550 m above the
+ground. It had a slight -0.37 degree roll and was travelling due
+east. The data includes radar times (the time it takes for a radar
+pulse to leave the plane, reflect off of a layer, and return to the
+detectors) in microseconds. Our data was collected with a 15 Mhz
+bandwitch. The 10 unique layers we include here were
+hand-chosen for having some of the strongest reflection amplitudes.
+
+Volcanic data was used to quantitatively compare our calculated
+age-depth relationship to the age of layers in the Byrd ice core. The
+volcanic chronology was developed using the electrical conductivity
+method \ref{Hammer94}. We used a representative subset of dated
+volcanic events to cover an age range from 709 BP to more than 18000 BP. 
+These events correspond to a depth range of 97.8 m to 1890 m below the
+1968 surface on the Byrd ice core \ref{Gow68}.
+
+Density data was used to account for the varying amount of ice (as
+opposed to air) in
+the upper part of the ice sheet. This was necessary to properly
+calculate the depth of each radar-detected layer we used (see
+\section{unc} for more on this). We obtained our data from the
+original analysis of the ice core presented by \ref{Gow68}.
+
+
+
+
+\section{Sources of Uncertainty}\label{unc}
+There are many sources of uncertainty inherent to the way in which
+data is collected, analyzed, and understood. We have included the
+following sources of uncertainty.
+
+\subsection{Uncertainty in depth of radar-detected layers}
+
+As mentioned previously, layers are selected by hand using the program
+GeoFrame. This program allows a user to easily select strong
+reflectors from a radargram and trace them along a flight
+path. However, there is a fundamental limit to how accurately the
+depth of these layers can be tracked given the resolution of radar
+timing and therefore the sampling rate. The sample rate might be
+anywhere from 5ns to 20ns, so we assume a resolution of 
+10 ns when picking the reflection
+from the surface of the ice sheet and for each internal
+layer. We can then treat the two cases of surface and internal layers
+separately.
+
+To put this uncertainty into units of depth, we scale the time by
+the velocity of the electromagnetic wave involved. For example, we
+assume the e/m wave travelled to the surface with a velocity of c, the
+speed of light, but then slowed to the velocity of electromagnetic
+radiation in ice, which we assume to be 1.69 x 10$^8$ m/s \ref{Don?}
+before reaching the internal layers. This results in a 1$\sigma$ depth
+uncertainty of 0.3 m for the surface and 0.17 m for the internal
+layers. We also consider the fact that the uncertainty picking the
+surface represents a systematic error -- it will be the same for each
+of the internal ice layers. However, the uncertainties of each
+internal layer will not necessarily all be the same, so they should be
+modeled as random within the bounds described above.
+
+The radar data used for this study was taken using a radar pulse with
+a 15 MHz bandwidth. The limitation of a finite bandwidth means that
+an even an infinitesimally thin layer of ice will appear in the survey
+to have a finite width. To account for this effect, we assume a
+1$\sigma$ depth uncertainty of 5.63 m. This is obtained from considering both
+the bandwidth frequency and the velocity of electromagnetic radiation
+in ice. This uncertainty is applied as a random error for each of our selected
+layers. See Section \label{method} for additional discussion about how
+all of the sources of uncertainty were included.
+
+
+
+\subsection{Uncertainty in determination of age}\label{ageunc}
+
+Each year fresh snow accumulates on the top of the ice sheet,
+burying the previous season's snowfall. As layers of ice descend into
+the ice sheet, the layers become thinner, as air from the surface is
+squeezed out and gravity compacts the ice. This thinning makes it
+increasingly difficult to distinguish one layer from another at
+depth while in shallow regions, it maybe be possible to simply count
+layers by eye and therefore determine the age of those layers. 
+
+The uncertainty associated with determining ages for ice layers is a
+function of depth;
+-delta age
+-landmarks like 10Be, CH4, F
+-ecm method accuracy
+-correlation with bc89?
+
+\section{Method}
+-firn offset
+-depth correction from 1968 
+1. determination of depth from radar times
+2. use metropolis algorithm to invert for accumlation and ratio of
+surface to basal velocity based on volcanic dating (calculate cost
+based on this)
+3. use schwander model to calculate ages (include assumptions)
+
+
+We used an ice model adapted from \ref{Schwander01} to determine the
+age of internal ice layers near the Byrd ice core drilling site in
+Antarctica. The age was determined assuming an average time-varying
+accumulation, ice flow, and layer depth near the ice core. We
+separated this process into two distinct parts.
+
+First, we use a metropolis algorithm to assign an age to each meter of
+depth at the Byrd ice core. We invert for a piecewise accumulation
+function over the depth of the core and for a parameter that describes
+to the ratio of surface ice velocity to bed ice velocity. We include
+the age uncertainties described in Section~\label{ageunc}. By
+comparing to the age and depth of known volcanic events, determined
+using the electrical conductivity method (ECM; \citet{Hammer94}), we
+
+
+
+
+
+Next, we utilized a radar uncertainty model to determine depth from
+available radar reflection horizons near the Byrd ice core. Our basic
+approach calculated distance based on the speed of light in ice and
+the time it took for the radar pulses to return to leave and return to
+the aircraft. This method assumes that there is no basal melting and
+that the density throughout the ice depth is constant. For simplicity,
+we assume throughout this work that there is no basal melting, though
+we know that is not the case \citep{Gow68}. We correct for varying
+density in the firn layer using a correction presented by
+\citet{Dowdeswell84}. Ice density was tracked throughout the ice by
+citet{Gow69}, and we apply these measurements to the Dowdeswell et
+al. correction:
+
+%\equation{Dowdeswell} 
+
+Below the firn layer (64 m, citep{Physics of Glaciers}, a constant
+correction of 6.9 m is applied.
+
+
+
+\section{Results}
+
+\section{Discussion}
+
+\section{Conclusion}
+
+\section{References}
+
+\end{document}

@@ -1,0 +1,73 @@
+%\documentclass[12pt]{article}
+\documentclass[letterpaper]{igs}
+\usepackage{natbib}
+\usepackage{amsmath} %for help with the bracketed conditional equations
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{mathtools}
+%\vspace*{0.025in}
+
+
+\begin{document}
+\title{Estimating uncertainty in the Byrd ice core chronology and application to the rest of central West Antarctica}
+\author{Gail, Charles, Duncan, Don}
+\maketitle
+
+\begin{abstract}
+
+The Byrd ice core, the first deep ice core drilled in Antarctica, is in a prime position to contribute to studies of the West Antarctic Ice Sheet's response to climate change. We use correlation between the Byrd ice core and laterally-extensive ice-penetrating radar to date englacial reflectors throughout the West Antarctic Ice Sheet. However, the Byrd ice core chronology is relatively poor due to limitations in drilling technology a lack of thorough uncertainty analysis. To address this, we construct a Bayesian probability distribution of age-depth profiles which sample uncertainty in the deep Byrd ice core chronology. Our result is validated against the recently-drilled WAIS Divide ice core chronology using isochronous englacial layers observed using ice-penetrating radar. We interpolate isochronous surfaces of four ages which sample the ice depth and observe that...
+
+%which may reveal information about paleo ice dynamics and ice sheet boundary conditions. T
+\end{abstract}
+%%\begin{abstract}
+%%Ice-penetrating radar stratigraphy is used to construct isochronous englacial surfaces in central West Antarctica. We estimate uncertainty on the Byrd ice core chronology using a Bayesian MCMC inversion scheme and comparison to the recent WAIS Divide ice core chronology. These two chronologies are used to date englacial isochronous layers traced through Marie Byrd Land and the Thwaites Glacier catchment using seismic imaging software. The resulting englacial surfaces reveal the response of layer geometry to effects such as past ice flow, boundary conditions, and accumulation. 
+%%\textbf{Will include numbers for estimates of uncertainty, etc.}
+%%\end{abstract}
+%
+
+\section{Introduction}\label{intro}
+	\input{Sections/introduction}
+	
+%\section{Estimating Byrd ice core chronology with uncertainty}\label{byrdchronology}
+\section{Posterior distribution of Englacial reflector age-depth}\label{byrdchronology}
+The Byrd ice core site lacks robust error analysis, so we derive uncertainty bounds for the Byrd ice core by computing the probability distribution of ice sheet parameters constrained by published ice core chronologies. Subsequent correlation to the WAIS Divide ice core is made using isochronous englacial reflectors which have been tracked between the two ice core sites. We assume covariance in age as a function of depth and account for uncertainties in ice flow parameters such as accumulation rate over time to construct a self-consistent distribution of reflector ages.
+	\input{Sections/bayesianInversion}
+	
+%\section{Dating englacial radar reflectors}\label{layerdepth}
+\section{Updated Byrd ice core chronology}
+
+%\input{Sections/agedepthresults}
+%\input{Sections/correlatingByrdWD}
+%\subsection{Reflector surfaces}
+
+
+
+%%
+%%\section{Radar Depth}
+%%	\input{Sections/depthError}
+%%
+%%\section{Layer Age}\label{methods}
+%%We account for errors in both radar-derived layer depth and ice-core-derived chronologies when dating englacial layers. %
+%%\section{Results}\label{results}
+%%	\subsection{Age-depth profiles}
+%%		\input{Sections/agedepthresults}
+\section{Extension of the chronology to 3D surfaces}\label{layersurfaces}
+	%\input{Sections/layersurfaceage}
+
+\section{Discussion}\label{discussion}
+%- limitations of ice flow model
+%- reasons for disagreement between cores
+%- more about use for surfaces
+
+\section{Conclusion}\label{conclusion}
+%- layers match (or don't for a particular reason)
+%- ice flow model 
+
+\section{Acknowledgements}
+Robert,Shubhanga, Arami,Bekah,Varun,Benj,etc.
+Chad, Marie, etc.
+
+\bibliographystyle{agu}
+\bibliography{bib}
+\end{document}

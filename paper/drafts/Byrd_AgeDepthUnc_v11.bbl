@@ -1,0 +1,82 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{\textit{Bindschadler et~al.}(1997)\textit{Bindschadler, Chen, and
+  Vornberger}}]{bindschadler1997}
+Bindschadler, R., X.~Chen, and P.~Vornberger, Surface velocity and strain rates
+  at the onset of ice stream d, west antarctica, \textit{Antarctic Journal of
+  the United States}, \textit{32}(5), 41--43, 1997.
+
+\bibitem[{\textit{Blunier and Brook}(2001)}]{blunier2001}
+Blunier, T., and E.~J. Brook, Timing of millennial-scale climate change in
+  antarctica and greenland during the last glacial period, \textit{Science},
+  \textit{291}(5501), 109--112, \doi{10.1126/science.291.5501.109}, 2001.
+
+\bibitem[{\textit{{Eisen} et~al.}(2004)\textit{{Eisen}, {Nixdorf}, {Wilhelms},
+  and {Miller}}}]{eisen2004}
+{Eisen}, O., U.~{Nixdorf}, F.~{Wilhelms}, and H.~{Miller}, {Age estimates of
+  isochronous reflection horizons by combining ice core, survey, and synthetic
+  radar data}, \textit{Journal of Geophysical Research (Solid Earth)},
+  \textit{109}, B04106, \doi{10.1029/2003JB002858}, 2004.
+
+\bibitem[{\textit{{Gow} et~al.}(1968)\textit{{Gow}, {Ueda}, and
+  {Garfield}}}]{gow1968}
+{Gow}, A.~J., H.~T. {Ueda}, and D.~E. {Garfield}, {Antarctic Ice Sheet:
+  Preliminary Results of First Core Hole to Bedrock}, \textit{Science},
+  \textit{161}, 1011--1013, \doi{10.1126/science.161.3845.1011}, 1968.
+
+\bibitem[{\textit{Hammer et~al.}(1997)\textit{Hammer, Clausen, and
+  Langway}}]{hammer1997}
+Hammer, C., H.~Clausen, and C.~Langway, 50,000 years of recorded global
+  volcanism, \textit{Climatic Change}, \textit{35}(1), 1--15, 1997.
+
+\bibitem[{\textit{{Hammer} et~al.}(1994)\textit{{Hammer}, {Clausen}, and
+  {Langway}}}]{hammer1994}
+{Hammer}, C.~U., H.~B. {Clausen}, and C.~C. {Langway}, Jr., {Electrical
+  conductivity method (ECM) stratigraphic dating of the Byrd Station ice core,
+  Antarctica}, \textit{Annals of Glaciology}, \textit{20}, 115--120, 1994.
+
+\bibitem[{\textit{{Holt} et~al.}(2006)\textit{{Holt}, {Blankenship}, {Morse},
+  {Young}, {Peters}, {Kempf}, {Richter}, {Vaughan}, and {Corr}}}]{holt2006}
+{Holt}, J.~W., D.~D. {Blankenship}, D.~L. {Morse}, D.~A. {Young}, M.~E.
+  {Peters}, S.~D. {Kempf}, T.~G. {Richter}, D.~G. {Vaughan}, and H.~F.~J.
+  {Corr}, {New boundary conditions for the West Antarctic Ice Sheet: Subglacial
+  topography of the Thwaites and Smith glacier catchments}, \textit{Geophysical
+  Research Letters}, \textit{33}, L09502, \doi{10.1029/2005GL025561}, 2006.
+
+\bibitem[{\textit{IPCC}(2007)}]{ipcc2007}
+IPCC, Climate change 2007: The physical science basis, \textit{Agenda},
+  \textit{6}, 07, 2007.
+
+\bibitem[{\textit{{Langway} et~al.}(1994)\textit{{Langway}, {Osada}, {Clausen},
+  {Hammer}, {Shoji}, and {Mitani}}}]{langway1994}
+{Langway}, C.~C., Jr., K.~{Osada}, H.~B. {Clausen}, C.~U. {Hammer}, H.~{Shoji},
+  and A.~{Mitani}, {New chemical stratigraphy over the last millennium for Byrd
+  Station, Antarctica}, \textit{Tellus Series B Chemical and Physical
+  Meteorology B}, \textit{46}, 40, \doi{10.1034/j.1600-0889.1994.00004.x},
+  1994.
+
+\bibitem[{\textit{Metropolis et~al.}(1953)\textit{Metropolis, Rosenbluth,
+  Rosenbluth, Teller, and Teller}}]{metropolis1953}
+Metropolis, N., A.~W. Rosenbluth, M.~N. Rosenbluth, A.~H. Teller, and
+  E.~Teller, Equation of state calculations by fast computing machines,
+  \textit{The Journal of Chemical Physics}, \textit{21}(6), 1087--1092,
+  \doi{http://dx.doi.org/10.1063/1.1699114}, 1953.
+
+\bibitem[{\textit{{Morland}}(2009)}]{morland2009}
+{Morland}, L.~W., {Age-depth correlation, grain growth and dislocation-density
+  evolution, for three ice cores}, \textit{Journal of Glaciology}, \textit{55},
+  345--352, \doi{10.3189/002214309788608723}, 2009.
+
+\bibitem[{\textit{{Neumann} et~al.}(2008)\textit{{Neumann}, {Conway}, {Price},
+  {Waddington}, {Catania}, and {Morse}}}]{neumann2008}
+{Neumann}, T.~A., H.~{Conway}, S.~F. {Price}, E.~D. {Waddington}, G.~A.
+  {Catania}, and D.~L. {Morse}, {Holocene accumulation and ice sheet dynamics
+  in central West Antarctica}, \textit{Journal of Geophysical Research (Earth
+  Surface)}, \textit{113}, F02018, \doi{10.1029/2007JF000764}, 2008.
+
+\end{thebibliography}

@@ -1,0 +1,401 @@
+This is TeX, Version 3.14159 (Web2C 7.4.5) (format=latex 2010.6.6)  25 MAR 2012 19:03
+**Brd_AgeDepth_Unc_v6.tex
+(./Brd_AgeDepth_Unc_v6.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(./agutex.cls
+
+
+ AGUTeX Journal Style, American Geophysical Union 
+ This version is dated Feb 9, 2008
+
+
+Document Class: agutex 02/09/2008
+\c@chapter=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@figure=\count83
+\c@table=\count84
+\mathindent=\dimen102
+\abovefigcaptionskip=\skip41
+\abovetabcaptionskip=\skip42
+\abovetableskip=\skip43
+\belowtabcaptionskip=\dimen103
+\landscapebox=\box26
+\c@plate=\count85
+\savecurrtable=\box27
+\abovetabularskip=\skip44
+\belowtabularskip=\skip45
+\timing=\count86
+\hourcount=\count87
+\oldtime=\count88
+\totpages=\count89
+\belowtitleskip=\dimen104
+\abovesubtitleskip=\dimen105
+\belowsubtitleskip=\dimen106
+\aboveauthorskip=\dimen107
+\belowauthorskip=\dimen108
+\thanksnum=\count90
+\dothanks=\count91
+\thankscounter=\count92
+\titlethanksnum=\count93
+\dotitlethanks=\count94
+\titlethankscounter=\count95
+\thanksnum=\count96
+\dothanks=\count97
+\thankscounter=\count98
+\authorwidth=\dimen109
+\authorbaselineskip=\dimen110
+\aboveaffilskip=\dimen111
+\belowaffilskip=\dimen112
+\affilwidth=\dimen113
+\aboveabstractskip=\dimen114
+\belowabstractskip=\dimen115
+\belowabstractnameskip=\dimen116
+\abstractmargin=\dimen117
+\abovereceivedskip=\skip46
+\aboverevisedskip=\skip47
+\aboveacceptedskip=\skip48
+\abovepublishededskip=\skip49
+\barticle=\box28
+\thanksbox=\box29
+\titlethanksbox=\box30
+\c@appendnum=\count99
+\footnum=\count100
+\savefootnum=\count101
+\ackskip=\skip50
+\saveparskip=\dimen118
+\captionskip=\dimen119
+\PushOneColTopFig=\dimen120
+\PushOneColBotFig=\dimen121
+\PushOneColTopTab=\dimen122
+\PushOneColBotTab=\dimen123
+\PushTwoColTopFig=\dimen124
+\PushTwoColBotFig=\dimen125
+\PushTwoColTopTab=\dimen126
+\PushTwoColBotTab=\dimen127
+\intextfloatskip=\skip51
+\c@appfigure=\count102
+\c@apptable=\count103
+\c@appplate=\count104
+\checkforspace=\dimen128
+\savetopinsert=\box31
+\savebotinsert=\box32
+\secondsavetopinsert=\box33
+\secondsavebotinsert=\box34
+\firstcolbox=\box35
+\secondcolbox=\box36
+\thefirstbox=\box37
+\thesecondbox=\box38
+\firstcol=\dimen129
+\secondcol=\dimen130
+\checkheight=\dimen131
+\loopnum=\count105
+\firstcolsavefignum=\count106
+\footnotebox=\box39
+\ColUsed=\dimen132
+\FigSpace=\dimen133
+\testdblbotins=\box40
+\pageloopnum=\count107
+\endcolsavetopinsert=\box41
+\endcolsavebotinsert=\box42
+\testpagesize=\box43
+\savelastskip=\dimen134
+\partialpage=\box44
+\figandtabnumber=\count108
+\figandtabbox=\box45
+\pagefloatnumber=\count109
+\sizeoffloat=\box46
+\bogus=\count110
+\figinsert=\insert233
+\herebox=\box47
+\endfigbox=\box48
+\spanbox=\box49
+\dbltopins=\box50
+\dblbotins=\box51
+\dblbotskip=\skip52
+\dblfigandtabnumber=\count111
+\dblfigandtabbox=\box52
+\dblloopnum=\count112
+\savedblfigandtabnumber=\count113
+\dblspanherebox=\box53
+\bigpagenum=\count114
+\littlepagenum=\count115
+\wholepagenum=\count116
+\@cprtype=\count117
+\@slugcmmntwidth=\dimen135
+\affilnum=\count118
+\totalaffils=\count119
+\figcount=\count120
+\saveequation=\count121
+\c@currlett=\count122
+\notationwidth=\dimen136
+\betweennotationskip=\skip53
+\WidestEntry=\dimen137
+\premulticols=\dimen138
+\page@free=\dimen139
+\partial@page=\box54
+\multicoltolerance=\count123
+\doublecol@number=\count124
+\multicolbaselineskip=\skip54
+\c@collectmore=\count125
+\loopcount=\count126
+\fixdimen=\dimen140
+\c@unbalance=\count127
+\savedimen=\dimen141
+\savehsize=\dimen142
+\mycolumnwidth=\dimen143
+\saveparindent=\dimen144
+\saveparskip=\dimen145
+\abstractwidth=\dimen146
+\currlastnumber=\count128
+\altaffilbox=\box55
+\sectskip=\skip55
+\belowsectionskip=\skip56
+\subsectskip=\skip57
+\belowsubsectskip=\skip58
+\subsubsectskip=\skip59
+\belowsubsubsectskip=\skip60
+\c@subsubsubsection=\count129
+\captionwidth=\dimen147
+\widecaptionwidth=\dimen148
+\landscapecaptionwidth=\dimen149
+\@temptokenb=\toks14
+\beforeendskip=\skip61
+
+
+ JGRGA style option, October 1, 2001,
+ \documentclass[jgrga]{AGUTeX}
+ ``Journal of Geophysical Research'', 
+ Published by American Geophysical Union
+
+
+\titlesize=\dimen150
+LaTeX Info: Redefining \cite on input line 7417.
+\c@NAT@ctr=\count130
+) (/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2001/08/31 v1.1 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
+)
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip62
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen153
+))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen154
+)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count131
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count132
+\leftroot@=\count133
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count134
+\DOTSCASE@=\count135
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box56
+\strutbox@=\box57
+\big@size=\dimen155
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count136
+\c@MaxMatrixCols=\count137
+\dotsspace@=\muskip10
+\c@parentequation=\count138
+\dspbrk@lvl=\count139
+\tag@help=\toks17
+\row@=\count140
+\column@=\count141
+\maxfields@=\count142
+\andhelp@=\toks18
+\eqnshift@=\dimen156
+\alignsep@=\dimen157
+\tagshift@=\dimen158
+\tagwidth@=\dimen159
+\totwidth@=\dimen160
+\lineht@=\dimen161
+\@envbody=\toks19
+\multlinegap=\skip63
+\multlinetaggap=\skip64
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/share/texmf/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen162
+)
+(/usr/share/texmf/tex/latex/tools/tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+(/usr/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen163
+\extrarowheight=\dimen164
+\NC@list=\toks21
+\extratabsurround=\skip65
+\backup@length=\skip66
+)
+\TX@col@width=\dimen165
+\TX@old@table=\dimen166
+\TX@old@col=\dimen167
+\TX@target=\dimen168
+\TX@delta=\dimen169
+\TX@cols=\count143
+\TX@ftn=\toks22
+) (./Brd_AgeDepth_Unc_v6.aux)
+\openout1 = `Brd_AgeDepth_Unc_v6.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+| \OT1/cmr/m/n/12 Gail Gutowski, De-part-ment of Geosceinces, Uni-ver-sity of T
+exas at Austin
+ []
+
+[1
+
+]
+Overfull \hbox (27.935pt too wide) in paragraph at lines 79--79
+[]\OT1/cmr/m/n/12 Ice-penetrating radar (IPR) is a use-ful tool for in-ves-ti-g
+at-ing past and present
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+\OT1/cmr/m/n/12 ies re-quires ac-cu-rate dat-ing of in-ter-nal radar re-flec-ti
+on hori-zons. This can
+ []
+
+
+Overfull \hbox (12.23106pt too wide) in paragraph at lines 79--79
+\OT1/cmr/m/n/12 ing tech-niques. The Air-borne Geo-phys-i-cal Sur-vey of the Am
+und-sen Sea Em-
+ []
+
+
+Overfull \hbox (17.32135pt too wide) in paragraph at lines 79--79
+\OT1/cmr/m/n/12 tica to de-ter-mine the depth range from which each of the hori
+-zons orig-i-nates.
+ []
+
+
+Overfull \hbox (12.47275pt too wide) in paragraph at lines 79--79
+\OT1/cmr/m/n/12 The in-ver-sion con-sid-ers un-cer-tainty in the ice core dates
+ to de-ter-mine model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+
+ []
+
+[2] [3] [4]
+Missing character: There is no ^^e2 in font cmr12!
+Missing character: There is no ^^80 in font cmr12!
+Missing character: There is no ^^99 in font cmr12!
+ [5] [6] [7]
+Missing character: There is no ^^e2 in font cmr12!
+Missing character: There is no ^^80 in font cmr12!
+Missing character: There is no ^^99 in font cmr12!
+ [8]
+Missing character: There is no ^^e2 in font cmr12!
+Missing character: There is no ^^80 in font cmr12!
+Missing character: There is no ^^9c in font cmr12!
+Missing character: There is no ^^e2 in font cmr12!
+Missing character: There is no ^^80 in font cmr12!
+Missing character: There is no ^^9d in font cmr12!
+Missing character: There is no ^^e2 in font cmr12!
+Missing character: There is no ^^80 in font cmr12!
+Missing character: There is no ^^9c in font cmr12!
+Missing character: There is no ^^e2 in font cmr12!
+Missing character: There is no ^^80 in font cmr12!
+Missing character: There is no ^^9d in font cmr12!
+ [9]
+
+LaTeX Warning: Reference `blah' on page 10 undefined on input line 155.
+
+[10]
+
+Package natbib Warning: Citation `who?' on page 11 undefined on input line 183.
+
+
+[11] [12] [13]
+
+Package natbib Warning: Citation `who?' on page 14 undefined on input line 219.
+
+
+[14] [15]
+
+Package natbib Warning: Citation `who?' on page 16 undefined on input line 230.
+
+
+(./Brd_AgeDepth_Unc_v6.bbl [16] [17])
+Underfull \hbox (badness 1867) in paragraph at lines 321--322
+[]|\OT1/cmr/m/n/12 significant vol-canic event "Old Faith-ful"
+ []
+
+
+Package natbib Warning: There were undefined citations.
+
+[18] [19] [20] [21] (./Brd_AgeDepth_Unc_v6.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2135 strings out of 95847
+ 24619 string characters out of 1195949
+ 98168 words of memory out of 1000001
+ 5079 multiletter control sequences out of 10000+50000
+ 14692 words of font info for 51 fonts, out of 500000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 27i,11n,26p,1289b,508s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on Brd_AgeDepth_Unc_v6.dvi (21 pages, 50036 bytes).

@@ -1,0 +1,32 @@
+%% Created using Papers on Wed, 12 Oct 2011.
+%% http://mekentosj.com/papers/
+
+@article{Dowdeswell:2004ur,
+author = {Dowdeswell, J},
+title = {{Investigations of the form and flow of ice sheets and glaciers using radio-echo sounding}},
+journal = {Reports on Progress in Physics},
+year = {2004}
+}
+
+@article{Schwander:2001va,
+author = {Schwander, J and Jouzel, J and Hammer, C},
+title = {{A tentative chronology for the EPICA Dome Concordia ice core}},
+journal = {Geophysical research {\ldots}},
+year = {2001}
+}
+
+@article{Hammer:1994wv,
+author = {Hammer, CU and Clausen, HB and Mosley-Thompson, Jr CC},
+title = {{Electrical conductivity method (ECM) stratigraphic dating of the Byrd Station ice core, Antarctica}},
+journal = {Annals of Glaciology},
+year = {1994},
+pages = {1--6}
+}
+
+@article{Gow:1968ww,
+author = {Gow, Anthony J},
+title = {{Deep Core Studies of the Accumulation and Densification of Snow at Byrd Station and Little America V, Antarctica}},
+year = {1968},
+pages = {1--54}
+}
+

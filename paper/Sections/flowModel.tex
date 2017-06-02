@@ -1,0 +1,43 @@
+\subsubsection{Ice flow model at the Byrd ice core}
+%This is consistent with experiment opinion that ice core age uncertainty is generally 2-3$\%$ of ice age (T.J. Fudge, private communication). Therefore, we construct an age-depth distribution for the Byrd ice core using statistical methods and an assumed 3$\%$ age uncertainty. The derived age-depth profile is then compared to the WAIS Divide profile using englacial layers that have been tracked between the two ice core sites. 
+
+Due to the inherent interdependence of stratigraphic age in the ice column, we use a flow model to simulate the age-depth relationship in the ice column. We use a simple, one-dimensional model of ice flow (Equation \ref{schwander}) which derives ice age from accumulation rate \citep{schwander2001}, assuming constant horizontal strain rate in the upper part of the ice sheet and a shear layer of thickness $h$ at the bottom of the ice sheet, for which we invert. In the shear layer, the strain rate is assumed to decrease linearly and the bottom of the ice is assumed sliding with velocity $q$ $\cdot$ $v_0$, where $v_0$ is the horizontal velocity at the surface.
+
+\begin{equation}\label{schwander}
+A(z) = \int_{z}^{H} \frac{dz}{\epsilon_z \dot{a}(z)}
+\end{equation}
+where
+\begin{center}
+$    \epsilon_z=
+    \begin{cases}
+                 1-k(H-z), & h \leq z \leq H \\
+                  kz(q+\frac{1-q}{2h}z), & 0 < z < h
+    \end{cases}, 
+$
+$
+k = \frac{2}{2H - h(1-q)}
+$
+\end{center}
+$H$ is ice thickness in ice equivalent, $z$ is height above the bed, $h$ is the depth to the shear layer, $\dot{a}$ is the layer thickness, and $q$ is a constant for which we invert. 
+
+The ice flow model accounts for two primary factors in the age-depth profile: burial as a function of accumulation rate, $\dot{a}$, and thinning as a function of strain, $\epsilon_z$. In the simplest realization, ice deposited at a given time at the ice sheet surface will be found at a depth in the ice sheet corresponding to the amount of subsequent accumulation. However, due to strain thinning at depth, the ice will be less deep than would be expected if accumulation alone is considered. 
+
+In Section~\ref{metrop}, we invert for the flow parameters $h$, $q$, and $\dot{a}$. Constant values for $h$ and $q$ are sampled from uniform priors defined in a conservative range:
+
+\begin{center}
+%\begin{equation}
+$p(\vec{f}) = 
+	\begin{cases}
+		p(h) \sim U(0, 0.5) \\
+		p(q) \sim U (0, 1) \\
+		p(\dot{a}_{z < 150 m}) \sim U()\\
+		p(\dot{a}_{150 < z < 1024 m}) \sim U()\\
+		p(\dot{a}_{1024 < z < 1200 m}) \sim U()\\
+		p(\dot{a}_{1200 < z < 2164 m}) \sim U()\\
+		...update\ accums...\\
+	\end{cases}
+$	
+%\end{equation}	
+\end{center}
+
+The prior distributions of flow parameters, together denoted as $p(\vec{f})$, assume the shear layer is in the bottom half of the ice sheet depth and that the bed of the ice sheet is moving slower than the surface. Layer thickness, $\dot{a}$, is sampled from \textbf{N} distinct depth bins identified in observations by \citep{hammer1997}. This allows for variability of layer thickness with depth, as expected. To limit unrealistic variability in accumulation between depth bins, Tikhonov regularization is used on the age likelihood function.

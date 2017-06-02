@@ -1,0 +1,87 @@
+Layers Paper Cookbook
+
+1. Pick layers using Landmark Decisionspace software (or, formerly, GeoFrame). Trace where radar reflection amplitude is high and continuous within the ice column to map out isochrones near the ice core.
+
+2. Figure out the TWTT of each picked layer as close to the WD station (and therefore ice core) as possible.  Do this by manually zooming in and seeing the depth of each layer for line ICP6_MKB2l_ARCH1a at trace 9050. Note that these TWTT values from landmark are not the real values, they need to be divided by 100 to get actual TWTT in microsec. The result directly from landmark for WAIS Divide:
+
+250 = surf
+940  = lm_fissure_lay4_rrs_inco
+1550 = lm_bridge_lay5_eca_pik1
+1760 = lm_fissure_lay1_rrs_inco
+1990 = wd_tmp_grg_pik1
+lay14_rsa
+2085 = lm_bridge_lay13_rsa_pik1
+2263 = lm_bridge_lay4_grg
+2490 = lm_wd_tmp2_grg
+3100 = lm_bridge_lay10_rsa_pik1
+xxx3408 = lm_bridge_lay12_grg_pik1 (not very continuous)
+
+(Old) Result for Byrd can be found in the README in the Layers data directory in the repo. They’re taken from Geoframe-picked layers from line THW/SJB2/BB01a provided by Duncan. The location is ~870 m from the core site and the location where these values were taken is at 1173.5 km in the radargram in Duncan’s email.
+
+In microseconds:
+
+4.04    surface
+6.02    lay2_ncd
+6.775   lay1_kid
+7.18    lay1_kmc			/lm_fissure_lay4_rrs
+8.94    lay1_had			
+9.94902 lay1_jbd 			(inco is same as lm-bridge-lay1-crc)
+9.94902 lay1_spc   			xx not imported in landmark
+9.94902 lay3_mrw_foc2
+9.94902 lay4_emp_foc2
+11.1    lay1_adj_foc2
+11.1    lay4_spc			/lm-antarctic16-lay1-vss-pik1
+12.78   lay3_spc			/lm-bridge-lay13-rsa??
+13.02   lay2_mrw_foc2			/lm-bridge-lay13-rsa??
+18.92   lay1_mrw_foc2			/lm-bridge-lay10-rsa-pik1
+19.0205 lay2_spc
+
+From Landmark: THW/SJB2/BB01a at trace 13190. (Divide by 100 to get micros)
+250  surf
+590  lm_fissure_lay4_rrs —> same as WD
+844  lm_bridge_lay5_eca —> same as WD
+958  lm_bridge_lay11_grg —> same as WD
+1090 lm_bridge_lay14_rsa
+1155 lm_bridge_lay13_rsa —> same as WD
+1254 lm_bridge_lay14_eca —> same as WD 
+1447 lm_wd_tmp2_grg —> same as WD
+1755 lm_bridge_lay10_rsa —> same as WD —-> lm-MERGE-lay10-grg
+
+Merged Landmark horizon names:
+
+
+lm-MERGE-lay10-grg
+
+
+
+3. Use those TWTTs (in microsec) for pik in agedepth_main.m. 
+
+4. Get density profile at WD from Breton et al. 2009 which includes uncertainty at each firn depth. Put this in a file, but only save every 1000th measurement because there are far too many to consider (more than 40k total). This is done in Excel by filtering for every 1000th row. This dataset includes only firn densities, so add a few at the bottom of the firn layer of glacial ice density to allow for interpolation to the bottom of the core for ease of analysis. Will sample from the std of firn density at each sampled depth.
+
+-Total firn correction after integrating through the whole WD firn column is ~9.1 m (which applies to all the layers). sigma_zf for all the layers is ~ 0.06 m, so pretty small. 
+
+-Range of errors from the velocity uncertainty is at most 25.56 for the deepest  layer:
+deepest TWTT = 34.06 microseconds
+TWTT/2*vdiff = 25.56 m (vdiff = 1.695e8 - 1.68e8)
+
+-Density profile for Byrd is from Gow et al. but doesn’t include any indication of uncertainties there, so it’s ignored for now. Should probably be estimated somehow, but can compare results between cores and see how much it matters. 
+
+5. Determine actual depth from these TWTT’s by feeding pic to radardepth_func_update.m. This file samples constant EM velocity in ice and also uncertainty in WD density profile (no unc in density is available for Byrd). Need to iterate over this file to construct a distribution of depths for each pik. 
+
+
+6. Get age-depth profile from Buizert et al 2015 with the WD chronology attached in excel format. There are too many points, so consider only every 100th. Do this subsetting using Excel by filtering for every 100th row of data. Grab a few of the age markers to use as constraint to get all the way down the ice column. No need to worry about things in the firn layer because we’re skipping that.
+
+7. Agedepth_main.m does the analysis for one core at a time, so you need to specify which to use at the start of the file. 
+
+8. Run agedepth_main.m to invert for flow parameters given the observed chronology and then forward propagate the derived flow model to find the age and depth of each observed layer within uncertainty.
+
+
+To calculate the accumulation rate over time as in Morse et al. 2002:
+-Determine the functional form in Morse from approximating values on that plot.
+Points used: (80,1) (18,0.4) (16,1)
+Gives:
+age <= 16ka: f=1
+16ka < age <= 18ka: f=-.3t+6.4
+80ka < age <= 18ka : f=(0.6/62)*t+0.2258
+-This is still a function of time, but need it in terms of depth
+

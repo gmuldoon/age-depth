@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99c (Web2C 7.4.5)
+The top-level auxiliary file: Brd_AgeDepth_Unc_v6.aux
+The style file: agu.bst
+Database file #1: bib.bib
+Warning--string name "b18" is undefined
+--line 56 of file bib.bib
+Warning--string name "b9" is undefined
+--line 166 of file bib.bib
+Warning--I didn't find a database entry for "who?"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 14 entries,
+            3075 wiz_defined-function locations,
+            1171 strings with 12989 characters,
+and the built_in function-call counts, 14273 in all, are:
+= -- 1474
+> -- 709
+< -- 2
++ -- 368
+- -- 168
+* -- 976
+:= -- 1349
+add.period$ -- 14
+call.type$ -- 14
+change.case$ -- 96
+chr.to.int$ -- 14
+cite$ -- 42
+duplicate$ -- 1397
+empty$ -- 748
+format.name$ -- 210
+if$ -- 2901
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 168
+newline$ -- 49
+num.names$ -- 56
+pop$ -- 647
+preamble$ -- 1
+purify$ -- 82
+quote$ -- 0
+skip$ -- 844
+stack$ -- 0
+substring$ -- 462
+swap$ -- 1119
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 126
+warning$ -- 0
+while$ -- 62
+width$ -- 0
+write$ -- 173
+(There were 3 warnings)

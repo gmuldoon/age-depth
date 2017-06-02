@@ -1,0 +1,36 @@
+from	Duncan Young <smudog@gmail.com>
+reply-to	Duncan Young <duncan@ig.utexas.edu>
+to	Gail Gutowski <gailgutowski@gmail.com>,
+Charles Jackson <charles@utig.ig.utexas.edu>
+cc	Don Blankenship <blank@ig.utexas.edu>
+date	Fri, Oct 22, 2010 at 4:54 AM
+subject	Byrd data at last
+
+	
+Hi Gail, Charles,
+  attached is the trace data for Byrd.  The data is from line THW/SJB2/BB01a, and was flown on December 28, 2004 as part of the AGASEA project.
+The .dat files (for incoherent, 1d and 2d focused SAR, high gain data) contain two columns - time in microseconds since trace recording started, and power seen by the radar on board the aircraft in dBm (10*(log (power in mWatts)).  No corrections for ice loss, spreading loss, or antenna patterns were added.  The aircraft was ~870 meters from the core site, traveling at 67 meters/second, and was 550 meters above the ground, with a slight -0.37 degree roll, traveling due east (bearing 078).  The surface echo is seen at 4.04 microseconds.  The trace is at about 1173.5 km in the attached depth corrected radargram.
+
+The pikers have identified the following layers (time in microseconds of record):  The foc2 are the CDI layers; others were supported by Vetlesen.
+
+6.02    lay2_ncd
+6.775   lay1_kid
+7.18    lay1_kmc
+8.94    lay1_had
+9.94902 lay1_jbd
+9.94902 lay1_spc
+9.94902 lay3_mrw_foc2
+9.94902 lay4_emp_foc2
+11.1    lay1_adj_foc2
+11.1    lay4_spc
+12.78   lay3_spc
+13.02   lay2_mrw_foc2
+18.92   lay1_mrw_foc2
+19.0205 lay2_spc
+
+
+
+
+
+Cheers,
+  Duncan

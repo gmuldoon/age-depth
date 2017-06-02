@@ -1,0 +1,35 @@
+\subsubsection{Metropolis Algorithm}\label{metrop}
+At each iteration, the Metropolis algorithm proposes values for parameters of interest (those with priors in Equation~\ref{bigproblem}). The algorithm accepts or rejects proposed sets of parameter values by comparison between the proposed and previously-accepted likelihood (or ``cost") values. A low cost value represents good agreement between model and observations, reflecting a small model-data misfit. Therefore, if the cost associated with proposed parameters is significantly lower than that of the last accepted iteration, the proposed parameter values have a high probability of being accepted as a more likely solution. 
+
+This process is repeated up to 50,000 times to create an ensemble of accepted parameter sets. These are used in the forward ice flow model to create an ensemble of age-depth profiles constrained by the combined uncertainty in the volcanic age-depth profile and ice model parameterizations. The resulting ensemble is expected to sample the age uncertainty in the Byrd ice core, providing the first robust uncertainty analysis of the ice core chronology. 
+
+There are two likelihood functions under consideration, describing the model-data misfit between reflector depth and age, respectively:
+
+\begin{equation}
+p(TWTT_r | D_r,d_{firn},v_{ice} )= exp[\frac{-\sum_{i=4}[TWTT_{r,i} - TWTT_{m,i}(D_r)]^2}{2\sigma_r^2}]
+\end{equation}
+
+\begin{equation}
+p(A_{IC} | D_{IC},\vec{f},S)= exp[\frac{-S\sum_{j = 53}[A_{IC,j} - A_{m,j}(\vec{f},D_{IC})]^2}{2\sigma_A^2}]
+\end{equation}
+
+In the depth likelihood function, $TWTT_m(D_r)$ is based on the relationship between depth and TWTT as in Equation~\ref{deptheqn} and $TWTT_r$ is observed by ice-penetrating radar for each reflector. In the age likelihood function, $j=53$ represents the 53 volcanic events in the record used in this study. $A_m$ comes from solutions to the forward ice flow model. While $\sigma_r$ can be quantified as in Equation~\ref{deptheqn}, $\sigma_A$ is assumed to be a baseline uncertainty of 1\%. Due to poor knowledge of uncertainty in the volcanic record, we also include a precision parameter, $S$, as described in \citet{jackson&huerta2016}. This precision parameter is used to account for uncertainty in addition to the assumed 1\% when finding an optimal age solution. New values of $S$ are proposed during every Metropolis iteration, as with the other parameters. 
+
+%The Metropolis algorithm randomly samples each of the ice flow parameters and computes an age-depth profile. A Bayesian method is used to determine suitability of proposed ice flow parameters in a Bayesian way:
+%\begin{equation}\label{posterior}
+% p(\vec{f},\sigma_V | A_V, D_V) \propto p(A_V,D_V | \vec{f},\sigma_V) p(\vec{f}) p(\sigma_V),
+%\end{equation}
+%A posterior probability, $p(A | \vec{f})$, is computed for each set of parameters from likelihood and prior probabilities, $P(\vec{f})$. As described below, we require only the proportional relation because relative posterior values are considered in this Markov Chain process.
+
+%The simulated age-depth profile is compared to the observed volcanic chronology using the ``log-likelihood" function, $p(A_V,D_V | \vec{f},\sigma_V)$, to quantify how closely a sampled set of parameters represents the observed ice profile:
+%
+%\begin{equation}\label{cost}
+%ln(likelihood) = \frac{1}{N}\sum\frac{(A_{sim}(\vec{f})_i~ - ~A_{V,i})^2}{(2\sigma_{V})^2},
+%\end{equation}
+%where $\vec{Age}_{sim}$ comes from evaluating the ice flow model for parameter values sampled from $\vec{f}$. $A_{V}$ and $\sigma_{V}$ describe the observed volcanic chronology at the Byrd ice core. The prior on $\sigma_{V}$ is 
+%\begin{equation}
+%p(\sigma_V) \sim Ga(\alpha, \beta)
+%\end{equation}
+
+%which assumes error in the chronology is $\sim$3\% (T.J. Fudge, pers. comm.). Uncertainty in the volcanic chronology, $\sigma_{V}$, loosens the constraint on how closely $A_{sim}$ must match $A_{V}$ to be acceptable. We assume $N$ degrees of freedom, where $N$ is the number of volcanic observations. This is because observed global volcanic events are assumed independent.
+%

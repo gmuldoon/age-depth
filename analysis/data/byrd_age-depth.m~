@@ -1,0 +1,49 @@
+%Calculation of the age of byrd ice core layers from radar depths
+clear
+
+%===========================
+%Byrd ice core parameters
+%============================
+sd = 0.722; % for byrd
+s0 = 0.0000788; % a^-1
+s = sd*s0; %optimum strain rate from Morland 2009
+
+q0 = 0.140; % accumulation rate: [m a^-1] Morland 2009
+
+hc = 2164; %core length: [m] from Montagnat and Duval 2000
+h0 = hc; % Morland 2009 assumes this for several cores; esp. fine for Byrd
+         % because Byrd goes all the way to base
+
+b0 = 0; %assume no basal melting (good approx for byrd?)
+
+%=========================================================
+%Calculation of layer depths from radar reflection times
+%=========================================================
+
+%Read in radar data
+foc1=dlmread('foc1.dat'); % 1d focused
+foc2=dlmread('foc2.dat'); % 2d focused
+foc0=dlmread('pik1.dat'); % incoherent
+
+time=foc1(:,1);
+P1=foc1(:,2); % power of 1d focused
+P2=foc2(:,2); % power of 2d focused
+P0=foc0(:,2); % power of incoherent
+%reflection times for layers of interest:
+pik=[6.02,6.775,7.18,8.94,9.94902,11.1,12.78,13.02,18.92,19.0205];
+
+depth = radardepth_func(pik);
+
+
+
+
+
+
+age = agedepth_func(s,q0,h0,b0,depth);
+
+plot(age, depth)
+
+
+
+
+

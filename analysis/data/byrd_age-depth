@@ -1,0 +1,38 @@
+% reading and plotting radar data
+clear
+
+%foc1=fopen('foc1.dat','r'); %open file
+%title=fgetl(foc1); %read header
+%[time,power]=fscanf(foc1,'%f %f',[3,2]; %read in data
+%fclose(foc1); %close file
+
+foc1=dlmread('foc1.dat'); % 1d focused
+foc2=dlmread('foc2.dat'); % 2d focused
+foc0=dlmread('pik1.dat'); % incoherent
+
+time=foc1(:,1);
+P1=foc1(:,2); % power of 1d focused
+P2=foc2(:,2); % power of 2d focused
+P0=foc0(:,2); % power of incoherent
+
+pik=[6.02,6.775,7.18,8.94,9.94902,11.1,12.78,13.02,18.92,19.0205];
+p=(-120:0);
+
+
+figure(1)
+clf
+plot(time,P0,'g',time, P1,'k',time,P2,'b'); hold on
+for i=1:10
+    %plot(time,P0,'g',time, P1,'k',time,P2,'b')
+    plot(pik(i),p,'r-')
+end
+
+
+% normalized (dimensionless) depth vs. age.
+% z_norm = h0 - z = int[ J q dtau] from tp to 0
+% t=0 is present time. 
+% h0 is present surface
+
+age = -(1/s) log(
+
+
