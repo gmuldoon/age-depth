@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 MAY 2017 12:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 JUL 2017 13:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -184,7 +184,11 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen129
 \l_MT_below_shortintertext_sep=\dimen130
 )
-(./Layers.aux)
+(./Layers.aux
+
+LaTeX Warning: Label `fig:layer_agedepth' multiply defined.
+
+)
 \openout1 = `Layers.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -327,6 +331,10 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
+Package natbib Warning: Citation `duncan' on page 1 undefined on input line 18.
+
+
+
 LaTeX Warning: Reference `byrdwdcompare' on page 1 undefined on input line 32.
 
 ) (./Sections/bayesianInversion.tex
@@ -342,7 +350,13 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <10.5> not available
 (Font)              size <10.95> substituted on input line 1.
 
 
-Underfull \vbox (badness 4132) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (5.92734pt too wide) has occurred while \output is active
+[] \OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the ch
+ronology of englacial radar stratigraphy chronology in Central West Antarctica
+ []
 
 
 Overfull \vbox (5.55556pt too high) has occurred while \output is active []
@@ -364,23 +378,93 @@ Package pdftex.def Info: figures/Fig1_WAISall_bed2.pdf used on input line 7.
 LaTeX Warning: Reference `fig:layergram' on page 3 undefined on input line 16.
 
 
+Overfull \hbox (5.92734pt too wide) has occurred while \output is active
+\OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the chron
+ology of englacial radar stratigraphy chronology in Central West Antarctica []
+ []
+
+
 Overfull \vbox (5.55556pt too high) has occurred while \output is active []
 
 
-[3 <./figures/Fig1_WAISall_bed2.pdf>]) (./Sections/metropolis.tex))
-(./Layers.bbl
+[3 <./figures/Fig1_WAISall_bed2.pdf>]) (./Sections/metropolis.tex
+Overfull \hbox (5.92734pt too wide) has occurred while \output is active
+[] \OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the ch
+ronology of englacial radar stratigraphy chronology in Central West Antarctica
+ []
+
+
 Overfull \vbox (5.55556pt too high) has occurred while \output is active []
 
 
-[4])
+[4])) (./Sections/agedepthresults.tex
+<figures/agedepthhisto.png, id=40, 1149.29375pt x 674.52pt>
+File: figures/agedepthhisto.png Graphic file (type png)
+
+<use figures/agedepthhisto.png>
+Package pdftex.def Info: figures/agedepthhisto.png used on input line 38.
+(pdftex.def)             Requested size: 574.64548pt x 337.25917pt.
+
+Overfull \hbox (68.18643pt too wide) in paragraph at lines 38--40
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/spaghetti.png, id=41, 1149.29375pt x 674.52pt>
+File: figures/spaghetti.png Graphic file (type png)
+
+<use figures/spaghetti.png>
+Package pdftex.def Info: figures/spaghetti.png used on input line 48.
+(pdftex.def)             Requested size: 344.79079pt x 202.35756pt.
+
+
+Package natbib Warning: Citation `hammer97' on page 5 undefined on input line 5
+0.
+
+
+Package natbib Warning: Citation `hammer97' on page 5 undefined on input line 5
+0.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./Layers.bbl
+Overfull \hbox (5.92734pt too wide) has occurred while \output is active
+\OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the chron
+ology of englacial radar stratigraphy chronology in Central West Antarctica []
+ []
+
+
+Overfull \vbox (5.55556pt too high) has occurred while \output is active []
+
+
+[5])
 
 Package natbib Warning: There were undefined citations.
 
 
+Overfull \hbox (5.92734pt too wide) has occurred while \output is active
+[] \OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the ch
+ronology of englacial radar stratigraphy chronology in Central West Antarctica
+ []
+
+
 Overfull \vbox (5.55556pt too high) has occurred while \output is active []
 
 
-[5] (./Layers.aux)
+[6 <./figures/agedepthhisto.png (PNG copy)>]
+Overfull \hbox (5.92734pt too wide) has occurred while \output is active
+\OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the chron
+ology of englacial radar stratigraphy chronology in Central West Antarctica []
+ []
+
+
+Overfull \vbox (5.55556pt too high) has occurred while \output is active []
+
+
+[7 <./figures/spaghetti.png (PNG copy)>] (./Layers.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.9pt have occurred.
@@ -388,13 +472,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 4465 strings out of 493089
- 66185 string characters out of 6134842
- 137275 words of memory out of 5000000
- 7879 multiletter control sequences out of 15000+600000
- 10125 words of font info for 38 fonts, out of 8000000 for 9000
+ 4504 strings out of 493089
+ 66802 string characters out of 6134842
+ 137353 words of memory out of 5000000
+ 7907 multiletter control sequences out of 15000+600000
+ 12926 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,9n,43p,1175b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -403,20 +490,21 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
 /local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Layers.pdf (5 pages, 5106423 bytes).
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local
+/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on Layers.pdf (7 pages, 5185442 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
