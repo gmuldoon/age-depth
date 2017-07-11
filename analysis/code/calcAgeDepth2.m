@@ -1,4 +1,5 @@
 %function [Ar, Param]=calcAgeDepth2(accumFlag,datFlag,core,plotting)
+tic;
 clear
 accumFlag=7;                    % type of accum solver. (see setParams.m for options)
 datFlag=string('volcanic');   % observational chronology to constrain analysis
@@ -137,4 +138,4 @@ end
 % plot(acc_depths,mean(Param(2:length(Param(:,1))-lp-3,:),2),'b','Linewidth',10); hold on
 % plot(acc_depths,median(Param(2:length(Param(:,1))-lp-3,:),2),'r','Linewidth',10); hold on
 
-
+toc;
