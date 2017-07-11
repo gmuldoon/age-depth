@@ -15,7 +15,8 @@ function propParam = proposeParams2(nparam,paramRange,param,lp,H)
 % Last revision: 15 Feb 2017
 
 %% Propose values for parameters as an offset from previous param value
-    dp = 0.01; % proposal step size
+    dpAge = 0.25; % proposal step size
+    dpDep = 0.3;
     selecting=true;
     delta=(paramRange(:,2)-paramRange(:,1));
     %delta=(paramRange(1:nparam-lp,2)-paramRange(1:nparam-lp,1));
@@ -28,7 +29,11 @@ function propParam = proposeParams2(nparam,paramRange,param,lp,H)
 %             if i == 1 || i == 11 || i == 12 || i == 13
                 selecting1 = true;
                 while(selecting1)
-                    propParam(i,1)=param(i,1)+dp*(0.5-rand(1,1)).*delta(i,1); %Schwander params
+                    if i <= nparam-lp
+                        propParam(i,1)=param(i,1)+dpAge*(0.5-rand(1,1)).*delta(i,1); %Schwander params
+                    elseif i > nparam-lp
+                        propParam(i,1)=param(i,1)+dpDep*(0.5-rand(1,1)).*delta(i,1); %Schwander params
+                    end
 
                    if abs(propParam(i,1)-paramRange(i,1)) <= delta(i,1) && ...
                             abs(propParam(i,1)-paramRange(i,2)) <= delta(i,1)
@@ -50,7 +55,7 @@ function propParam = proposeParams2(nparam,paramRange,param,lp,H)
 %             end
         end
         %select depths that are increasing, in proper range
-        for i = 1:lp
+        for ii = nparam-lp+1:nparam
 %             propParam(nparam-lp+i,1) = param(nparam-lp+i)+dp*(0.5-rand(1,1))*delta(nparam-lp+i,1);
 %              if i == 1              
 %                 %choose shallowest depth like normal
@@ -81,21 +86,21 @@ function propParam = proposeParams2(nparam,paramRange,param,lp,H)
 %                     elseif i == lp
 %                         delta(nparam-lp+i,1) = H - param(nparam-lp+i-1); %delta is between bottom and layer i - 1
 %                     end
-                    propParam(nparam-lp+i,1) = param(nparam-lp+i)+dp*(0.5-rand(1,1))*delta(nparam-lp+i,1);
+                        propParam(ii,1) = param(ii)+dpDep*(0.5-rand(1,1))*delta(ii,1);
                     %require each Dr to be deeper than the previous
                     %also require depths be shallower than ice thicknes
                     if i == 1
-                        if (propParam(nparam-lp+i,1) <= paramRange(nparam-lp+i,2)) && ...
-                                (propParam(nparam-lp+i,1) >= paramRange(nparam-lp+i,1))
+                        if (propParam(ii,1) <= paramRange(ii,2)) && ...
+                                (propParam(ii,1) >= paramRange(ii,1))
                             selecting2 = false;
                             propParam(nparam-lp+1:nparam,1);
 %                         else
 %                             propParam(nparam-lp+1:nparam,1);
                         end
                     else
-                        if (propParam(nparam-lp+i) > propParam(nparam-lp+i-1)) && ...
-                                (propParam(nparam-lp+i,1) <= paramRange(nparam-lp+i,2)) && ...
-                                (propParam(nparam-lp+i,1) >= paramRange(nparam-lp+i,1))
+                        if (propParam(ii) > propParam(ii-1)) && ...
+                                (propParam(ii,1) <= paramRange(ii,2)) && ...
+                                (propParam(ii,1) >= paramRange(ii,1))
                             selecting2 = false;
                             propParam(nparam-lp+1:nparam,1);
 %                         else

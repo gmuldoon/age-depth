@@ -29,7 +29,7 @@ disp('Running the metropolis algorithm')
 %% Set algorithm parameters
     rng(seed);
     burnin   = 5000;  
-    numsteps = 10000;
+    numsteps = 50000;
             
     totsteps = numsteps + burnin;
     
@@ -41,6 +41,26 @@ disp('Running the metropolis algorithm')
 %% Initial proposal
     % propose parameter values
     prevParam(1:nparam-lp,1)=paramRange(1:nparam-lp,1)+rand(nparam-lp,1).*(paramRange(1:nparam-lp,2)-paramRange(1:nparam-lp,1));
+    %set reasonable estimates of accumulation to start
+    prevParam(2,1) = 0.14; %deepest part
+    prevParam(3,1) = 0.14;
+    prevParam(4,1) = 0.06;
+    prevParam(5,1) = 0.08;
+    prevParam(6,1) = 0.12;
+    prevParam(7,1) = 0.1275;
+    prevParam(8,1) = 0.125;
+    prevParam(9:11,1)= 0.14; %shallowest part
+    
+%     prevParam(2,1) = 0.14; %deepest part
+%     prevParam(3,1) = 0.14;
+%     prevParam(4,1) = 0.06;
+%     prevParam(5,1) = 0.08;
+%     prevParam(6,1) = 0.12;
+%     prevParam(7,1) = 0.12;
+%     prevParam(8,1) = 0.12;
+%     prevParam(9:11,1)= 0.14; %shallowest part
+    
+    regularization = nan;
     %prevParam(2:5,1) = normrnd(paramRange(2:5,1),paramRange(2:5,2));
     %Param(1:nparam-lp,1) = proposeParams2(nparam,paramRange,param,lp);
     % 
@@ -56,12 +76,13 @@ disp('Running the metropolis algorithm')
     costTWTT = loglikelihoodTWTT(prevParam,lp,pik,sigmaTWTT);
     
     nAccept = 0;
-    S = nan(totsteps,1);
-
+    %S = nan(totsteps,1);
+    S(1) = nan;
 %% Run Metropolis algorithm
+    %for i = 1:15
     for i = 1:(totsteps)
     %for i = 502:1500
-        if rem(i,5000) == 0 
+        if rem(i,10000) == 0 
              disp(i) 
         end
         %propose new parameters
@@ -72,19 +93,39 @@ disp('Running the metropolis algorithm')
             prevParam = Param(:,i-1);
         end
         propParam = proposeParams2(nparam,paramRange,prevParam,lp,H);
+        %propParam(2:11,1) = smooth(propParam(2:11,1),3);
         
         %calculate proposal cost
         [costAge_prop,S_prop,reg_prop]  = loglikelihoodAge(propParam,H,D,z,obsAge1950,accumFlag,lp);
         costTWTT_prop = loglikelihoodTWTT(propParam,lp,pik,sigmaTWTT);
         
-        %accept/reject proposal    
+        %accept/reject proposal
+        random_number1 = rand;
+        random_number2 = rand;
+%         if i < 10            
+%             i
+%             S_prop, S
+%             costAge_prop
+%             costAge
+%             costTWTT_prop
+%             costTWTT
+%             reg_prop
+%             regularization
+%             random_number1
+%             random_number2
+%             exp(-S_prop*(costAge_prop - costAge))
+%             exp(-(costTWTT_prop - costTWTT))
+%         end
         
-        if (costAge_prop < costAge) || (exp(-S_prop*(costAge_prop - costAge)) > rand) %accept Age params
-            if (costTWTT_prop < costTWTT) || (exp(-(costTWTT_prop - costTWTT)) > rand) % accept TWTT
+
+        if (costAge_prop < costAge) || (exp(-S_prop*(costAge_prop - costAge)) > random_number1) %accept Age params
+            if (costTWTT_prop < costTWTT) || (exp(-(costTWTT_prop - costTWTT)) > random_number2) % accept TWTT
                 % Accept all params if both likelihoods suggest to
                 if i > burnin
                     nAccept=nAccept+1;
                 end
+%                 disp('Accept')
+                
                 Param(:,i) = propParam;
                 S(i) = S_prop;
                 costTWTT = costTWTT_prop;
@@ -92,16 +133,19 @@ disp('Running the metropolis algorithm')
                 regularization = reg_prop;
                 %cost(i,:) = [costTWTT_prop costAge_prop];
             else %reject all
-               Param(:,i) = prevParam; 
+                %disp('Reject')
+               Param(:,i) = prevParam;
                if i > 1
                     S(i) = S(i-1);
                end
             end
         else       %reject 
+            %disp('Reject')
             Param(:,i) = prevParam;
+            regularization = reg(i-1);
             if i > 1
                 S(i) = S(i-1);
-           end
+            end
         end
         cost(i,1) = costTWTT;
         cost(i,2) = costAge;

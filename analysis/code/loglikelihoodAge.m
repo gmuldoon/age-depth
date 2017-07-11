@@ -37,19 +37,25 @@ function [cost,S,regularization] = loglikelihoodAge(param,H,D,z,obsAge1950,accum
     % S = Ga(ke/2+alpha, E(m)+beta)
     
     %Regularization
-     Reg = var(param(2:length(param)-lp-3,1));
-     accRefReg = 0.000204421610432737;
-     regularization = 5*Reg/accRefReg;
-    
-     E_m = sum((age(ind)-obsAge1950).^2./varAge) + regularization;
+    % Calculate the variance with a moving average for the mean
+    % var = 1/(N-1) sum(|Ai - mu)|^2)
+    N = length(param)-lp-3;
+    var = 1/(N-1)*sum((param(2:length(param)-lp-3) - smooth(param(2:length(param)-lp-3),3)).^2);
+    Reg = var;
+    %Reg = var(param(2:length(param)-lp-3,1));
+    %accRefReg = 0.000204421610432737;
+    accRefReg = 1.5989e-04;
+     regularization = Reg/accRefReg;
+
+     E_m = sum((age(ind)-obsAge1950).^2./varAge);
      ke = lp; %number of horizons (assumes independence)
      alpha = 1;
      beta = 1;
-     
+
      S = gamrnd(ke/2+alpha, 1./(E_m+beta));
      
 %% Evaluate loglikelihood
-     cost = E_m/2;
+     cost = E_m/2 + regularization/2;
      
 end
 

@@ -1,4 +1,5 @@
 %function [Ar, Param]=calcAgeDepth2(accumFlag,datFlag,core,plotting)
+clear
 accumFlag=7;                    % type of accum solver. (see setParams.m for options)
 datFlag=string('volcanic');   % observational chronology to constrain analysis
 core = 'Byrd';              % ice core to derive chronology for (WD or Byrd)
@@ -104,26 +105,36 @@ ylabel('regularization parameter')
 figure(13)
 clf
 subplot(2,1,1)
-plot(cost(burnin:end,1),'r-.');hold on % TWTT
+plot(cost(burnin:end,1),'r');hold on % TWTT
 ylabel('TWTT cost')
 subplot(2,1,2)
-plot(cost(burnin:end,2),'b.');hold on  % Age
+plot(cost(burnin:end,2),'b');hold on  % Age
 xlabel('iteration')
 ylabel('Age cost')
 
 %% Accumulation
-acc_depths = [100,200,300,400,500,600,700,800,900,950,1000,1050,1100,1150,...
-              1200,1250,1300,1350,1400,1450,1500,1550,1575,1600,1625,1650,...
-              1675,1700,1725,1750,1775,1800,1825,1850,1875,1900,1950,2000,2050];
+% acc_depths = [100,200,300,400,500,600,700,800,900,950,1000,1050,1100,1150,...
+%               1200,1250,1300,1350,1400,1450,1500,1550,1575,1600,1625,1650,...
+%               1675,1700,1725,1750,1775,1800,1825,1850,1875,1900,1950,2000,2050];
+%           
+acc_depths = fliplr([ 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]);
 figure(14)
 clf
 
-for i = burnin:burnin+numsteps
-    subplot(2,1,1)
-     plot(acc_depths,Param(2:length(Param(:,1))-lp-3,i)); hold on
+
+
+for i = burnin:5000:burnin+numsteps
+    %subplot(2,1,1)
+     plot(acc_depths,Param(2:nparam-lp-3,i)); hold on
+     smoothed = smooth(Param(2:nparam-lp-3,i),3);
+     plot(acc_depths,smoothed, '-.','LineWidth',5); hold on
+     
+    % plot(smooth(Param(2:length(Param(:,1)-lp-3)),3),'lineWidth',11); hold on
 %     subplot(2,1,2)
 %     plot(i,var(Param(2:nparam-lp-3,:),0,1)'); hold on
 end
-
+% plot(acc_depths,mode(Param(2:length(Param(:,1))-lp-3,:),2),'k','Linewidth',10); hold on
+% plot(acc_depths,mean(Param(2:length(Param(:,1))-lp-3,:),2),'b','Linewidth',10); hold on
+% plot(acc_depths,median(Param(2:length(Param(:,1))-lp-3,:),2),'r','Linewidth',10); hold on
 
 
