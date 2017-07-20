@@ -1,7 +1,7 @@
 \subsubsection{Metropolis Algorithm}\label{metrop}
-At each iteration, the Metropolis algorithm proposes values for parameters of interest (those with priors in Equation~\ref{bigproblem}). The algorithm accepts or rejects proposed sets of parameter values by comparison between the proposed and previously-accepted likelihood (or ``cost") values. A low cost value represents good agreement between model and observations, reflecting a small model-data misfit. Therefore, if the cost associated with proposed parameters is significantly lower than that of the last accepted iteration, the proposed parameter values have a high probability of being accepted as a more likely solution. 
+At each iteration, the Metropolis algorithm proposes values for parameters of interest (those with priors in Equation~\ref{bigproblem}). The algorithm accepts or rejects proposed sets of parameter values by comparison between the proposed and previously-accepted likelihood (or ``cost") values. A low cost value represents good agreement between model and observations, reflecting a small model-data misfit. Therefore, if the cost associated with proposed parameters is significantly lower than that of the last accepted iteration, the proposed parameter values have a high probability of being accepted as a more likely solution. Each likelihood function is considered separately and both must represent an adequate solution on a given iteration for the proposed parameters to be accepted.
 
-This process is repeated up to 50,000 times to create an ensemble of accepted parameter sets. These are used in the forward ice flow model to create an ensemble of age-depth profiles constrained by the combined uncertainty in the volcanic age-depth profile and ice model parameterizations. The resulting ensemble is expected to sample the age uncertainty in the Byrd ice core, providing the first robust uncertainty analysis of the ice core chronology. 
+This process is repeated up to 50,000 times to create an ensemble of accepted parameter sets. These are used in the forward ice flow model to create an ensemble of age-depth profiles constrained by the combined uncertainty in the volcanic age-depth profile and ice model parameterizations. The resulting posterior distribution samples the age uncertainty in the Byrd ice core, providing the first robust uncertainty analysis of the ice core chronology. 
 
 There are two likelihood functions under consideration, describing the model-data misfit between reflector depth and age, respectively:
 
@@ -13,15 +13,15 @@ p(TWTT_r | D_r,d_{firn},v_{ice} )= exp[\frac{-\sum_{i=4}[TWTT_{r,i} - TWTT_{m,i}
 p(A_{IC} | D_{IC},\vec{f},S)= exp[\frac{-S\sum_{j = 53}[A_{IC,j} - A_{m,j}(\vec{f},D_{IC})]^2}{2\sigma_A^2}] + r
 \end{equation}
 
-In the depth likelihood function, $TWTT_m(D_r)$ is based on the relationship between depth and TWTT as in Equation~\ref{deptheqn} and $TWTT_r$ is observed by ice-penetrating radar for each reflector. We assume depth errors could be correlated, but do not know the number of degrees of freedom a priori. To estimate the degrees of freedom, we invert the problem to calculate cost values from a perfect model to estimate degrees of freedom. Depth errors are assumed multivariate normal. The variance is proportional to the number of degrees of freedom such that
+In the depth likelihood function, $TWTT_m(D_r)$ is based on the relationship between depth and TWTT as in Equation~\ref{deptheqn} and $TWTT_r$ is observed by ice-penetrating radar for each reflector. To estimate uncertainty in TWTT, we iteratively calculate cost values between estimates of $\sigma_TWTT$, and a perfect model of TWTT based on Equation\ref{deptheqn}. Depth errors are assumed multivariate normal and the variance is proportional to the number of degrees of freedom such that
 
 \begin{equation}
-\frac{1}{\sigma_{TWTT}}= \frac{\sqrt{k_e/2}}{\sigma_{cost*}}
+\frac{1}{\sigma_{TWTT}}= \frac{\sqrt{k_e/2}}{\sigma_{cost^*}}
 \end{equation}
-Here $k_e$ is the number of degrees of freedom and $cost*$ represents the perfect model of TWTT which is perturbed with errors consistent with what we expect to find in the radar observations. 
+Here $k_e$ is the number of degrees of freedom and $cost^*$ represents the perfect model of TWTT which is perturbed with errors consistent with what we expect to find in the radar observations. For simplicity, we assume $k_e$ is the same as the number of reflectors for which we invert.
 
 \begin{equation}
-cost*_{TWTT} = \frac{\sum_{j = z}[TWTT_m(z) - \overline{TWTT_m}(z)]^2}{2}
+cost^*_{TWTT} = \frac{\sum_{j = z}[TWTT_m(z) - \overline{TWTT_m}(z)]^2}{2}
 \end{equation}
 
 In the age likelihood function, $j=53$ represents the 53 volcanic events in the record used in this study. $A_m$ comes from solutions to the forward ice flow model. A regularization term, $r$, is used to penalize large variability in the sampled accumulation function which is an input to the ice flow model. Due to poor knowledge of uncertainty in the volcanic record, we assume a baseline age uncertainty, $\sigma_A$, of 1\%.  A hierarchical Bayes approach then incorporates a precision parameter, $S$, which inverts for age uncertainty in our model as described in \citet{jackson&huerta2016}:
