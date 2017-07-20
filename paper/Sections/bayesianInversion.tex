@@ -3,11 +3,13 @@
 
 % Our approach uses a Metropolis algorithm to fit an ice flow model to the observed volcanic profile from the Byrd ice core. An ensemble of well-fitting ice flow models is generated from this process which samples uncertainty in age given uncertainty in depth. We then sample from this ensemble to construct a distribution of likely ages for layers of interest. This method allows us to build a model using data from the last 50,000 years which can be used to estimate uncertainties in the chronology at earlier times.
 
-To estimate the age-depth profile at the Byrd ice core, we use a Bayesian Markov Chain Monte Carlo technique to invert for the age and depth of observed englacial radar reflectors. This method preserves the depth correlation of the ice core chronology, estimates the probability of ice sheet parameter values, and develops a probabilistic estimate of the age-depth profile. 
+To estimate the age-depth profile at the Byrd ice core, we use a Bayesian Markov Chain Monte Carlo technique to invert for the age and depth of observed englacial radar reflectors. This problem is nontrivial because the age of each reflector depends on solutions elsewhere in the ice column, so each is correlated with depth. As such, we choose an ensemble method because it would be inadequate to represent the age distribution as simply a standard deviation from mean values.
 
-We derive an ensemble of age-depth profiles for the Byrd ice core constrained by agreement with a chronology of volcanic events from the past 50,000 years detected in the Byrd ice core record using the electrical conductivity method \citep{hammer1997}. 
+This method preserves the depth correlation of the ice chronology, estimates the probability of ice sheet parameter values, and develops a probabilistic estimate of the age-depth profile. A probabilistic approach is useful because while some parameters are well known, others are highly uncertain, such as the accumulation function at this site over time. By iteratively inverting for non-unique solutions, we find a distribution of sets of parameter values which are consistent with observations. Specifically, we derive an ensemble of age-depth profiles for the Byrd ice core constrained by agreement with a chronology of volcanic events from the past 50,000 years detected in the Byrd ice core record using the electrical conductivity method \citep{hammer1997}. 
 
-We assume a base level of 1\% uncertainty on the volcanic ages and include a precision parameter, \textit{S}, to quantify additional uncertainty. We invert for age given depth using a Bayesian Markov Chain Monte Carlo approach and check our result by correlation to the nearby WAIS Divide ice core chronology.
+
+
+\textbf{MOVE We assume a base level of 1\% uncertainty on the volcanic ages and include a precision parameter, \textit{S}, to quantify additional uncertainty. We invert for age given depth using a Bayesian Markov Chain Monte Carlo approach and check our result by correlation to the nearby WAIS Divide ice core chronology.}
 
 The Bayesian formulation of this problem is:
 \begin{equation}\label{bigproblem}
@@ -21,7 +23,7 @@ p(TWTT_r | D_r,d_{firn},v_{ice} )~p(A_{IC}, D_{IC} | \vec{f},S)~p(D_r, f, S)~p(d
 %\end{split}
 \end{equation}
 
-Equation \ref{bigproblem} describes how we will estimate the depths of four englacial reflectors ($D_r$), ice flow model parameters ($\vec{f}$), and a precision parameter on the uncertainty in the Byrd ice core chronology ($S$). Values for these quantities of interest will be informed by  information about observed reflector two-way travel time to each reflector observed by from radar ($TWTT_r$) and the age-depth profile from the Byrd ice core volcanic record ($A_{IC}$, $D_{IC}$). 
+Equation \ref{bigproblem} describes how we will estimate the depths of four englacial reflectors ($D_r$), ice flow model parameters ($\vec{f}$), firn depth correction ($d_{firn}), radar velocity in ice ($v_{ice}$), and a precision parameter on the uncertainty in the Byrd ice core chronology ($S$). Values for these quantities of interest will be informed by  information about observed reflector two-way travel time to each reflector observed by from radar ($TWTT_r$) and the age-depth profile from the Byrd ice core volcanic record ($A_{IC}$, $D_{IC}$). 
 
 Priors on the quantities of interest as well as firn depth correction ($d_{firn}$) and velocity of electromagnetic waves in ice ($v_{ice}$), which contribute to errors in ice-penetrating radar depth, are used to put physical bounds on their values. Priors on ${D_r}$ also preserve stratigraphic dependence of radar reflectors, requiring deeper reflectors be older than shallower reflectors. The first two factors on the right-hand side of Equation~\ref{bigproblem} are likelihood functions. These describe the probability that modeled results agree with observations: in the first, agreement between observed two-way travel time ($TWTT_r$) and modeled reflector depths ($D_r$) and in the second, agreement between flow model results ($f$) and the volcanic ages ($A_{IC}$). 
 
