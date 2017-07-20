@@ -64,14 +64,11 @@ plotConvergence(Param,core,burnin,accumFlag,datFlag,paramRange)
 % xlim([0 100])
 % xlabel('Age (ka)')
 
-%%
-figure(11)
-clf
-plotAgeDepthHisto2(Param(nparam-lp+1:nparam,:),core,Ar,burnin,datFlag)
+
   %%  
 figure(10)
 clf
-plotSpaghettiEnvelope(age,obsAge1950,D,H,accumFlag,z,burnin,Param,datFlag,1);
+[~,~,pikDepthUncWD,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(age,obsAge1950,D,H,accumFlag,z,burnin,Param,datFlag,1,Ar,Zr);
 
 % %% 
 % figure(3)
@@ -96,6 +93,11 @@ plotSpaghettiEnvelope(age,obsAge1950,D,H,accumFlag,z,burnin,Param,datFlag,1);
 % subplot(2,1,2)
 % plot(sqrt(1./S))
 % xlabel('\sigma_{age} = sqrt(1/S)')
+
+%%
+figure(11)
+clf
+plotAgeDepthHisto2(Param(nparam-lp+1:nparam,:),core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wdAge1950Unc)
 %% Regularization
 figure(12)
 plot(reg(burnin:end));
@@ -124,7 +126,7 @@ clf
 
 
 
-for i = burnin:5000:burnin+numsteps
+for i = burnin:1000:burnin+numsteps
     %subplot(2,1,1)
      plot(acc_depths,Param(2:nparam-lp-3,i)); hold on
      smoothed = smooth(Param(2:nparam-lp-3,i),3);

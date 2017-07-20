@@ -83,6 +83,8 @@ function [H,D,z,pik,obsAge1950]=loadCorePikData2(core,datFlag)
 
         %interpolate WD chronology to be at 1m intervals
         [D,H,obsAge1950,obsAge1950Unc] = interpWDobs(WD);
+        
+        
 
         %Only use those depths which are different when rounded
         %[D,~] = unique(ceil(D));

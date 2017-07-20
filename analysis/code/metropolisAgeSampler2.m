@@ -28,8 +28,8 @@ disp('Running the metropolis algorithm')
 
 %% Set algorithm parameters
     rng(seed);
-    burnin   = 5000;  
-    numsteps = 250000;
+    burnin   = 15000;  
+    numsteps = 100000;
             
     totsteps = numsteps + burnin;
     
@@ -42,15 +42,15 @@ disp('Running the metropolis algorithm')
     % propose parameter values
     prevParam(1:nparam-lp,1)=paramRange(1:nparam-lp,1)+rand(nparam-lp,1).*(paramRange(1:nparam-lp,2)-paramRange(1:nparam-lp,1));
     %set reasonable estimates of accumulation to start
-    prevParam(2,1) = 0.14; %deepest part
-    prevParam(3,1) = 0.14;
-    prevParam(4,1) = 0.06;
-    prevParam(5,1) = 0.0805;
-    prevParam(6,1) = 0.12;
-    prevParam(7,1) = 0.1275;
-    prevParam(8,1) = 0.125;
-    prevParam(9:11,1)= 0.14; %shallowest part
-    
+%     prevParam(2,1) = 0.14; %deepest part
+%     prevParam(3,1) = 0.14;
+%     prevParam(4,1) = 0.06;
+%     prevParam(5,1) = 0.0805;
+%     prevParam(6,1) = 0.12;
+%     prevParam(7,1) = 0.1275;
+%     prevParam(8,1) = 0.125;
+%     prevParam(9:11,1)= 0.14; %shallowest part
+%     
 %     prevParam(2,1) = 0.14; %deepest part
 %     prevParam(3,1) = 0.14;
 %     prevParam(4,1) = 0.06;
@@ -76,7 +76,7 @@ disp('Running the metropolis algorithm')
     costTWTT = loglikelihoodTWTT(prevParam,lp,pik,sigmaTWTT);
     
     nAccept = 0;
-    %S = nan(totsteps,1);
+    S = nan(totsteps,1);
     S(1) = nan;
 %% Run Metropolis algorithm
     %for i = 1:15

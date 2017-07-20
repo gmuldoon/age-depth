@@ -9,11 +9,21 @@ function [paramRange,nparam] = setParams2(accumFlag,H,pik)
 %         for i = 2:40
 %             paramRange(i,1:2) = [0.05 0.15];
 %         end
-        paramRange(2,1:2) =  [0.05 0.15];           % accum 1294m < depth < 2191m
-        paramRange(3,1:2) =  [0.05 0.15];           % accum 1024m < depth < 1294m
-        paramRange(4,1:2) =  [0.05 0.15];          % accum 150 m < depth < 1024m
-        paramRange(5,1:2) =  [0.05 0.15];           % accum depth < 150m
-        paramRange(6,1:2) =  [0.05 0.15];
+%         paramRange(2,1:2) =  [0.12 0.15];           % accum 1294m < depth < 2191m
+%         paramRange(3,1:2) =  [0.10 0.15];           % accum 1024m < depth < 1294m
+%         paramRange(4,1:2) =  [0.05 0.10];          % accum 150 m < depth < 1024m
+%         paramRange(5,1:2) =  [0.05 0.10];           % accum depth < 150m
+%         paramRange(6,1:2) =  [0.06 0.15];
+%         paramRange(7,1:2) =  [0.07 0.15];
+%         paramRange(8,1:2) =  [0.09 0.15];
+%         paramRange(9,1:2) =  [0.10 0.15];
+%         paramRange(10,1:2) = [0.11 0.15];
+%         paramRange(11,1:2) = [0.11 0.15];
+        paramRange(2,1:2) =  [0.07 0.15];           % accum 1294m < depth < 2191m
+        paramRange(3,1:2) =  [0.07 0.15];           % accum 1024m < depth < 1294m
+        paramRange(4,1:2) =  [0.07 0.15];          % accum 150 m < depth < 1024m
+        paramRange(5,1:2) =  [0.07 0.15];           % accum depth < 150m
+        paramRange(6,1:2) =  [0.07 0.15];
         paramRange(7,1:2) =  [0.05 0.15];
         paramRange(8,1:2) =  [0.05 0.15];
         paramRange(9,1:2) =  [0.05 0.15];
@@ -39,3 +49,11 @@ function [paramRange,nparam] = setParams2(accumFlag,H,pik)
     end
  
 end
+%     prevParam(2,1) = 0.14; %deepest part
+%     prevParam(3,1) = 0.14;
+%     prevParam(4,1) = 0.06;
+%     prevParam(5,1) = 0.0805;
+%     prevParam(6,1) = 0.12;
+%     prevParam(7,1) = 0.1275;
+%     prevParam(8,1) = 0.125;
+%     prevParam(9:11,1)= 0.14; %shallowest part
