@@ -28,7 +28,7 @@ function plotAgeDepthHisto2(pikDepth,pikDepthStats,core,pikAge,pikAgeStats,burni
         f=histogram(gca,(pikDepth(i,:)));hold on
         f.FaceColor=colors(i,:);hold on
         f.EdgeColor=colors(i,:);hold on
-        f.BinWidth=2;hold on
+        %f.BinWidth=2;hold on
         f.FaceAlpha=0.25; hold on
         f.EdgeAlpha=0.5; hold on
 
@@ -63,7 +63,7 @@ function plotAgeDepthHisto2(pikDepth,pikDepthStats,core,pikAge,pikAgeStats,burni
         f.EdgeColor=colors(i,:);hold on
         f.FaceAlpha=0.25; hold on
         f.EdgeAlpha=0.5; hold on
-        f.BinWidth=0.1; hold on
+        %f.BinWidth=0.1; hold on
         
         % Label mean and stddev for each histo so they hopefully don't overlap
         if rem(i,2)
