@@ -29,7 +29,7 @@ disp('Running the metropolis algorithm')
 %% Set algorithm parameters
     rng(seed);
     burnin   = 15000;  
-    numsteps = 100000;
+    numsteps = 50000;
             
     totsteps = numsteps + burnin;
     

@@ -26,6 +26,6 @@ function sigmaTWTT = estimate_sigmaTWTT(seed)
     %% According to Charles's GMDD paper:
     % 1/sigmaTWTT = sqrt(ke/2)/sigma_costTWTT_star
     
-    ke = nDr;
+    ke = nDr/2;
     sigmaTWTT = std(costTWTT_star)/sqrt(ke/2);
 end
