@@ -4,7 +4,7 @@
 Due to the inherent stratigraphic dependence of age in the ice column, we use a flow model to simulate the age-depth relationship. We use a simple, one-dimensional model of ice flow (Equation \ref{schwander}) which derives ice age from accumulation and strain rate, assuming constant horizontal strain rate in the upper part of the ice sheet and a shear layer of thickness $h$ at the bottom of the ice sheet, for which we invert \citep{schwander2001}. In the shear layer, the strain rate is assumed to decrease linearly and the bottom of the ice is assumed sliding with velocity $q$ $\cdot$ $v_0$, where $v_0$ is the horizontal velocity at the surface.
 
 \begin{equation}\label{schwander}
-A(z) = \int_{z}^{H} \frac{dz}{\epsilon_z \dot{a}(z)}
+A(z) = \int_{z}^{H} \frac{dz}{\epsilon_z \cdot \dot{a}(z)}
 \end{equation}
 where
 \begin{center}
@@ -14,6 +14,7 @@ $    \epsilon_z=
                   kz(q+\frac{1-q}{2h}z), & 0 < z < h
     \end{cases}, 
 $
+\\
 $
 k = \frac{2}{2H - h(1-q)}
 $

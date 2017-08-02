@@ -1,22 +1,27 @@
 %\documentclass[12pt]{article}
-\documentclass[letterpaper]{igs}
-\usepackage{natbib}
+\documentclass[draft,jgrga]{AGUTeX}
+%\usepackage{natbib}
 \usepackage{amsmath} %for help with the bracketed conditional equations
 \usepackage{graphicx}
 \usepackage{multirow}
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage{mathtools}
 %\vspace*{0.025in}
+\setkeys{Gin}{draft=false}
+
+\authorrunninghead{MULDOON ET AL.}
+\titlerunninghead{Byrd ice core radar dating}
+\authoraddr{Corresponding author: Gail Muldoon, University of Texas Institute for Geophysics, University of Texas at Austin, Austin, TX, USA. (gail.muldoon@utexas.edu)}
 
 
 \begin{document}
 \title{Bayesian estimation of englacial radar chronology in Central West Antarctica}
 \author{Gail, Charles, Duncan, Don}
-\maketitle
+%\maketitle
 
 \begin{abstract}
 
-The Byrd ice core, the first deep ice core drilled in Antarctica, is in a prime position to contribute to studies of the West Antarctic Ice Sheet's response to climate change. We use correlation between the Byrd ice core and laterally-extensive ice-penetrating radar to date englacial reflectors throughout the West Antarctic Ice Sheet. However, the Byrd ice core chronology is relatively poor due to limitations in drilling technology a lack of thorough uncertainty analysis. To address this, we construct a Bayesian estimate of age-depth profiles and uncertainty in the deep Byrd ice core chronology. Our result is validated against the recently-drilled WAIS Divide ice core chronology using isochronous englacial layers observed using ice-penetrating radar. We interpolate isochronous surfaces of four ages which sample the ice depth and observe that...
+%The Byrd ice core, the first deep ice core drilled in Antarctica, is in a prime position to contribute to studies of the West Antarctic Ice Sheet's response to climate change. We use correlation between the Byrd ice core and laterally-extensive ice-penetrating radar to date englacial reflectors throughout the West Antarctic Ice Sheet. However, the Byrd ice core chronology is relatively poor due to limitations in drilling technology a lack of thorough uncertainty analysis. To address this, we construct a Bayesian estimate of age-depth profiles and uncertainty in the deep Byrd ice core chronology. Our result is validated against the recently-drilled WAIS Divide ice core chronology using isochronous englacial layers observed using ice-penetrating radar. We interpolate isochronous surfaces of four ages which sample the ice depth and observe that...
 
 %which may reveal information about paleo ice dynamics and ice sheet boundary conditions. T
 \end{abstract}
@@ -30,8 +35,8 @@ The Byrd ice core, the first deep ice core drilled in Antarctica, is in a prime 
 	\input{Sections/introduction}
 	
 %\section{Estimating Byrd ice core chronology with uncertainty}\label{byrdchronology}
-\section{Posterior distribution of Englacial reflector age-depth}\label{byrdchronology}
-The Byrd ice core chronology lacks robust error analysis. To derive an updated chronology with uncertainty, we compute the age of englacial reflectors given information about radar-observed two-way travel time (TWTT) and properties of the surrounding ice. To represent how age varies with depth, we will use a simple flow model which considers ice flow physics and accumulation estimated by our methods.
+\section{Posterior distribution of englacial reflector age-depth}\label{byrdchronology}
+The Byrd ice core chronology lacks robust error analysis. To derive an updated chronology with uncertainty, we compute the age of englacial reflectors given information about radar-observed two-way travel time (TWTT), local ice flow, and a volcanic chronology of the ice core.
 
 %Subsequent correlation to the WAIS Divide ice core is made using isochronous englacial reflectors which have been tracked between the two ice core sites. We assume covariance in age as a function of depth and account for uncertainties in ice flow parameters such as accumulation rate over time to construct a self-consistent distribution of reflector ages.
 	\input{Sections/bayesianInversion}
@@ -73,3 +78,30 @@ Chad, Marie, etc.
 \bibliographystyle{agu}
 \bibliography{bib}
 \end{document}
+
+ \begin{table}
+ \caption{ Depth and age mean, median, and uncertainty for ten strong radar reflectors near Byrd Station, West Antarctica. The radar two-way travel time (TWTT) is given in column 1. }
+ \centering
+ \begin{tabular}{ c c c c c c c}
+ \cline{1-7}
+ \multirow{2}{*}{Reflector} & TWTT& & Depth (m) & & Age  (a)& \\   
+% %& ($\mu$s)& Mean & Median & $\sigma$ & & Mean & Median & $\sigma$ \\
+ & ($\mu$s)& Mean  & $\sigma$ & &Mean  & $\sigma$ \\
+ \cline{3-4} \cline{6-7}
+  1 & 8.44    & 537.5  &  0.8 & &1200 & 20   \\
+  2 & 9.58    & 633.1  &  6.5 & &1770 & 40   \\
+  3 & 12.54   & 880.8  &  7.4 & &2100 & 60   \\
+  4 & 17.55   & 1300.7 &  6.1 & &3510 & 150  \\
+  5 & 22.42   & 1711.9 &  4.4 & &4360 & 200  \\
+%  %6 & 11.10  & 596.9  & 596.9  & 2.3 & &5440 & 5440 & 270   \\
+%  %7 & 12.78  & 738.8  & 738.8  & 2.3 & &7120 & 7110 & 370   \\
+%  %8 & 13.02  & 759.1  & 759.1  & 2.3 & 7350 & 7340 & 390   \\
+%  %9 & 18.92  & 1257.7 & 1257.7 & 2.4 & 16220 & 16300 & 1760   \\
+%  %10& 19.02  & 1266.2 & 1266.2 & 2.3 & 16400 & 16500 & 1820  \\
+% %\cline{1-7}
+ \end{tabular}
+% \tablenotetext{a}{Footnote text here.}
+% %\captionsetup{width=.9\textwidth}
+
+ %\label{tab:depthunc}
+\end{table}
