@@ -11,27 +11,28 @@ function [paramRange,nparam] = setParams2(accumFlag,H,pik)
 %         end
         paramRange(2,1:2) =  [0.12 0.15];           % accum 1294m < depth < 2191m
         paramRange(3,1:2) =  [0.10 0.15];           % accum 1024m < depth < 1294m
-        paramRange(4,1:2) =  [0.07 0.10];          % accum 150 m < depth < 1024m
-        paramRange(5,1:2) =  [0.07 0.10];           % accum depth < 150m
-        paramRange(6,1:2) =  [0.07 0.15];
-        paramRange(7,1:2) =  [0.10 0.15];
-        paramRange(8,1:2) =  [0.10 0.15];
-        paramRange(9,1:2) =  [0.10 0.15];
-        paramRange(10,1:2) = [0.11 0.15];
-        paramRange(11,1:2) = [0.11 0.15];
-%         paramRange(2,1:2) =  [0.11 0.15];           % accum 1294m < depth < 2191m
-%         paramRange(3,1:2) =  [0.11 0.15];           % accum 1024m < depth < 1294m
-%         paramRange(4,1:2) =  [0.11 0.15];          % accum 150 m < depth < 1024m
-%         paramRange(5,1:2) =  [0.11 0.15];           % accum depth < 150m
-%         paramRange(6,1:2) =  [0.11 0.15];
-%         paramRange(7,1:2) =  [0.05 0.10];
-%         paramRange(8,1:2) =  [0.05 0.10];
-%         paramRange(9,1:2) =  [0.05 0.15];
-%         paramRange(10,1:2) = [0.05 0.15];
-%         paramRange(11,1:2) = [0.05 0.15];
+        paramRange(4,1:2) =  [0.08 0.10];          % accum 150 m < depth < 1024m
+        paramRange(5,1:2) =  [0.07 0.12];           % accum depth < 150m
+        paramRange(6,1:2) =  [0.07 0.14];
+        paramRange(7,1:2) =  [0.10 0.14];
+        paramRange(8,1:2) =  [0.10 0.14];
+        paramRange(9,1:2) =  [0.10 0.14];
+        paramRange(10,1:2) = [0.11 0.14];
+        paramRange(11,1:2) = [0.11 0.14];
+%         paramRange(2,1:2) =  [0.00 0.15];           % accum 1294m < depth < 2191m
+%         paramRange(3,1:2) =  [0.00 0.15];           % accum 1024m < depth < 1294m
+%         paramRange(4,1:2) =  [0.00 0.15];          % accum 150 m < depth < 1024m
+%         paramRange(5,1:2) =  [0.00 0.15];           % accum depth < 150m
+%         paramRange(6,1:2) =  [0.00 0.15];
+%         paramRange(7,1:2) =  [0.00 0.15];
+%         paramRange(8,1:2) =  [0.00 0.15];
+%         paramRange(9,1:2) =  [0.00 0.15];
+%         paramRange(10,1:2) = [0.00 0.15];
+%         paramRange(11,1:2) = [0.00 0.15];
+        
         paramRange(12,1:2)=[0.1 0.5];            % Nye h
         paramRange(13,1:2)=[1.68*10^8 1.695*10^8]; %velocity in glacial ice
-        paramRange(14,1:2)=[1 65];             %firn correction (diff in ice thickness between ice column with/out firn
+        paramRange(14,1:2)=[20 65];             %firn correction (diff in ice thickness between ice column with/out firn
         
          % determine number of parameters
         nparam = length(paramRange(:,1))+lp;

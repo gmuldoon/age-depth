@@ -30,7 +30,7 @@ depthPlotting = 1;          % whether or not to plot depth calculation
         % Full age-depth profile
         age(:,i) = byrdModels2(Param(:,i),z,H,accumFlag,lp);
         
-        % Age of radar horizo1ns
+        % Age of radar horizons
         for j = 1:length(pik)
             Ar(j,i) = byrdModels2(Param(:,i),z,H,accumFlag,lp,Zr(j,i));
         end

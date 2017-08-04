@@ -30,7 +30,7 @@ function [p,lab,pikDepthUnc,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(ageD
     %% Plot the age-depth envelope
     %p = boundedline(mean(ageDistrib(:,end-1500:end),2)/1000,flipud(z),0.03*mean(ageDistrib(:,end-1500:end),2)/1000,'orientation', 'horiz','alpha','b','transparency', 0.1); hold on
 
-    p = boundedline(mean(ageDistrib(:,end-1500:end),2)/1000,flipud(z)/H,2*std(ageDistrib(:,end-1500:end),1,2)/1000,'orientation', 'horiz','alpha',shadecolor,'transparency', 0.1); hold on
+    p = boundedline(mean(ageDistrib(:,burnin:end),2)/1000,flipud(z)/H,2*std(ageDistrib(:,burnin-1500:end),1,2)/1000,'orientation', 'horiz','alpha',shadecolor,'transparency', 0.1); hold on
     
 
     %% Plot data over top

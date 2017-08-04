@@ -197,48 +197,161 @@ function  plotConvergence(paramDistrib,core,burnin,accumFlag,datFlag,paramRange)
     
     figure(20)
     clf
-    subplot(2,2,1)
+    subplot(4,3,1:2)
     plot(paramDistrib(1,:))
     ylabel('s param')
-    subplot(2,2,2)
+    subplot(4,3,3)
+    hist(gca,paramDistrib(1,:))
+    set(gca,'view',[90 -90])
+    ylabel('s param')
+    
+    subplot(4,3,4:5)
     plot(paramDistrib(nparam-lp-2,:))
     ylabel('h param')
-    subplot(2,2,3)
+    subplot(4,3,6)
+    hist(gca,paramDistrib(nparam-lp-2,:))
+    set(gca,'view',[90 -90])
+    ylabel('h param')
+    
+    subplot(4,3,7:8)
     plot(paramDistrib(nparam-lp-1,:))
-    ylabel('vice')
-    subplot(2,2,4)
+    ylabel('vice')       
+    subplot(4,3,9)
+    hist(gca,paramDistrib(nparam-lp-1,:))
+    set(gca,'view',[90 -90])
+    ylabel('v_{ice}')
+    
+    subplot(4,3,10:11)
     plot(paramDistrib(nparam-lp,:))
     ylabel('dfirn')
+    subplot(4,3,12)
+    hist(gca,paramDistrib(nparam-lp,:))
+    set(gca,'view',[90 -90])
+    ylabel('d_{firn}')
     
     figure(21)
     clf
-    subplot(2,2,1)
-    hist(paramDistrib(1,:))
-    ylabel('s param')
-    subplot(2,2,2)
-    hist(paramDistrib(nparam-lp-2,:))
-    ylabel('h param')
-    subplot(2,2,3)
-    hist(paramDistrib(nparam-lp-1,:))
-    ylabel('vice')
-    subplot(2,2,4)
-    hist(paramDistrib(nparam-lp,:))
-    ylabel('dfirn')
     
-%     figure(22)
-%     for i = burnin:length(paramDistrib(1,:))
-%         plot(paramDistrib(2:nparam-lp-3,i)); hold on
-%     end
+    subplot(10,3,1:2)
+    plot(paramDistrib(11,:))
+    ylim([0 0.2])
     
-%     figure(23)
-%     n=length(paramDistrib(:,1))-lp-3;
-%     plot(var(paramDistrib(2:n,:),0,1)); hold on
-%     x = (1:niter+burnin-1)';
-%     b = var(paramDistrib(2:n,:),0,1)';
-%     fit = polyfit(x,b,1);
-%     y=fit(1)*x+fit(2);
-%     fit(1)
-%     plot(x,y,'k');hold on
+    subplot(10,3,3)
+    hist(gca,paramDistrib(11,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,4:5)
+    plot(paramDistrib(10,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,6)
+    hist(gca,paramDistrib(10,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,7:8)
+    plot(paramDistrib(9,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,9)
+    hist(gca,paramDistrib(9,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,10:11)
+    plot(paramDistrib(8,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,12)
+    hist(gca,paramDistrib(8,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,13:14)
+    plot(paramDistrib(7,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,15)
+    hist(gca,paramDistrib(7,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,16:17)
+    plot(paramDistrib(6,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,18)
+    hist(gca,paramDistrib(6,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,19:20)
+    plot(paramDistrib(5,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,21)
+    hist(gca,paramDistrib(5,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,22:23)
+    plot(paramDistrib(4,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,24)
+    hist(gca,paramDistrib(4,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,25:26)
+    plot(paramDistrib(3,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,27)
+    hist(gca,paramDistrib(3,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+    
+    subplot(10,3,28:29)
+    plot(paramDistrib(2,:))
+    ylim([0 0.2])
+    
+    subplot(10,3,30)
+    hist(gca,paramDistrib(2,:))
+    %set(gca,'view',[90 -90])
+    xlim([0 0.2])
+
+    
+    
+    figure(22)
+    clf
+    
+    subplot(5,3,1:2)
+    plot(paramDistrib(15,:))
+    
+    subplot(5,3,3)
+    
+    subplot(5,3,4:5)
+    plot(paramDistrib(16,:))
+    
+    subplot(5,3,6)
+    
+    subplot(5,3,7:8)
+    plot(paramDistrib(17,:))
+    
+    subplot(5,3,9)
+    
+    subplot(5,3,10:11)
+    plot(paramDistrib(18,:))
+    
+    subplot(5,3,12)
+    
+    subplot(5,3,13:14)
+    plot(paramDistrib(19,:))
+    
+    subplot(5,3,15)
+    
     
 
 end

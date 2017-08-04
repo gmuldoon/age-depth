@@ -18,6 +18,7 @@ function plotAgeDepthHisto2(Dr,core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wd
 addpath('../../../../Matlab_functions/distinguishable_colors');
     %% Set up some colors and open a new figure
     colors=distinguishable_colors(length(Ar(:,1)));
+    colors(3,:) = [0 0.5 0]; %make the green darker so it's no blinding
     figure(11)
     clf
     Nmax = nan(length(Ar(:,1)),1);
@@ -47,7 +48,7 @@ addpath('../../../../Matlab_functions/distinguishable_colors');
     % add a title and other axis labels
     ax1=set(gca);
     if strcmp(core,'Byrd')
-        title(sprintf('Depth Distrib for selected %s horizons using %s data',core,string(datFlag)))
+        title(sprintf('Depth Distrib for selected %s horizons',core))
     else
         title(sprintf('Depth Distrib for selected %s horizons',core))
     end
@@ -80,14 +81,14 @@ addpath('../../../../Matlab_functions/distinguishable_colors');
     % add a title and other axis labels
     ax2=set(gca);
     if strcmp(core,'Byrd')
-        title(sprintf('Age Distrib for selected %s horizons using %s data',core,string(datFlag)))
+        title(sprintf('Age Distrib for selected %s horizons',core))
     else
         title(sprintf('Age Distrib for selected %s horizons',core))
     end
     xlabel('Age (ka)')
     ylabel('N')
 %     ylim([0 max(Nmax)+75]);hold on
-%     xlim([0 65])
+     xlim([0 45])
 
     %% Plot WD age distributions
     WD_depth = mean(pikDepthUncWD,2);
@@ -96,36 +97,34 @@ addpath('../../../../Matlab_functions/distinguishable_colors');
     
     subplot(3,1,3)
     for i=1:length(wd_age_unc(:,1))
-        a = wd_age_unc(i)*3
-        b = wd_age(i)*0.1
-        x = [-a:b:a];
-        size(x)
-        norm = normpdf(x,wd_age,wd_age_unc);
-        f = plot(x,norm);
+        x = [0:0.005:65];
+        norm = normpdf(x,wd_age(i)/1000,wd_age_unc(i)/1000);
+        f = area(x,norm); hold on
         % set plot characteristics so that each pik is a different color
 %         f=histogram(wd_age_unc(i,burnin:end)/1000); hold on
-%         f.FaceColor=colors(i,:);hold on
-%         f.EdgeColor=colors(i,:);hold on
+          f.FaceColor=colors(i,:);hold on
+          f.EdgeColor=colors(i,:);hold on
 %         %f.FaceAlpha=0.75; hold on
 %         %f.EdgeAlpha=0.75; hold on
 %         f.BinWidth=0.01; hold on
 %         
 %         % Label mean and stddev for each histo so they hopefully don't overlap
-%         if rem(i,2)
-%             text(mean(wd_age_unc(i,burnin:end))/1000-0.05,max(f.Values)+randi([-10,0])*1,strcat(num2str(round(mean(wd_age_unc(i,burnin:end))/1000,2)),...
-%             ' \pm ',num2str(round(std(wd_age_unc(i,burnin:end))/1000,2)),' ka'),'Fontsize',14,'Color',colors(i,:),'FontWeight','bold')
-%         else
-%             text(mean(wd_age_unc(i,burnin:end))/1000-0.05,max(f.Values)+randi([0,10])*1,strcat(num2str(round(mean(wd_age_unc(i,burnin:end))/1000,2)),...
-%             ' \pm ',num2str(round(std(wd_age_unc(i,burnin:end))/1000,2)),' ka'),'Fontsize',14,'Color',colors(i,:),'FontWeight','bold')
-%         end
+        if rem(i,2)
+            text(wd_age(i)/1000+0.25,max(f.YData)+2,strcat(num2str(round(wd_age(i)/1000,2)),...
+            ' \pm ',num2str(round(wd_age_unc(i)/1000,2)),' ka'),'Fontsize',14,'Color',colors(i,:),'FontWeight','bold')
+        else
+            text(wd_age(i)/1000+0.25,max(f.YData)+2,strcat(num2str(round(wd_age(i)/1000,2)),...
+            ' \pm ',num2str(round(wd_age_unc(i)/1000,2)),' ka'),'Fontsize',14,'Color',colors(i,:),'FontWeight','bold')
+        end
 %          Nmax(i,1)=max(f.Values);
     end
 
     % add a title and other axis labels
+    title('Age Distrib for selected WAIS Divide horizons')
     xlabel('Age (ka)')
     ylabel('N')
 %     ylim([0 max(Nmax)+75]);hold on
-%     xlim([0 65])
+     xlim([0 45])
 
 end
 

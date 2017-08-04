@@ -28,8 +28,8 @@ disp('Running the metropolis algorithm')
 
 %% Set algorithm parameters
     rng(seed);
-    burnin   = 15000;  
-    numsteps = 50000;
+    burnin   = 20000;  
+    numsteps = 100000;
             
     totsteps = numsteps + burnin;
     
@@ -59,6 +59,8 @@ disp('Running the metropolis algorithm')
 %     prevParam(7,1) = 0.12;
 %     prevParam(8,1) = 0.12;
 %     prevParam(9:11,1)= 0.14; %shallowest part
+
+      prevParam(14,1) = 50;
     
     regularization = nan;
     %prevParam(2:5,1) = normrnd(paramRange(2:5,1),paramRange(2:5,2));
