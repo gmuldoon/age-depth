@@ -10,7 +10,7 @@ p(TWTT_r | D_r,d_{firn},v_{ice} )= exp[\frac{-\sum_{i=4}[TWTT_{r,i} - TWTT_{m,i}
 \end{equation}
 
 \begin{equation}\label{loglikeage}
-p(A_{IC} | D_{IC},\vec{f},S)= exp[\frac{-S\sum_{j = 53}[A_{IC,j} - A_{m,j}(\vec{f},D_{IC})]^2}{2\sigma_A^2}] + r
+p(A_{IC} | D_{IC},\vec{f},S)= exp[\frac{-S\sum_{j = 60}[A_{IC,j} - A_{m,j}(\vec{f},D_{IC})]^2}{2\sigma_A^2}] + r^6
 \end{equation}
 
 In the depth likelihood function, $TWTT_m(D_r)$ is based on the relationship between depth and TWTT as in Equation~\ref{deptheqn} and $TWTT_r$ is observed by ice-penetrating radar for each reflector. To estimate uncertainty in TWTT, we iteratively calculate cost values between estimates of $\sigma_TWTT$, and a perfect model of TWTT based on Equation\ref{deptheqn}. Depth errors are assumed multivariate normal and the variance is proportional to the number of degrees of freedom such that
@@ -24,7 +24,7 @@ Here $k_e$ is the number of degrees of freedom and $cost^*$ represents the perfe
 cost^*_{TWTT} = \frac{\sum_{j = z}[TWTT_m(z) - \overline{TWTT_m}(z)]^2}{2}
 \end{equation}
 
-In the age likelihood function, $j=53$ represents the 53 volcanic events in the record used in this study. $A_m$ comes from solutions to the forward ice flow model. A regularization term, $r$, is used to penalize large variability in the sampled accumulation function which is an input to the ice flow model. Due to poor knowledge of uncertainty in the volcanic record, we assume a baseline age uncertainty, $\sigma_A$, of 1\%.  A hierarchical Bayes approach then incorporates a precision parameter, $S$, which inverts for age uncertainty in our model as described in \citet{jackson&huerta2016}:
+In the age likelihood function, $j=60$ represents the 60 volcanic events in the record used in this study. $A_m$ comes from solutions to the forward ice flow model. A regularization term, $r$, is used to penalize large variability in the sampled accumulation function which is an input to the ice flow model. Due to poor knowledge of uncertainty in the volcanic record, we assume a baseline age uncertainty, $\sigma_A$, of 1\%.  A hierarchical Bayes approach then incorporates a precision parameter, $S$, which inverts for age uncertainty in our model as described in \citet{jackson&huerta2016}:
 
 \begin{equation}
 S = Ga(\frac{k_e}{2}+\alpha, E_m+\beta)
