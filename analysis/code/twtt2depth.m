@@ -93,6 +93,8 @@ if plotting
     plot([dFirn dFirn],ylim,'k--','LineWidth',2)
     %set(gca,'view',[0 0])
     
+    print('../figures/firncorrection','-dpng')
+    
 % Plot ensemble of firn corrections and std of distrib as a func of depth (only applied to WD)
     if strcmp(core,'WD')
         figure

@@ -28,8 +28,8 @@ disp('Running the metropolis algorithm')
 
 %% Set algorithm parameters
     rng(seed);
-    burnin   = 20000;  
-    numsteps = 100000;
+    burnin   = 10000;  
+    numsteps = 450000;
             
     totsteps = numsteps + burnin;
     
@@ -51,16 +51,16 @@ disp('Running the metropolis algorithm')
 %     prevParam(8,1) = 0.125;
 %     prevParam(9:11,1)= 0.14; %shallowest part
 %     
-%     prevParam(2,1) = 0.14; %deepest part
-%     prevParam(3,1) = 0.14;
-%     prevParam(4,1) = 0.06;
-%     prevParam(5,1) = 0.08;
-%     prevParam(6,1) = 0.12;
-%     prevParam(7,1) = 0.12;
-%     prevParam(8,1) = 0.12;
-%     prevParam(9:11,1)= 0.14; %shallowest part
+    prevParam(2,1) = 0.14; %deepest part
+    prevParam(3,1) = 0.07;
+    prevParam(4,1) = 0.07;
+    prevParam(5,1) = 0.09;
+    prevParam(6,1) = 0.1;
+    prevParam(7,1) = 0.12;
+    prevParam(8,1) = 0.13;
+    prevParam(9:11,1)= 0.14; %shallowest part
 
-      prevParam(14,1) = 50;
+     % prevParam(14,1) = 50;
     
     regularization = nan;
     %prevParam(2:5,1) = normrnd(paramRange(2:5,1),paramRange(2:5,2));
@@ -81,6 +81,7 @@ disp('Running the metropolis algorithm')
     S = nan(totsteps,1);
     S(1) = nan;
 %% Run Metropolis algorithm
+    reg = 0;
     %for i = 1:15
     for i = 1:(totsteps)
     %for i = 502:1500
@@ -118,10 +119,9 @@ disp('Running the metropolis algorithm')
 %             exp(-S_prop*(costAge_prop - costAge))
 %             exp(-(costTWTT_prop - costTWTT))
 %         end
-        
-
+        if (costTWTT_prop < costTWTT) || (exp(-(costTWTT_prop - costTWTT)) > random_number2) % accept TWTT
         if (costAge_prop < costAge) || (exp(-S_prop*(costAge_prop - costAge)) > random_number1) %accept Age params
-            if (costTWTT_prop < costTWTT) || (exp(-(costTWTT_prop - costTWTT)) > random_number2) % accept TWTT
+            
                 % Accept all params if both likelihoods suggest to
                 if i > burnin
                     nAccept=nAccept+1;
@@ -144,7 +144,11 @@ disp('Running the metropolis algorithm')
         else       %reject 
             %disp('Reject')
             Param(:,i) = prevParam;
-            regularization = reg(i-1);
+            if i == 1
+                regularization = 0;
+            else
+                regularization = reg(i-1);
+            end
             if i > 1
                 S(i) = S(i-1);
             end

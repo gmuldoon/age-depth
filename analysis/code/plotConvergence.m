@@ -14,343 +14,126 @@ function  plotConvergence(paramDistrib,core,burnin,accumFlag,datFlag,paramRange)
 % Email: gailrmuldoon@gmail.com
 % Last revision: 16 Feb 2017
 %
+    set(0,'defaulttextinterpreter','latex')
 %% Set up a loop index
     niter = length(paramDistrib(end,burnin:end));
     n = 1:niter';
-%% Create convergence plots for each parameter
-%     figure
-%     clf
-%     if strcmp(core,'Byrd')
-%         suptitle(sprintf('Parameter convergence for %s core with %s data',core,string(datFlag)))
-%     else
-%         suptitle(sprintf('Parameter convergence for %s core',core))
-%     end
-%     if accumFlag == 6 || accumFlag == 5 || accumFlag == 7
-%         subplot(2,3,1)
-%         %plot(n,paramDistrib(1,burnin:end))
-%         hist(paramDistrib(1,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('s param')
-%         ylim([paramRange(1,1) paramRange(1,2)])
-%         
-% 
-%         %figure(2)
-%         %clf
-%         subplot(2,3,2)
-%         %plot(n,paramDistrib(2,burnin:end))
-%         hist(paramDistrib(2,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('acccum 1294m< depth< 2191m')
-%         %ylim([paramRange(2,1) paramRange(2,2)])
-% 
-%         %figure(3)
-%         %clf
-%         subplot(2,3,3)
-%         %plot(n,paramDistrib(3,burnin:end))
-%         hist(paramDistrib(3,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('%accum 1024m < depth < 1294 m')
-%         %ylim([paramRange(3,1) paramRange(3,2)])
-% 
-%         %figure(4)
-%         %clf
-%         subplot(2,3,4)
-%         %plot(n,paramDistrib(4,burnin:end))
-%         hist(paramDistrib(4,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('accum 150m<depth<1024m')
-%         %ylim([paramRange(4,1) paramRange(4,2)])
-% 
-%         %figure(5)
-%         %clf
-%         subplot(2,3,5)
-%         %plot(n,paramDistrib(5,burnin:end))
-%         hist(paramDistrib(5,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('accumulation depth < 150m')
-%         %ylim([paramRange(5,1) paramRange(5,2)])
-
-%         if accumFlag == 6 || accumFlag == 7
-%             subplot(2,3,6)
-%             %plot(n,(paramDistrib(6,burnin:end)))
-%             hist((paramDistrib(6,burnin:end)))
-%             xlabel('N_{iter}')
-%             ylabel('h')
-%             ylim([paramRange(6,1) paramRange(6,2)])
-%         end
-%         if accumFlag == 7
-%             figure
-%             if strcmp(core,'Byrd')
-%                 suptitle(sprintf('Parameter convergence for %s core with %s data',core,string(datFlag)))
-%             else
-%                 suptitle(sprintf('Parameter convergence for %s core',core))
-%             end
-%             subplot(2,1,1)
-%             %plot(n,paramDistrib(7,burnin:end))
-%             hist(paramDistrib(7,burnin:end))
-%             xlabel('N_{iter}')
-%             ylabel(sprintf('v_{ice}'))
-%             ylim([paramRange(7,1) paramRange(7,2)])
-%             
-%             subplot(2,1,2)
-%             %plot(n,paramDistrib(8,burnin:end))
-%             hist(paramDistrib(8,burnin:end))
-%             xlabel('N_{iter}')
-%             ylabel(sprintf('dFirn'))
-%             ylim([paramRange(8,1) paramRange(8,2)])
-%             
-%             for i = 1:5
-%                 subplot(2,3,i)
-%                 %plot(n,paramDistrib(length(paramRange(:,1))-5+i,burnin:end))
-%                 hist(paramDistrib(length(paramRange(:,1))-5+i,burnin:end))
-%                 ylim([paramRange(length(paramRange(:,1))-5+i,1) paramRange(length(paramRange(:,1))-5+i,2)])
-%                 xlabel('N_{iter}')
-%                 ylabel(sprintf('horizon%i', i ))
-%             end
-            
-            
-%         end
-%     elseif accumFlag == 4
-%         figure
-%         clf
-%         subplot(2,2,1)
-%         plot(n,paramDistrib(1,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('acccum 1294m< depth< 2191m')
-% 
-%         %figure(3)
-%         %clf
-%         subplot(2,2,2)
-%         plot(n,paramDistrib(2,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('%accum 1024m < depth < 1294 m')
-% 
-%         %figure(4)
-%         %clf
-%         subplot(2,2,3)
-%         plot(n,paramDistrib(3,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('accum 150m<depth<1024m')
-% 
-%         %figure(5)
-%         %clf
-%         subplot(2,2,4)
-%         plot(n,paramDistrib(4,burnin:end))
-%         xlabel('N_{iter}')
-%         ylabel('accumulation depth < 150m')
-% 
-%     elseif accumFlag == 3
-%         figure
-%         clf
-% 
-%         subplot(2,2,1)
-%         plot(n,(paramDistrib(1,burnin:end)))
-%         xlabel('N_{iter}')
-%         ylabel('s param')
-% 
-%         subplot(2,2,2)
-%         plot(n,(paramDistrib(2,burnin:end)))
-%         xlabel('N_{iter}')
-%         ylabel('h')
-% 
-%         subplot(2,2,3)
-%         plot(n,(paramDistrib(3,burnin:end)))
-%         xlabel('N_{iter}')
-%         ylabel('constant accum')
-% 
-%     elseif accumFlag == 2
-%         figure
-%         clf
-%         subplot(2,1,1)
-%         plot(n,(paramDistrib(1,burnin:end)))
-%         xlabel('N_{iter}')
-%         ylabel('s param')
-% 
-%         subplot(2,1,2)
-%         plot(n,(paramDistrib(2,burnin:end)))
-%         xlabel('N_{iter}')
-%         ylabel('s param')
-%     else 
-%         figure
-%         clf
-%         fact = factor(length(paramDistrib(:,1))); %determine number of rows and cols
-%         if length(fact) == 1
-%             fact = factor(length(paramDistrib(:,1))+1);
-%         end
-%         nrows = fact(end);
-%         ncols = ceil(length(paramDistrib(:,1))/nrows);
-% 
-%         for i = 1:length(paramDistrib(:,1))         %plot the convergence plot
-%             subplot(nrows,ncols,i)
-%             plot(n,(paramDistrib(i,burnin:end)))
-%             xlabel('N_{iter}')
-%             ylabel(sprintf('param %d',i))  
-%         end
-%     end
-
-%     set(gcf,'NextPlot','add');
-%     axes;
-%     set(gca,'Visible','off');
-%     
     nparam = length(paramDistrib(:,1));
-    lp=5;
-    
+    lp=4;
+    paramDistrib = paramDistrib(:,burnin:end);
+%% Create convergence plots for each parameter 
     figure(20)
     clf
+    
     subplot(4,3,1:2)
-    plot(paramDistrib(1,:))
-    ylabel('s param')
+    plot(paramDistrib(1,:),'LineWidth',3)
+    ylabel('q')
+    set(gca,'FontSize',15)
+    set(gca,'XTickLabel','')
+    xlim([0 niter])
+    
     subplot(4,3,3)
     hist(gca,paramDistrib(1,:))
-    set(gca,'view',[90 -90])
-    ylabel('s param')
+    xlabel('q')
+    set(gca,'FontSize',15)
     
     subplot(4,3,4:5)
-    plot(paramDistrib(nparam-lp-2,:))
-    ylabel('h param')
+    plot(paramDistrib(nparam-lp-2,:),'LineWidth',3)
+    ylabel('h')
+    set(gca,'FontSize',15)
+    set(gca,'XTickLabel','')
+    xlim([0 niter])
+    
     subplot(4,3,6)
     hist(gca,paramDistrib(nparam-lp-2,:))
-    set(gca,'view',[90 -90])
-    ylabel('h param')
+    xlabel('h')
+    set(gca,'FontSize',15)
     
     subplot(4,3,7:8)
-    plot(paramDistrib(nparam-lp-1,:))
-    ylabel('vice')       
+    plot(paramDistrib(nparam-lp-1,:),'LineWidth',3)
+    ylabel('$v_{ice}$ (m/s)')
+    set(gca,'FontSize',15)
+    set(gca,'XTickLabel','')
+    xlim([0 niter])
+    
     subplot(4,3,9)
     hist(gca,paramDistrib(nparam-lp-1,:))
-    set(gca,'view',[90 -90])
-    ylabel('v_{ice}')
+    xlabel('$v_{ice}$ (m/s)')
+    set(gca,'FontSize',15)
     
     subplot(4,3,10:11)
-    plot(paramDistrib(nparam-lp,:))
-    ylabel('dfirn')
+    plot(paramDistrib(nparam-lp,:),'LineWidth',3)
+    ylabel('$d_{firn}$ (m)')
+    xlabel('Metropolis iteration')
+    set(gca,'FontSize',15)
+    xlim([0 niter])
+    
     subplot(4,3,12)
     hist(gca,paramDistrib(nparam-lp,:))
-    set(gca,'view',[90 -90])
-    ylabel('d_{firn}')
+    xlabel('$d_{firn}$ (m)')
+    set(gca,'FontSize',15)
     
-    figure(21)
+    print('../figures/convergence1','-dpng')  
+ %%   
+    figure(21);
     clf
-    
-    subplot(10,3,1:2)
-    plot(paramDistrib(11,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,3)
-    hist(gca,paramDistrib(11,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,4:5)
-    plot(paramDistrib(10,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,6)
-    hist(gca,paramDistrib(10,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,7:8)
-    plot(paramDistrib(9,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,9)
-    hist(gca,paramDistrib(9,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,10:11)
-    plot(paramDistrib(8,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,12)
-    hist(gca,paramDistrib(8,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,13:14)
-    plot(paramDistrib(7,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,15)
-    hist(gca,paramDistrib(7,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,16:17)
-    plot(paramDistrib(6,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,18)
-    hist(gca,paramDistrib(6,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,19:20)
-    plot(paramDistrib(5,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,21)
-    hist(gca,paramDistrib(5,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,22:23)
-    plot(paramDistrib(4,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,24)
-    hist(gca,paramDistrib(4,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,25:26)
-    plot(paramDistrib(3,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,27)
-    hist(gca,paramDistrib(3,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
-    
-    subplot(10,3,28:29)
-    plot(paramDistrib(2,:))
-    ylim([0 0.2])
-    
-    subplot(10,3,30)
-    hist(gca,paramDistrib(2,:))
-    %set(gca,'view',[90 -90])
-    xlim([0 0.2])
+    nthaccum = 11;
+    set(0,'defaulttextinterpreter','latex')
+    acc_depths = fliplr([0, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2164]);
+    for i = 3:3:30
+        %plot per iteration
+        subplot(10,3,i-2:i-1);
+        plot(paramDistrib(nthaccum,:),'LineWidth',3); hold on
+        ylim([0 0.5])
+        xlim([0 niter])
+        ylabel('$\dot{a}_{d}$')
+        set(gca, 'FontSize', 14,'yaxislocation','left')
+        if i == 30
+            xlabel('Metropolis iteration')
+            set(gca,'XTickLabel',0:50000:niter,'XTick',0:50000:niter)
+        else
+            set(gca,'XTickLabel','')
+        end
+        % abuse the legend to show the depth range
+        p = plot(NaN,NaN,'w');
+        legend(p,sprintf('%i m < d < %i m',acc_depths(nthaccum),acc_depths(nthaccum-1)),'Location','northwest');
+        legend('boxoff')
 
+        %plot histogram
+        subplot(10,3,i)
+        hist(gca,paramDistrib(nthaccum,:))
+        xlim([0 0.25])   
+        set(gca, 'FontSize', 14,'YTickLabel','')
+        if i == 30
+            xlabel('Accumulation rate (m/a)')
+        else
+            set(gca,'XTickLabel','')
+        end
+        % go to next parameter value
+        nthaccum = nthaccum-1;
+    end
     
+    print('../figures/convergence2','-dpng')
+
+%%    
     
+%     addpath('../../../../Matlab_functions/distinguishable_colors');
+    colors=distinguishable_colors(4);
+    colors(3,:) = [0 0.5 0]; %make the green darker so it's no blinding
+ 
     figure(22)
-    clf
-    
-    subplot(5,3,1:2)
-    plot(paramDistrib(15,:))
-    
-    subplot(5,3,3)
-    
-    subplot(5,3,4:5)
-    plot(paramDistrib(16,:))
-    
-    subplot(5,3,6)
-    
-    subplot(5,3,7:8)
-    plot(paramDistrib(17,:))
-    
-    subplot(5,3,9)
-    
-    subplot(5,3,10:11)
-    plot(paramDistrib(18,:))
-    
-    subplot(5,3,12)
-    
-    subplot(5,3,13:14)
-    plot(paramDistrib(19,:))
-    
-    subplot(5,3,15)
+    clf   
+    plot(paramDistrib(15,:),'Color',colors(1,:),'Linewidth',3); hold on
+    plot(paramDistrib(16,:),'Color',colors(2,:),'Linewidth',3); hold on
+    plot(paramDistrib(17,:),'Color',colors(3,:),'Linewidth',3); hold on
+    plot(paramDistrib(18,:),'Color',colors(4,:),'Linewidth',3); hold on
+    ylim([0 2164])
+    xlim([0 niter])
+    xlabel('Metropolis iteration')
+    ylabel('Depth')
+    set(gca,'YDir','reverse','Fontsize',14);
+
+    print('../figures/convergence3','-dpng')
     
     
 

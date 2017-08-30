@@ -32,7 +32,7 @@ function [H,D,z,pik,obsAge1950]=loadCorePikData2(core,datFlag)
         dFirn=64;    % depth of the firn layer
 
         %TWTT for traced radar horizons
-        filename ='../data/byrd_TWTT_5.txt';
+        filename ='../data/byrd_TWTT_4.txt';
         ncol=1;
         pik=readFloats(filename,ncol)';
 
@@ -72,7 +72,7 @@ function [H,D,z,pik,obsAge1950]=loadCorePikData2(core,datFlag)
         dFirn=159;      % depth of firn layer
 
         %TWTT for traced radar horizons
-        filename='../data/WD_TWTT_5.txt';
+        filename='../data/WD_TWTT_4.txt';
         ncol=1;
         pik=readFloats(filename,ncol)';
 

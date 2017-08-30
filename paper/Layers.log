@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 JUL 2017 13:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 AUG 2017 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,34 +7,184 @@ entering extended mode
 (./Layers.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
-(./igs.cls
-Document Class: igs 2008/06/12 v2.00 IGS document class
+(./AGUTeX.cls
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 423.
 
-\c@part=\count79
+ AGUTeX Journal Style, American Geophysical Union 
+ This version is dated Feb 9, 2008
+
+
+
+LaTeX Warning: You have requested document class `AGUTeX',
+               but the document class provides `agutex'.
+
+Document Class: agutex 02/09/2008
+\c@chapter=\count79
 \c@section=\count80
 \c@subsection=\count81
 \c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
-\bibindent=\dimen102
-\c@dummy=\count87
-) (/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip43
-\bibsep=\skip44
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count88
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+\c@figure=\count83
+\c@table=\count84
+\mathindent=\dimen102
+\abovefigcaptionskip=\skip41
+\abovetabcaptionskip=\skip42
+\abovetableskip=\skip43
+\belowtabcaptionskip=\dimen103
+\landscapebox=\box26
+\c@plate=\count85
+\savecurrtable=\box27
+\abovetabularskip=\skip44
+\belowtabularskip=\skip45
+\timing=\count86
+\hourcount=\count87
+\oldtime=\count88
+\totpages=\count89
+\belowtitleskip=\dimen104
+\abovesubtitleskip=\dimen105
+\belowsubtitleskip=\dimen106
+\aboveauthorskip=\dimen107
+\belowauthorskip=\dimen108
+\thanksnum=\count90
+\dothanks=\count91
+\thankscounter=\count92
+\titlethanksnum=\count93
+\dotitlethanks=\count94
+\titlethankscounter=\count95
+\thanksnum=\count96
+\dothanks=\count97
+\thankscounter=\count98
+\authorwidth=\dimen109
+\authorbaselineskip=\dimen110
+\aboveaffilskip=\dimen111
+\belowaffilskip=\dimen112
+\affilwidth=\dimen113
+\aboveabstractskip=\dimen114
+\belowabstractskip=\dimen115
+\belowabstractnameskip=\dimen116
+\abstractmargin=\dimen117
+\abovereceivedskip=\skip46
+\aboverevisedskip=\skip47
+\aboveacceptedskip=\skip48
+\abovepublishededskip=\skip49
+\barticle=\box28
+\thanksbox=\box29
+\titlethanksbox=\box30
+\c@appendnum=\count99
+\footnum=\count100
+\savefootnum=\count101
+\ackskip=\skip50
+\saveparskip=\dimen118
+\captionskip=\dimen119
+\PushOneColTopFig=\dimen120
+\PushOneColBotFig=\dimen121
+\PushOneColTopTab=\dimen122
+\PushOneColBotTab=\dimen123
+\PushTwoColTopFig=\dimen124
+\PushTwoColBotFig=\dimen125
+\PushTwoColTopTab=\dimen126
+\PushTwoColBotTab=\dimen127
+\intextfloatskip=\skip51
+\c@appfigure=\count102
+\c@apptable=\count103
+\c@appplate=\count104
+\checkforspace=\dimen128
+\savetopinsert=\box31
+\savebotinsert=\box32
+\secondsavetopinsert=\box33
+\secondsavebotinsert=\box34
+\firstcolbox=\box35
+\secondcolbox=\box36
+\thefirstbox=\box37
+\thesecondbox=\box38
+\firstcol=\dimen129
+\secondcol=\dimen130
+\checkheight=\dimen131
+\loopnum=\count105
+\firstcolsavefignum=\count106
+\footnotebox=\box39
+\ColUsed=\dimen132
+\FigSpace=\dimen133
+\testdblbotins=\box40
+\pageloopnum=\count107
+\endcolsavetopinsert=\box41
+\endcolsavebotinsert=\box42
+\testpagesize=\box43
+\savelastskip=\dimen134
+\partialpage=\box44
+\figandtabnumber=\count108
+\figandtabbox=\box45
+\pagefloatnumber=\count109
+\sizeoffloat=\box46
+\bogus=\count110
+\figinsert=\insert233
+\herebox=\box47
+\endfigbox=\box48
+\spanbox=\box49
+\dbltopins=\box50
+\dblbotins=\box51
+\dblbotskip=\skip52
+\dblfigandtabnumber=\count111
+\dblfigandtabbox=\box52
+\dblloopnum=\count112
+\savedblfigandtabnumber=\count113
+\dblspanherebox=\box53
+\bigpagenum=\count114
+\littlepagenum=\count115
+\wholepagenum=\count116
+\@cprtype=\count117
+\@slugcmmntwidth=\dimen135
+\affilnum=\count118
+\totalaffils=\count119
+\figcount=\count120
+\saveequation=\count121
+\c@currlett=\count122
+\notationwidth=\dimen136
+\betweennotationskip=\skip53
+\WidestEntry=\dimen137
+\premulticols=\dimen138
+\page@free=\dimen139
+\partial@page=\box54
+\multicoltolerance=\count123
+\doublecol@number=\count124
+\multicolbaselineskip=\skip54
+\c@collectmore=\count125
+\loopcount=\count126
+\fixdimen=\dimen140
+\c@unbalance=\count127
+\savedimen=\dimen141
+\savehsize=\dimen142
+\mycolumnwidth=\dimen143
+\saveparindent=\dimen144
+\saveparskip=\dimen145
+\abstractwidth=\dimen146
+\currlastnumber=\count128
+\altaffilbox=\box55
+\sectskip=\skip55
+\belowsectionskip=\skip56
+\subsectskip=\skip57
+\belowsubsectskip=\skip58
+\subsubsectskip=\skip59
+\belowsubsubsectskip=\skip60
+\c@subsubsubsection=\count129
+\captionwidth=\dimen147
+\widecaptionwidth=\dimen148
+\landscapecaptionwidth=\dimen149
+\@temptokenb=\toks14
+\beforeendskip=\skip61
+
+
+ JGRGA style option, October 1, 2001,
+ \documentclass[jgrga]{AGUTeX}
+ ``Journal of Geophysical Research'', 
+ Published by American Geophysical Union
+
+
+\titlesize=\dimen150
+LaTeX Info: Redefining \cite on input line 7417.
+\c@NAT@ctr=\count130
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
-\@mathmargin=\skip45
+\@mathmargin=\skip62
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -42,51 +192,51 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks14
-\ex@=\dimen103
+\@emptytoks=\toks15
+\ex@=\dimen151
 ))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen104
+\pmbraise@=\dimen152
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count89
+\inf@bad=\count131
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count90
-\leftroot@=\count91
+\uproot@=\count132
+\leftroot@=\count133
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count92
-\DOTSCASE@=\count93
+\classnum@=\count134
+\DOTSCASE@=\count135
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
-\Mathstrutbox@=\box26
-\strutbox@=\box27
-\big@size=\dimen105
+\Mathstrutbox@=\box56
+\strutbox@=\box57
+\big@size=\dimen153
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count94
-\c@MaxMatrixCols=\count95
+\macc@depth=\count136
+\c@MaxMatrixCols=\count137
 \dotsspace@=\muskip10
-\c@parentequation=\count96
-\dspbrk@lvl=\count97
-\tag@help=\toks15
-\row@=\count98
-\column@=\count99
-\maxfields@=\count100
-\andhelp@=\toks16
-\eqnshift@=\dimen106
-\alignsep@=\dimen107
-\tagshift@=\dimen108
-\tagwidth@=\dimen109
-\totwidth@=\dimen110
-\lineht@=\dimen111
-\@envbody=\toks17
-\multlinegap=\skip46
-\multlinetaggap=\skip47
-\mathdisplay@stack=\toks18
+\c@parentequation=\count138
+\dspbrk@lvl=\count139
+\tag@help=\toks16
+\row@=\count140
+\column@=\count141
+\maxfields@=\count142
+\andhelp@=\toks17
+\eqnshift@=\dimen154
+\alignsep@=\dimen155
+\tagshift@=\dimen156
+\tagwidth@=\dimen157
+\totwidth@=\dimen158
+\lineht@=\dimen159
+\@envbody=\toks18
+\multlinegap=\skip63
+\multlinetaggap=\skip64
+\mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
@@ -95,7 +245,7 @@ Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks19
+\KV@toks@=\toks20
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
@@ -117,55 +267,29 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count101
+\Gread@gobject=\count143
 ))
-\Gin@req@height=\dimen112
-\Gin@req@width=\dimen113
+\Gin@req@height=\dimen160
+\Gin@req@width=\dimen161
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen114
+\bigstrutjot=\dimen162
 )
-(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen115
-\captionmargin@=\dimen116
-\captionwidth=\dimen117
-\caption@tempdima=\dimen118
-\caption@indent=\dimen119
-\caption@parindent=\dimen120
-\caption@hangindent=\dimen121
-Package caption Info: Unknown document class (or package),
-(caption)             standard defaults will be used.
-)
-
-Package caption Warning: Unsupported document class (or package) detected,
-(caption)                usage of the caption package is not recommended.
-See the caption package documentation for explanation.
-
-Package caption Info: \@makecaption = \long macro:#1#2->\captionsize \vskip \ab
-ovecaptionskip \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsi
-ze {\bfseries #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\box \@
-tempboxa \hfil }\fi \vskip \belowcaptionskip .
-\c@ContinuedFloat=\count102
-) (/usr/local/texlive/2015/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/local/texlive/2015/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2015/05/11 v1.16 mathematical typesetting tools
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count103
-\calc@Bcount=\count104
-\calc@Adimen=\dimen122
-\calc@Bdimen=\dimen123
-\calc@Askip=\skip48
-\calc@Bskip=\skip49
+\calc@Acount=\count144
+\calc@Bcount=\count145
+\calc@Adimen=\dimen163
+\calc@Bdimen=\dimen164
+\calc@Askip=\skip65
+\calc@Bskip=\skip66
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count105
-\calc@Cskip=\skip50
+\calc@Ccount=\count146
+\calc@Cskip=\skip67
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
@@ -174,73 +298,45 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count106
-\l_MT_multwidth_dim=\dimen124
-\origjot=\skip51
-\l_MT_shortvdotswithinadjustabove_dim=\dimen125
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen126
-\l_MT_above_intertext_sep=\dimen127
-\l_MT_below_intertext_sep=\dimen128
-\l_MT_above_shortintertext_sep=\dimen129
-\l_MT_below_shortintertext_sep=\dimen130
+\g_MT_multlinerow_int=\count147
+\l_MT_multwidth_dim=\dimen165
+\origjot=\skip68
+\l_MT_shortvdotswithinadjustabove_dim=\dimen166
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen167
+\l_MT_above_intertext_sep=\dimen168
+\l_MT_below_intertext_sep=\dimen169
+\l_MT_above_shortintertext_sep=\dimen170
+\l_MT_below_shortintertext_sep=\dimen171
 )
-(./Layers.aux
-
-LaTeX Warning: Label `fig:layer_agedepth' multiply defined.
-
-)
+(./Layers.aux)
 \openout1 = `Layers.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-
-
-
-Found AMS Euler Roman fonts on the system, but you don't seem to have the
-'igsupmath' package installed. igs.cls can take advantage of these fonts,
-if you use the 'igsupmath' package.
-
-
-
-
-Found AMS Symbol fonts on the system, using the 'amssymb' package.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-
-Found the 'amsbsy' package on the system, using it.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen131
-\scratchbox=\box28
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen132
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
-\everyMPtoPDFconversion=\toks21
+\scratchcounter=\count148
+\scratchdimen=\dimen172
+\scratchbox=\box58
+\nofMPsegments=\count149
+\nofMParguments=\count150
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count151
+\MPscratchDim=\dimen173
+\MPnumerator=\count152
+\makeMPintoPDFobject=\count153
+\everyMPtoPDFconversion=\toks22
 ) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -289,85 +385,71 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13.5> not available
-(Font)              size <14.4> substituted on input line 15.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <9.5> not available
-(Font)              size <9> substituted on input line 15.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 15.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 29.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 29.
-
 (./Sections/introduction.tex
 
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <9.5> not available
-(Font)              size <9> substituted on input line 18.
+Package natbib Warning: Citation `gow1968' on page 1 undefined on input line 30
+.
 
 
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 18.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 18.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 18.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-Package natbib Warning: Citation `duncan' on page 1 undefined on input line 18.
-
-
-
-LaTeX Warning: Reference `byrdwdcompare' on page 1 undefined on input line 32.
-
-) (./Sections/bayesianInversion.tex
-Overfull \vbox (5.55556pt too high) has occurred while \output is active []
+Package natbib Warning: Citation `duncan' on page 1 undefined on input line 34.
 
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
+
+LaTeX Warning: Reference `byrdchronology' on page 2 undefined on input line 43.
+
+
+
+LaTeX Warning: Reference `agedepthresults' on page 2 undefined on input line 43
+.
+
+) (./Sections/bayesianInversion.tex [2]
+
+Package natbib Warning: Citation `hammer1997' on page 3 undefined on input line
+ 8.
+
+
+LaTeX Warning: Reference `bigproblem' on page 3 undefined on input line 28.
+
+
+LaTeX Warning: Reference `bigproblem' on page 3 undefined on input line 28.
+
+[3]
+
+LaTeX Warning: Reference `bigproblem' on page 4 undefined on input line 30.
+
 (./Sections/flowModel.tex
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 1.
+LaTeX Warning: Reference `schwander' on page 4 undefined on input line 4.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package natbib Warning: Citation `schwander2001' on page 4 undefined on input l
+ine 4.
+
+[4]
+
+LaTeX Warning: Reference `metrop' on page 5 undefined on input line 26.
+
+) (./Sections/depthError.tex [5]
+
+Package natbib Warning: Citation `young2012' on page 6 undefined on input line 
+2.
 
 
-Overfull \hbox (5.92734pt too wide) has occurred while \output is active
-[] \OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the ch
-ronology of englacial radar stratigraphy chronology in Central West Antarctica
- []
-
-
-Overfull \vbox (5.55556pt too high) has occurred while \output is active []
-
-
-[2]) (./Sections/depthError.tex
-
-Package natbib Warning: Citation `blankenship2001' on page 3 undefined on input
+Package natbib Warning: Citation `blankenship2001' on page 6 undefined on input
  line 2.
 
-<figures/Fig1_WAISall_bed2.pdf, id=24, 769.37437pt x 620.91972pt>
+
+Package natbib Warning: Citation `luyendyk2003' on page 6 undefined on input li
+ne 2.
+
+
+Package natbib Warning: Citation `peters2005' on page 6 undefined on input line
+ 2.
+
+<figures/Fig1_WAISall_bed2.pdf, id=28, 769.37437pt x 620.91972pt>
 File: figures/Fig1_WAISall_bed2.pdf Graphic file (type pdf)
 
 <use figures/Fig1_WAISall_bed2.pdf>
@@ -375,136 +457,97 @@ Package pdftex.def Info: figures/Fig1_WAISall_bed2.pdf used on input line 7.
 (pdftex.def)             Requested size: 230.81409pt x 186.27734pt.
 
 
-LaTeX Warning: Reference `fig:layergram' on page 3 undefined on input line 16.
+Package natbib Warning: Citation `fretwell2013' on page 6 undefined on input li
+ne 9.
 
 
-Overfull \hbox (5.92734pt too wide) has occurred while \output is active
-\OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the chron
-ology of englacial radar stratigraphy chronology in Central West Antarctica []
- []
+Package natbib Warning: Citation `fretwell2013' on page 6 undefined on input li
+ne 9.
 
 
-Overfull \vbox (5.55556pt too high) has occurred while \output is active []
+Package natbib Warning: Citation `fujita2000' on page 6 undefined on input line
+ 14.
 
 
-[3 <./figures/Fig1_WAISall_bed2.pdf>]) (./Sections/metropolis.tex
-Overfull \hbox (5.92734pt too wide) has occurred while \output is active
-[] \OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the ch
-ronology of englacial radar stratigraphy chronology in Central West Antarctica
- []
+LaTeX Warning: Reference `fig:layergram' on page 6 undefined on input line 16.
+
+[6 <./figures/Fig1_WAISall_bed2.pdf>]
+
+LaTeX Warning: Reference `deptheqn' on page 7 undefined on input line 18.
 
 
-Overfull \vbox (5.55556pt too high) has occurred while \output is active []
+LaTeX Warning: Reference `deptheqn' on page 7 undefined on input line 18.
 
 
-[4])) (./Sections/agedepthresults.tex
-<figures/agedepthhisto.png, id=40, 1149.29375pt x 674.52pt>
+Package natbib Warning: Citation `fujita2000' on page 7 undefined on input line
+ 24.
+
+
+Package natbib Warning: Citation `millar1982' on page 7 undefined on input line
+ 26.
+
+[7]
+
+Package natbib Warning: Citation `gow1968' on page 8 undefined on input line 29
+.
+
+) (./Sections/metropolis.tex
+
+LaTeX Warning: Reference `bigproblem' on page 8 undefined on input line 2.
+
+[8]
+
+LaTeX Warning: Reference `deptheqn' on page 9 undefined on input line 16.
+
+
+LaTeX Warning: Reference `deptheqn' on page 9 undefined on input line 16.
+
+[9]
+
+Package natbib Warning: Citation `jackson&huerta2016' on page 10 undefined on i
+nput line 27.
+
+
+LaTeX Warning: Reference `loglikeage' on page 10 undefined on input line 34.
+
+)) [10] (./Sections/agedepthresults.tex
+<figures/agedepthhisto.png, id=55, 860.21375pt x 472.76625pt>
 File: figures/agedepthhisto.png Graphic file (type png)
 
 <use figures/agedepthhisto.png>
-Package pdftex.def Info: figures/agedepthhisto.png used on input line 38.
-(pdftex.def)             Requested size: 574.64548pt x 337.25917pt.
-
-Overfull \hbox (68.18643pt too wide) in paragraph at lines 38--40
- [][] 
- []
+Package pdftex.def Info: figures/agedepthhisto.png used on input line 39.
+(pdftex.def)             Requested size: 430.10582pt x 236.38254pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/spaghetti.png, id=41, 1149.29375pt x 674.52pt>
+<figures/spaghetti.png, id=56, 860.21375pt x 472.76625pt>
 File: figures/spaghetti.png Graphic file (type png)
 
 <use figures/spaghetti.png>
-Package pdftex.def Info: figures/spaghetti.png used on input line 48.
-(pdftex.def)             Requested size: 344.79079pt x 202.35756pt.
+Package pdftex.def Info: figures/spaghetti.png used on input line 49.
+(pdftex.def)             Requested size: 430.10582pt x 236.38254pt.
 
 
-Package natbib Warning: Citation `hammer97' on page 5 undefined on input line 5
-0.
+Package natbib Warning: Citation `hammer97' on page 11 undefined on input line 
+51.
 
 
-Package natbib Warning: Citation `hammer97' on page 5 undefined on input line 5
-0.
+Package natbib Warning: Citation `buizert2013' on page 11 undefined on input li
+ne 51.
+
+
+Package natbib Warning: Citation `hammer97' on page 11 undefined on input line 
+51.
+
+
+Package natbib Warning: Citation `buizert2013' on page 11 undefined on input li
+ne 51.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./Layers.bbl
-Overfull \hbox (5.92734pt too wide) has occurred while \output is active
-\OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the chron
-ology of englacial radar stratigraphy chronology in Central West Antarctica []
- []
-
-
-Overfull \vbox (5.55556pt too high) has occurred while \output is active []
-
-
-[5])
-
-Package natbib Warning: There were undefined citations.
-
-
-Overfull \hbox (5.92734pt too wide) has occurred while \output is active
-[] \OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the ch
-ronology of englacial radar stratigraphy chronology in Central West Antarctica
- []
-
-
-Overfull \vbox (5.55556pt too high) has occurred while \output is active []
-
-
-[6 <./figures/agedepthhisto.png (PNG copy)>]
-Overfull \hbox (5.92734pt too wide) has occurred while \output is active
-\OT1/cmr/m/it/8 Gail, Charles, Duncan, Don: Estimating uncertainty in the chron
-ology of englacial radar stratigraphy chronology in Central West Antarctica []
- []
-
-
-Overfull \vbox (5.55556pt too high) has occurred while \output is active []
-
-
-[7 <./figures/spaghetti.png (PNG copy)>] (./Layers.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.9pt have occurred.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
-Here is how much of TeX's memory you used:
- 4504 strings out of 493089
- 66802 string characters out of 6134842
- 137353 words of memory out of 5000000
- 7907 multiletter control sequences out of 15000+600000
- 12926 words of font info for 49 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 38i,9n,43p,1175b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on Layers.pdf (7 pages, 5185442 bytes).
-PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+)
+./Layers.tex:75: Undefined control sequence.
+<argument> ...ing \vskip -1pt\ifappendon \applett 
+                                              

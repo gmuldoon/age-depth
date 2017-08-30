@@ -20,6 +20,7 @@ function sigmaTWTT = estimate_sigmaTWTT(seed)
     
     TWTTm_mean = mean(TWTTm_microsec);
     
+    
     perfect_model_discrep = (TWTTm_microsec - TWTTm_mean).^2;
     costTWTT_star = sum(perfect_model_discrep,2)/2.; %assumes the sigma here is 1
     

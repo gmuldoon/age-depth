@@ -1,0 +1,26 @@
+
+
+def cleanDatFile4Paraview(inputFileName, outputFileName):
+	''' Format the input data to be easily readable by pandas'''
+	import re
+	input = open(inputFileName, "r")
+	output = open(outputFileName, "w")
+
+	for line in input:
+		if line.lstrip().startswith("lm"):
+			line = re.sub(' +',' ',line)
+			line = line.replace(" ", ",")
+			output.write(line)
+
+	input.close()
+	output.close()
+
+
+
+indir = '/Users/gail/Documents/Research/Projects/LayerData'
+infile = 'lm-MERGE-lay4-grg-depth_clean.dat'
+files = ['lm-MERGE-lay16-grg-depth','lm-MERGE-lay10-grg-depth','lm-MERGE-lay4-grg-depth','lm-MERGE-lay9-grg-depth']
+
+import csv
+with open(indir+infile,'rb') as f:
+	data = f.readlines()[48:]
