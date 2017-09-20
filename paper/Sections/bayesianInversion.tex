@@ -16,23 +16,21 @@ The Bayesian formulation of this problem is:
 \begin{equation}\label{eqn:bigproblem}
 \begin{split} %allow line break
 %\begin{flalign}
-%\begin{aligned}
-p(A_r)  \sim  p(D_r,\vec{f},d_{firn},v_{ice},S | TWTT_r,A_{IC},D_{IC})  \propto & \\
- p(D_r,f,S) \cdot p(d_{firn})\cdot p(v_{ice}) \cdot p(A_{IC},D_{IC} | \vec{f},S&)    \cdot p(TWTT_r | D_r,d_{firn},v_{ice})
+\begin{aligned}
+PPD(A_r)  \sim  PPD(D_r,\vec{f},d_{firn},v_{ice},S | TWTT_r,A_{IC},D_{IC})  \propto & \\
+   p(A_{IC},D_{IC} | \vec{f},S)    \cdot p(TWTT_r | D_r,d_{firn},v_{ice})  & \cdot p(D_r,\vec{f},S) \cdot p(d_{firn})\cdot p(v_{ice})
 %\end{flalign}
-%\end{aligned}
+\end{aligned}
 \end{split}
 \end{equation}
 
 Computing the posterior probability distribution of reflector ages (far left in Equation~\ref{eqn:bigproblem} requires estimating the depths of the englacial reflectors of interest ($D_r$), ice flow model parameters ($\vec{f}$), firn depth correction ($d_{firn}$), radar velocity in ice ($v_{ice}$), and precision of the Byrd ice core chronology ($S$). We estimate these values given information about observed radar reflector two-way travel time ($TWTT_r$) and the age-depth profile from the Byrd ice core volcanic record ($A_{IC}$, $D_{IC}$). 
 
 
-Priors, the first three terms on the right-hand side of Equation~\ref{eqn:bigproblem}, are used to put physical bounds on estimates of quantities of interest as described in the following sections. Priors on ${D_r}$ also preserve stratigraphic dependence of radar reflectors, requiring deeper reflectors be older than shallower reflectors. Likelihood functions, the remaining two factors on the right-hand side of Equation~\ref{eqn:bigproblem}, describe the probability that modeled results agree with observations. In the first, agreement between flow model results ($\vec{f}$) and the volcanic record ($A_{IC}$,$D_{IC}$) given precision ($S$) and in the second, agreement between observed two-way travel time ($TWTT_r$) and modeled reflector depths ($D_r$) given information abou tthe local firn correction ($d_{firn}$) and radar velocity in ice ($v_{ice}$). These elements of Equation~\ref{eqn:bigproblem} are discussed more thoroughly in subsequent sections.
+Priors, the rightmost three terms in Equation~\ref{eqn:bigproblem}, are used to put physical bounds on estimates of quantities of interest as described in the following sections. Priors on ${D_r}$ also preserve stratigraphic dependence of radar reflectors, requiring deeper reflectors be older than shallower reflectors. Likelihood functions, the remaining two factors on the right-hand side of Equation~\ref{eqn:bigproblem}, describe the probability that modeled results agree with observations. In the first, agreement between flow model results ($\vec{f}$) and the volcanic record ($A_{IC}$,$D_{IC}$) given precision ($S$) and in the second, agreement between observed two-way travel time ($TWTT_r$) and modeled reflector depths ($D_r$) given information about the local firn correction ($d_{firn}$) and radar velocity in ice ($v_{ice}$). These elements of Equation~\ref{eqn:bigproblem} are discussed more thoroughly in subsequent sections.
 
 Accepted solutions are expected to satisfy all of these conditions simultaneously, so we take the product of their probabilities in Equation~\ref{eqn:bigproblem}. The Metropolis algorithm is used to identify combinations of parameters and boundary conditions consistent with observations and sources of uncertainty. To do so, sets of parameter values for $D_r$, $\vec{f}$, $S$, $d_{firn}$, and $v_{ice}$ are proposed using a markov chain method as in Equation~\ref{eqn:proposal}. %This method allows us to build a model using data from the last 50,000 years which can be used to estimate uncertainties in the chronology at earlier times.
-Likelihood functions for age and TWTT are evaluated to accept or reject these proposed parameter sets based on how well they agree with data. Solutions are those parameter sets which are simultaneously consistent with physical limits defined by the priors and with uncertain observations. 
-
-The resulting posterior probability distribution, $p(D_r, \vec{f},S | TWTT_r, A_{IC}, D_{IC})$, can then be used to deterministically compute the corresponding probability distribution of the age of observed radar reflectors, $p(A_r)$, using the flow model described below.
+Likelihood functions for age and TWTT are evaluated to accept or reject these proposed parameter sets based on how well they agree with data. Solutions are those parameter sets which are simultaneously consistent with physical limits defined by the priors and with uncertain observations. This process is repeated 100,000 times to create an ensemble of accepted parameter sets. These are used in a forward ice flow model to create an ensemble of age-depth profiles constrained by the combined uncertainty in the volcanic age-depth profile, ice model parameterizations, and TWTT observations. The resulting posterior probability distribution, $p(D_r, \vec{f},S | TWTT_r, A_{IC}, D_{IC})$, samples the age uncertainty in the Byrd ice core in proportion to the combined probabilities. This result is used to deterministically compute the corresponding probability distribution of the age of observed radar reflectors, $p(A_r)$, using the flow model described below.
 
 
 \input{Sections/flowModel}

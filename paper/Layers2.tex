@@ -42,7 +42,7 @@
 % (If you are submitting to a journal other than jgrga,
 % substitute the initials of the journal for "jgrga" below.)
 
-\documentclass[draft,jgrga]{AGUTeX}
+\documentclass[draft,jgrga]{statclim}
 \usepackage{amsmath} %for help with the bracketed conditional equations
 \usepackage{graphicx}
 \usepackage{multirow}
@@ -117,7 +117,7 @@
 %% ------------------------------------------------------------------------ %%
 
 % Author names in capital letters:
-\authorrunninghead{MULDOON ET AL.}
+\authorrunninghead{Muldoon et al.}
 
 % Shorter version of title entered in capital letters:
 \titlerunninghead{Byrd ice core radar dating}
@@ -172,12 +172,12 @@
 % \altaffilmark will produce footnote;
 % matching \altaffiltext will appear at bottom of page.
 
- \authors{Gail R. Muldoon,\altaffilmark{1}
-  Charles S. Jackson,\altaffilmark{1} Duncan A. Young,\altaffilmark{1} 
+ \authors{Gail R. Muldoon,\altaffilmark{1}\altaffilmark{2}  Charles S. Jackson,\altaffilmark{1} Duncan A. Young,\altaffilmark{1} 
  and Donald D. Blankenship \altaffilmark{1}}
 
- \altaffiltext{1}{Institute for Geophysics, University of Texas at Austin, Austin, Texas, USA.}
-
+\altaffiltext{1}{Institute for Geophysics, University of Texas at Austin, Austin, Texas, USA.}
+%\correspondingauthor{Gail Muldoon}
+\altaffiltext{2}{gail.muldoon@utexas.edu}
 % \authors{R. C. Bales,\altaffilmark{1}
 % E. Mosley-Thompson,\altaffilmark{2} R. Williams,\altaffilmark{3}
 % J. R. McConnell\altaffilmark{4}, and Francesco Visconti\altaffilmark{5}}
@@ -235,7 +235,7 @@
 \section{Posterior distribution of englacial reflector age-depth}\label{byrdchronology}
 	\input{Sections/bayesianInversion}
 	
-\section{Updated Byrd ice core chronology}\label{agedepthresults}
+\section{Dated englacial reflectors at the Byrd ice core}\label{agedepthresults}
 	\input{Sections/agedepthresults}
 
 \section{Discussion}\label{discussion}
@@ -409,7 +409,7 @@ The authors thank UTIG radar interpreters including Robert Stephany, Shubhanga B
 %\end{tabular}
 %\tablenotetext{a}{Footnote text here.}
 %\end{table}
-
+\renewcommand{\thetable}{S\arabic{table}} 
  \begin{table}
  \centering
  \caption{  Depth and age mean, median, and uncertainty for four radar reflectors near Byrd Station, West Antarctica used in this study. The radar-observed two-way travel time (TWTT) for each reflector is also shown.}

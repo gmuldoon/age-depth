@@ -1,3 +1,9 @@
+\renewcommand{\thepage}{S\arabic{page}}  
+\renewcommand{\thesection}{S\arabic{section}}   
+\renewcommand{\thetable}{S\arabic{table}}   
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{figure}{0}
+
 \section{Metropolis Evaluation}
 \counterwithin{figure}{section} %reset figure numbering
 
@@ -5,8 +11,8 @@ The metropolis algorithm was evaluated for 450,000 iterations, with the first 10
 \begin{equation}\label{eqn:proposal}
 \begin{split}
 delta&=Range(Prior) \\
-Proposal_i&=Accepted_{i-1} + dp \cdot (0.5-rand) \cdot delta;
-\end{split}
+Proposal_i&=Accepted_{i-1} + dp \cdot (0.5-rand) \cdot delta; 
+\end{split}\tag{S1}
 \end{equation}
 where $delta$ is the range allowed by the uniform prior for each parameter and $rand$ is a random number between 0 and 1. $Proposal_i$ is the value of a parameter for iteration $i$ and $Accepted_{i-1}$ is the previous value of that parameter accepted by the algorithm. To more efficiently explore parameter space, proposed parameters were selected with step sizes $dp_{Age}$ = 0.1 and $dp_{TWTT}$ = 0.1 for those parameters associated with each likelihood in Equation~\ref{eqn:bigproblem}.
 
@@ -21,6 +27,7 @@ The evaluation of the two likelihood functions (i.e. ``cost") are independently 
 %\end{center}
 \label{fig:cost}
 \end{figure*}
+
 
 
 
@@ -49,18 +56,21 @@ The regularization term, $r$ is the ratio of the variance of a proposed set of a
 
 
 
-% \section{Estimating TWTT uncertainty}\label{sec:sigmatwtt}
 
-% To estimate $\sigma_{TWTT}$ in Equation~\ref{eqn:loglikeage}...
+\section{Estimating TWTT uncertainty}\label{sec:sigmatwtt}
+\counterwithin{figure}{section} %reset figure numbering
+To estimate $\sigma_{TWTT}$ in Equation~\ref{eqn:loglikeage}, we assume a perfect model then perturb it with errors consistent what we expect to find in the data. We assume the depth errors can be described by a gaussian distribution which results in the following relationship between the cost, degrees of freedom, and $\sigma_{TWTT}$ \citep{jackson&huerta2016}.
 
-% \begin{equation}
-% \frac{1}{\sigma_{TWTT}}= \frac{\sqrt{k_e/2}}{\sigma_{cost^*}}
-% \end{equation}
-% Here $k_e$ is the number of degrees of freedom and $cost^*$ represents the perfect model of TWTT which is perturbed with errors consistent with what we expect to find in the radar observations. For simplicity, we assume $k_e$ is the same as the number of reflectors for which we invert.
 
-% \begin{equation}
-% cost^*_{TWTT} = \frac{\sum_{j = z}[TWTT_m(z) - \overline{TWTT_m}(z)]^2}{2}
-% \end{equation}
+\begin{equation}
+\frac{1}{\sigma_{TWTT}}= \frac{\sqrt{k_e/2}}{\sigma_{{E_m}^*}}\tag{S2}
+\end{equation}
+Here $k_e$ is the effective number of degrees of freedom and ${E_m}^*$ represents the perfect model of TWTT which is perturbed with errors consistent with what we expect to find in the radar observations. For simplicity, we assume $k_e$ is the same as the number of reflectors for which we invert.
+
+This method makes use of the ``perfect model":
+\begin{equation}
+cost^*_{TWTT} = \frac{\sum_{j = z}[TWTT_m(z) - \overline{TWTT_m}(z)]^2}{2}
+\end{equation}
 
 
 % \section{Byrd ice core volcanic chronology}\label{sec:volcanic}
@@ -98,7 +108,7 @@ Figure~\ref{fig:flowparamconvergence} shows the results of inverting for several
 \label{fig:flowparamconvergence}
 \end{figure*}
 
-Accumulation rate is divided into 10 parameters, each covering a depth bin of $\sim$200 m. This allows for variation in the accumulation rate over time, as expected. The resulting accumulation rate profiles are shown in Figure~\ref{fig:accumdepth}. As discussed previously and further in Appendix~\ref{sec:regularization}, these profiles have been regularized to preferentially select those which do not exhibit unrealistic variability. In Figure~\ref{fig:accumdepth}, they have been additionally sorted by cost to demonstrate the relative quality of the accepted solutions.
+Accumulation rate is divided into 10 parameters, each covering a depth bin of $\sim$200 m. This allows for variation in the accumulation rate over time, as expected. The resulting accumulation rate profiles are shown in Figure~\ref{fig:accumdepth}. As discussed elsewhere in the Supplemental Information, these profiles have been regularized to preferentially select those which do not exhibit unrealistic variability. In Figure~\ref{fig:accumdepth}, they have been additionally sorted by cost to demonstrate the relative quality of the accepted solutions.
 
 \begin{figure*}[ht]
 %\begin{center}
