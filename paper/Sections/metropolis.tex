@@ -27,7 +27,7 @@ where
  E_m= \frac{\sum_{j}[A_{IC,j} - A_{m,j}(\vec{f},D_{IC})]^2}{2\sigma_A^2} 
 \end{equation}
 
-Parameters $\alpha$ and $\beta$ are assumed to be 1 as in the case for a noninformative gamma prior. The number of degrees of freedom, $k_e$, is assumed to be less than $j$ due to covariation in the age and depth of ice. Because we do not know the value of $k_e$ a priori, we assume $k_e = \frac{j}{2}$ (see Supplement). As with the other parameters in our problem, values of $S$ are proposed for each Metropolis iteration, effectively estimating reflector age uncertainty given the choice of parameter solution for each iteration.
+Parameters $\alpha$ and $\beta$ are assumed to be 1 as in the case for a noninformative gamma prior. The scatter between the model and data is represented by the cost, $E_m$, which determines the uncertainty. The number of degrees of freedom, $k_e$, is assumed to be less than $j$ due to covariation in the age and depth of ice. Because we do not know the value of $k_e$ a priori, we assume $k_e = \frac{j}{2}$ (see Supplement). As with the other parameters in our problem, values of $S$ are proposed for each Metropolis iteration, effectively estimating reflector age uncertainty given the choice of parameter solution for each iteration.
 
 
 %The Metropolis algorithm randomly samples each of the ice flow parameters and computes an age-depth profile. A Bayesian method is used to determine suitability of proposed ice flow parameters in a Bayesian way:
