@@ -7,23 +7,23 @@
 \section{Metropolis Evaluation}
 \counterwithin{figure}{section} %reset figure numbering
 
-The metropolis algorithm was evaluated for 450,000 iterations, with the first 10,000 discarded as ``burnin" iterations, during which the model was experiencing transient behavior. Such a large number of iterations allows for convergence of all parameters to their best solutions. Our method is based on a markov chain, such that the proposed parameter values for each iteration depend on the values from the last accepted iteration according to:
+The metropolis algorithm was evaluated for 450,000 iterations, with the first 10,000 discarded as burn-in iterations, during which the sampling algorithm was experiencing transient behavior. Such a large number of iterations allows for convergence of all parameter distribution. Our method is based on a markov chain, such that the proposed parameter values for each iteration depend on the values from the last accepted iteration according to:
 \begin{equation}\label{eqn:proposal}
 \begin{split}
-delta&=Range(Prior) \\
-Proposal_i&=Accepted_{i-1} + dp \cdot (0.5-rand) \cdot delta; 
+\Delta&=Range(\Pi) \\
+Proposal_i&=Accepted_{i-1} + \delta p \cdot (0.5-rand) \cdot \Delta; 
 \end{split}\tag{S1}
 \end{equation}
-where $delta$ is the range allowed by the uniform prior for each parameter and $rand$ is a random number between 0 and 1. $Proposal_i$ is the value of a parameter for iteration $i$ and $Accepted_{i-1}$ is the previous value of that parameter accepted by the algorithm. To more efficiently explore parameter space, proposed parameters were selected with step sizes $dp_{Age}$ = 0.1 and $dp_{TWTT}$ = 0.1 for those parameters associated with each likelihood in Equation~\ref{eqn:bigproblem}.
+where $\Delta$ is the range allowed by the uniform prior for each parameter and $rand$ is a random number between 0 and 1. $Proposal_i$ is the value of a parameter for iteration $i$ and $Accepted_{i-1}$ is the previous value of that parameter accepted by the algorithm. To more efficiently explore parameter space, proposed parameters were selected with step sizes $\delta p_{Age}$ = 0.1 and $\delta p_{TWTT}$ = 0.1 for those parameters associated with each likelihood in Equation~\ref{eqn:bigproblem}.
 
-The evaluation of the two likelihood functions (i.e. ``cost") are independently accepted according to each function's metropolis probability during each iteration. The accepted solutions for each cost, depth, and age are shown in Figure~\ref{fig:cost}. As seen in the figure, these cost values show little trend aside from occasional positive departures from the mean as the model explores parameter space. 
+The evaluation of the two likelihood functions (i.e. ``cost") are independently accepted according to each function's metropolis probability during each iteration. The accepted solutions for each cost, depth, and age are shown in Figure~\ref{fig:cost}. As seen in the figure, these cost values show sufficient mizing to suggest posterior distributions are stationary.
 
 \begin{figure*}[ht]
 %\begin{center}
 \centering
 \includegraphics[scale=0.4]{../analysis/figures/cost}
 %\captionsetup{width=.9\textwidth}
-\caption[]{Cost of the age and depth likelihood functions at each accepted iteration.}
+\caption[]{Cost of the age and depth likelihood functions at each accepted iteration for the Byrd ice core site.}
 %\end{center}
 \label{fig:cost}
 \end{figure*}
@@ -130,7 +130,7 @@ We see correlation between some accumulation rate parameters (left side of Figur
 \centering
 \makebox[\textwidth][c]{\includegraphics[scale=0.4]{../analysis/figures/convergence2}}
 %\captionsetup{width=.9\textwidth}
-\caption[]{Left: Values of each accumulate rate parameter (in each of 10 depth bins, shallowest at top). Right: Histograms of the parameter values at left. Certain depth bins appear to be correlated and the histograms of values are wider, indicating the accumulation rate parameters are slower to converge and more uncertain.}
+\caption[]{Left: Values of each accumulate rate parameter (in each of 11 depth bins, shallowest at top). Right: Histograms of the parameter values at left. Certain depth bins appear to be correlated and the histograms of values are wider, indicating the accumulation rate parameters are slower to converge and more uncertain.}
 %\end{center}
 \label{fig:accumconvergence}
 \end{figure*}

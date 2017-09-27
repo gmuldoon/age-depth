@@ -9,28 +9,32 @@ A(z) = \int_{z}^{H} \frac{dz}{\epsilon_z \cdot \dot{a}(z)}
 where strain is described by
 \begin{center}
 $    \epsilon_z=
+	\begin{aligned}
     \begin{cases}
-                 1-k(H-z), & h \leq z \leq H \\
-                  kz(q+\frac{1-q}{2h}z), & 0 < z < h
+                 1-k(H-z), \:\:  h \leq z \leq H  & (upper) \\
+                  kz(q+\frac{1-q}{2h}z), \:\:\: 0 \leq z < h &(lower)
     \end{cases}, 
+    \end{aligned}
 $
 
 \end{center}
-and $k$ is a constant such that $k = \frac{2}{2H - h(1-q)}$. $H$ is ice thickness in ice equivalent, which has been observed to be 2164 m at the Byrd ice core site; $z$ is the height above the bed, i.e. the inverse of $H$. We invert for the remaining parameters: $h$, the depth to the Dansgaard-Johnsen shear layer, $\dot{a}$ the accumulation rate which is expressed as a piecewise function with 11 depth bins (see below), and $q$, the ratio of horizontal velocity at the surface to that at the bed of the ice sheet.
+and $k$ is a constant such that $k = \frac{2}{2H - h(1-q)}$. $H$ is ice thickness in ice equivalent, which has been observed to be 2164 m at the Byrd ice core site; $z$ is the height above the bed. We invert for the remaining parameters: $h$, the depth to the Dansgaard-Johnsen shear layer \citep{dansgaardjohnsen1969}, $\dot{a}$ the accumulation rate, and $q$, the ratio of horizontal velocity at the surface to that at the bed of the ice sheet.
 
 The ice flow model accounts for two primary factors in the age-depth profile: burial as a function of accumulation rate, $\dot{a}$, and thinning as a function of strain, $\epsilon_z$. In the simplest realization, ice deposited at a given time at the ice sheet surface will be found at a depth in the ice sheet corresponding to the amount of subsequent accumulation. However, due to strain thinning at depth, the ice will be less deep than would be expected if accumulation alone is considered. 
 
-Among the parameters to be estimated are the ice flow parameters $h$, $q$, and $\dot{a}$. These flow parameters are sampled from uniform priors defined in liberal ranges:
+
+The priors used for the ice flow parameters are defined by:
+%Among the parameters to be estimated are the ice flow parameters $h$, $q$, and $\dot{a}$. These flow parameters are sampled from uniform priors defined in liberal ranges:
 
 \begin{center}
 \begin{equation}\label{priors}
-p(\vec{f}) = 
+\Pi(\vec{f}) = 
 \begin{cases}
-p(h) \sim U(0, 0.5) \\
-p(q) \sim U (0, 1) \\
-p(\dot{a}_{d=11}) \sim U(0.05~m/a,0.25~m/a)\\
+\Pi(h) \sim U(0, 0.5) \\
+\Pi(q) \sim U (0, 1) \\
+\Pi(\dot{a}_{d=11}) \sim U(0.05~m/a,0.25~m/a)\\
 \end{cases}	
 \end{equation}	
 \end{center}
 
-The prior distributions of flow parameters, together denoted as $p(\vec{f})$, conservatively assume the shear layer is in the bottom half of the ice sheet depth \citep{cuffey2010} and that the bed of the ice sheet is moving no faster than the surface, which would allow for cases of both plug and creep flow. Accumulation rate as a function of depth, $\dot{a}$, is sampled from 11 distinct depth bins spanning the ice thickness with transition depths at 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, and 2000 m. This allows for variability of accumulation over time. To limit unrealistic variability in accumulation between depth bins, Tikhonov regularization is used on the age likelihood function to reduce the chance of selecting estimates of the accumulation histories which are highly variable. This term appears in Equation~\ref{eqn:loglikeage} as is described further in the Supplementary Information.
+The prior distributions of flow parameters, together denoted as $\Pi(\vec{f})$, assume the shear layer is in the bottom half of the ice sheet depth \citep{cuffey2010} and that the bed of the ice sheet is moving no faster than the surface, which would allow for cases of both plug and creep flow. Accumulation rate as a function of depth, $\dot{a}$, is sampled from 11 distinct depth bins spanning the ice thickness with transition depths every 200 m. This allows for variability of accumulation over time. Tikhonov regularization is used on the age likelihood function to reduce the chance of selecting estimates of the accumulation histories which are highly variable. This term ($r^6$) appears in Equation~\ref{eqn:loglikeage} as is described further in the Supplementary Information.
