@@ -10,7 +10,7 @@
 The metropolis algorithm was evaluated for 450,000 iterations, with the first 10,000 discarded as burn-in iterations, during which the sampling algorithm was experiencing transient behavior. Such a large number of iterations allows for convergence of all parameter distribution. Our method is based on a markov chain, such that the proposed parameter values for each iteration depend on the values from the last accepted iteration according to:
 \begin{equation}\label{eqn:proposal}
 \begin{split}
-\Delta&=Range(\Pi) \\
+\Delta&=Range(prior) \\
 Proposal_i&=Accepted_{i-1} + \delta p \cdot (0.5-rand) \cdot \Delta; 
 \end{split}\tag{S1}
 \end{equation}
@@ -81,20 +81,10 @@ cost^*_{TWTT} = \frac{\sum_{j = z}[TWTT_m(z) - \overline{TWTT_m}(z)]^2}{2}
 
 
 
-\section{Degrees of freedom and parameter correlation}\label{sec:ke}
+\section{Parameter correlation}\label{sec:ke}
 \counterwithin{figure}{section} %reset figure numbering
 
-As we invert for model parameter values, we anticipate the data points used to constrain our likelihood functions -- sourced from radar observations and a Byrd ice core volcanic chronology -- are not independent of one another. As a result, we expect the number of degrees of freedom to be less than the number of data points available. While we do not know the number of effective degrees of freedom, $k_e$, we explore the sensitivity of our results to our choice of $k_e$ (Figure~\ref{fig:ke}). We find that our choice does not significantly impact the mean estimates of age or depth for our radar reflectors. In lieu of more information about the degrees of freedom, we choose to assume $k_e = \frac{N_{data}}{2} = 30.5$ because convergence on the accumulation rates are strong and the rate at which the algorithm finds solutions is reasonable. 
 
-\begin{figure*}[ht]
-\begin{center}
-%\centering
-\makebox[\textwidth][c]{\includegraphics[scale=0.35]{../analysis/figures/keCompare_tweaked}}
-%\captionsetup{width=.9\textwidth}
-\caption[scale=0.3]{Comparison of results for reflector age and depth assuming a range of $k_e$ values. All agree to within uncertainty.}
-\end{center}
-\label{fig:ke}
-\end{figure*}
 
 Figure~\ref{fig:flowparamconvergence} shows the results of inverting for several model parameters in this problem, including flow parameters such as $q$ as well as ice property parameters such as $v_{ice}$. The results show the parameters are not correlated with one another and do seem to convergence to most-likely solutions.
 

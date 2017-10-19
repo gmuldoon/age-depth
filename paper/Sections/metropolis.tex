@@ -1,5 +1,5 @@
 \subsection{Metropolis Algorithm}\label{metrop}
-At each iteration, the Metropolis/Gibbs sampling algorithm \citep{metropolis1953,hastings1970} proposes values for parameters of interest (those with priors in Equation~\ref{eqn:bigproblem}). The algorithm accepts or rejects proposed sets of parameter values by comparison between the proposed and previously-accepted likelihood (or ``cost") values. A low cost value represents good agreement between model and observations, reflecting a small model-data misfit. According to the Metropolis/Gibbs algorithm, if the cost associated with proposed parameters is lower than that of the last accepted iteration, the proposed parameter values are accepted. Alternatively, higher cost values may be accepted with a probability determined by the likelihood. Each likelihood function is considered separately and both must represent an adequate solution on a given iteration for the proposed parameters to be accepted.
+At each iteration, the Hastings/Gibbs sampling algorithm \citep{hastings1970,gelfand1992} proposes values for parameters of interest (those with priors in Equation~\ref{eqn:bigproblem}). The algorithm accepts or rejects proposed sets of parameter values by comparison between the proposed and previously-accepted settings, as measured by the log-likelihood or ``cost". A low cost value represents good agreement between model and observations. According to the Hastings/Gibbs algorithm, if the cost associated with proposed parameters is lower than that of the last accepted iteration, the proposed parameter values are accepted. Alternatively, higher cost values may be accepted with a probability determined by the change in likelihood. Both likelihood functions must result in acceptance in order for the proposed parameters to be accepted.
 
 
 There are two likelihood functions, describing the model-data misfit between reflector depth and age, respectively:
@@ -17,7 +17,7 @@ p(TWTT_r | D_r,d_{firn},v_{ice} ) \propto exp[\frac{-\sum_{i=4}[TWTT_{r,i} - TWT
 In the depth likelihood function, $TWTT_m(D_r)$ is based on the relationship between depth and TWTT as in Equation~\ref{deptheqn} and $TWTT_r$ is observed by ice-penetrating radar for each reflector, $i$. To estimate $\sigma_{TWTT}$, we assume a perfect model and compute with standard deviation of the numerator given typical errors we expect affect our data. This method allows for correlation between depth errors, as expected. More details are discussed in the Supplement.
 
 
-In the age likelihood function, the modeled age, $A_m$, is a function of ice flow model parameters, $\vec{f}$. A regularization term, $r^6$, is used to penalize large variability in the sampled accumulation rate function input to the ice flow model and $A_m$ comes from solutions to the forward ice flow model. We train our model on $J=61$ volcanic events from \citet{hammer1997}. Importantly, these volcanic ages are overly confident in that they do not include uncertainty information. To accomodate additional unknown uncertainty in this data, we include an unknown precision parameter, $S$, and use it to infer uncertainty in the volcanic record from scatter between our model and the observed data. $S$ is a ``nuisance" parameter that accounts for uncertainty in $\sigma_A$ by using $E_m$ as a measure of scatter between modeled age $A_m$ and $\Pi(S) \propto Ga(\alpha,\beta)$ The posterior probability distribution of $S$ is therefore:
+In the age likelihood function, the modeled age, $A_m$, is a function of ice flow model parameters and accumulation rate history, $\vec{f}$. A regularization term, $r^6$, is used to penalize large variability in the sampled accumulation rate function input to the ice flow model and $A_m$ comes from solutions to the forward ice flow model. We use $J=61$ volcanic events from \citet{hammer1997} as the observational target, $A_{IC}$. Importantly, the volcanic ages do not include uncertainty information. To determine volcanic age uncertainties, we include a precision parameter, $S$, and use it to infer uncertainty in the volcanic record from scatter between our model and the observed data. $S$ is a ``nuisance" parameter that accounts for uncertainty in $\sigma_A$ by using $E_m$ as a measure of scatter between modeled age $A_m$ and $p(S) \propto Ga(\alpha,\beta)$ \citep{jackson&huerta2016}. The posterior probability distribution of $S$ is:
 
 \begin{equation}\label{eqn:S}
 PPD(S) = Ga(\frac{k_e}{2}+\alpha, E_m+\beta)
@@ -27,7 +27,19 @@ where
  E_m= \frac{\sum_{j}[A_{IC,j} - A_{m,j}(\vec{f},D_{IC})]^2}{2\sigma_A^2} 
 \end{equation}
 
-Parameters $\alpha$ and $\beta$ are assumed to be 1 as in the case for a noninformative gamma prior. The scatter between the model and data is represented by the cost, $E_m$, which determines the uncertainty. The number of degrees of freedom, $k_e$, is assumed to be less than $J$ due to covariation in the age and depth of ice. Because we do not know the value of $k_e$ a priori, we assume $k_e = \frac{J}{2}$ (see Supplement). Unlike other parameters in our problem in which Metropolis-Hastings sampling is used, values of $S$ are proposed using Gibbs sampling \citep{gelfand1992}, effectively estimating reflector age uncertainty given the choice of parameter solution for each iteration.
+Parameters $\alpha$ and $\beta$ are assumed to be 1 as in the case for a noninformative gamma prior. The solution uncertainty is affected by this choice. Unlike other parameters in our problem, values of $S$ are proposed using Gibbs sampling \citep{gelfand1992}, effectively estimating reflector age uncertainty given the choice of parameter solution for each iteration.
+
+The number of degrees of freedom, $k_e$, is not known. We assume it is less than $J$ due to the way errors in age and depth integrate down the ice column. Because we do not know the value of $k_e$ a priori, we assume $k_e = \frac{J}{2}$. The solution uncertainty is affected by the value of $k_e$ as shown by the the sensitivity of our results to our choice of $k_e$ in Figure~\ref{fig:ke}. We find that our choice does not significantly impact the mean estimates of age or depth for our radar reflectors. In lieu of independent information about an appropriate value of $k_e$, we choose to assume $k_e = \frac{J}{2} = 30.5$ because mixing of the accumulation rate parameters is strong and the rate at which the algorithm finds solutions is reasonable. 
+
+\begin{figure*}[ht]
+\begin{center}
+%\centering
+\makebox[\textwidth][c]{\includegraphics[scale=0.35]{../analysis/figures/keCompare_tweaked}}
+%\captionsetup{width=.9\textwidth}
+\caption[scale=0.3]{Comparison of results for reflector age and depth assuming a range of $k_e$ values. All agree to within uncertainty.}
+\end{center}
+\label{fig:ke}
+\end{figure*}
 
 
 %The Metropolis algorithm randomly samples each of the ice flow parameters and computes an age-depth profile. A Bayesian method is used to determine suitability of proposed ice flow parameters in a Bayesian way:
