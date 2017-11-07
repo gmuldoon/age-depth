@@ -19,20 +19,20 @@ function [paramRange,nparam] = setParams2(accumFlag,H,pik)
 %         paramRange(9,1:2) =  [0.05 0.20];
 %         paramRange(10,1:2) = [0.05 0.14];
 %         paramRange(11,1:2) = [0.05 0.14];
-        paramRange(2,1:2) =  [0.01 0.25];           % accum 1294m < depth < 2191m
-        paramRange(3,1:2) =  [0.01 0.25];           % accum 1024m < depth < 1294m
-        paramRange(4,1:2) =  [0.01 0.25];          % accum 150 m < depth < 1024m
-        paramRange(5,1:2) =  [0.01 0.25];           % accum depth < 150m
+        paramRange(2,1:2) =  [0.01 0.25];           % bottom of the ice
+        paramRange(3,1:2) =  [0.01 0.25];           
+        paramRange(4,1:2) =  [0.01 0.25];          
+        paramRange(5,1:2) =  [0.01 0.25];           
         paramRange(6,1:2) =  [0.01 0.25];
         paramRange(7,1:2) =  [0.01 0.25];
         paramRange(8,1:2) =  [0.01 0.25];
         paramRange(9,1:2) =  [0.01 0.25];
         paramRange(10,1:2) = [0.01 0.25];
-        paramRange(11,1:2) = [0.01 0.25];
+        paramRange(11,1:2) = [0.01 0.25];           % top of the ice
         
         paramRange(12,1:2)=[0.1 0.5];            % Nye h
         paramRange(13,1:2)=[1.68*10^8 1.695*10^8]; %velocity in glacial ice
-        paramRange(14,1:2)=[20 65];             %firn correction (diff in ice thickness between ice column with/out firn
+        paramRange(14,1:2)=[6 37];             %firn correction (diff in ice thickness between ice column with/out firn
         
          % determine number of parameters
         nparam = length(paramRange(:,1))+lp;

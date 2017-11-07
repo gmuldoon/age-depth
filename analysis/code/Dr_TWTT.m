@@ -8,7 +8,8 @@ function TWTTm_microsec = Dr_TWTT(Dr,vIce,dFirn)
     % Data for pik1 is digitized at 20ns. conservatively, have accuracy of
     % sampling this phase to within lambda/2. 
     ePW = nan(length(Dr),1);
-    sigma_pw = 20e-9/2; %this is seconds
+    sigma_pw = 14e-9; %this is seconds
+    %sigma_pw = 1e-9;
     pik_pw_err=nan(length(Dr),1);
     surf_pw_err = normrnd(0,sigma_pw);
     for j=1:length(Dr)

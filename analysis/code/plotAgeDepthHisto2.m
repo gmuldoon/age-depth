@@ -26,8 +26,7 @@ function plotAgeDepthHisto2(Dr,core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wd
 
     %% Plot pik depth histogram (with variable depth max on plot)
     subplot(3,1,1)
-    text(0.5, 0.5, 'A','FontUnits','normalized')
-    text(0.5, 0.5, 'Byrd','FontUnits','normalized')
+
     for i=1:length(Ar(:,1))
         % set plot characteristics so that each pik is a different color
         f=histogram(gca,(Dr(i,burnin:end)));hold on
@@ -59,13 +58,12 @@ function plotAgeDepthHisto2(Dr,core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wd
     ylabel('N')
     X1.YLim=[0 max(Nmax)+40];
     set(gca,'FontSize',15)
-    xlim([400 1700])
+    xlim([200 1700])
+    text(0.01, 0.8, 'A) Byrd Depth','FontSize',15,'FontWeight','bold','Units','Normalized')
 
 
     %% Plot pik age histogram (with fixed age max on plot)
     subplot(3,1,2)
-    text(0.2, 0.4, 'B')
-    text(0.7, 0.4, 'Byrd')
     for i=1:length(Ar(:,1))
         % set plot characteristics so that each pik is a different color
         f=histogram(Ar(i,burnin:end)/1000); hold on
@@ -96,9 +94,9 @@ function plotAgeDepthHisto2(Dr,core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wd
     xlabel('Age (ka)','FontSize',15)
     ylabel('N')
 %     ylim([0 max(Nmax)+75]);hold on
-     xlim([0 30])
-     set(gca,'FontSize',15)
-
+    xlim([0 30])
+    set(gca,'FontSize',15)
+    text(0.01,0.8, 'B) Byrd Age','FontSize',15,'FontWeight','bold','Units','Normalized')
 
     %% Plot WD age distributions
     WD_depth = mean(pikDepthUncWD,2);
@@ -106,8 +104,6 @@ function plotAgeDepthHisto2(Dr,core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wd
     wd_age_unc = wdAge1950Unc(round(WD_depth),:);
     
     subplot(3,1,3)
-    text(0.2, 0.1, 'C')
-    text(0.7, 0.1, 'WAIS Divide')
     for i=1:length(wd_age_unc(:,1))
         x = [0:0.005:65];
         norm = normpdf(x,wd_age(i)/1000,wd_age_unc(i)/1000);
@@ -138,6 +134,7 @@ function plotAgeDepthHisto2(Dr,core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wd
 %     ylim([0 max(Nmax)+75]);hold on
      xlim([0 30])
      set(gca,'FontSize',15)
+     text(0.01, 0.8, 'C) WAIS Divide Age','FontSize',15,'FontWeight','bold','Units','Normalized')
      
      print('../figures/agedepthhisto','-dpng')
 

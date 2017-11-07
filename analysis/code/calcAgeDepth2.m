@@ -44,18 +44,20 @@ figure(10)
 clf
 [~,~,pikDepthUncWD,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(age,obsAge1950,D,H,accumFlag,z,burnin,Param,datFlag,1,Ar,Zr,1);
 print('../figures/spaghetti','-dpng')
-
+savefig('../figures/spaghetti.fig')
 %% Plot age-depth histograms
 plotAgeDepthHisto2(Param(nparam-lp+1:nparam,:),core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wdAge1950Unc)
-
+savefig('../figures/agedepthhisto.fig')
+print('../figures/agedepthhisto','-dpng')
 %% Regularization plot
 set(0,'defaulttextinterpreter','latex')
 figure(12)
-plot(reg(burnin:end),'LineWidth',3);
+%plot(reg(burnin:end),'LineWidth',3);
+hist(reg(burnin:end))
 xlabel('Metropolis iteration','FontSize', 15)
 ylabel('$r$')
 set(gca, 'FontSize', 15)
-xlim([0 numsteps])
+%xlim([0 numsteps])
 print('../figures/regularization','-dpng')
 
 %% Cost plots
@@ -99,16 +101,19 @@ print('../figures/accumdepth','-dpng')
 [cost_sorted,cost_sorted_I] = sort(cost(:,2),1); 
 Param_sorted = Param(:,cost_sorted_I);
 
-acc_depths = fliplr([200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]);
+acc_depths = fliplr([200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800]);
 naccum = length(acc_depths);
 AccumSortedFull = zeros(H,burnin+numsteps);
 for i = 1:naccum
-    if i == 1
+    if i == 1 % bottom of the ice
         for j = H:-1:acc_depths(1)
             AccumSortedFull(j,:) = Param_sorted(i+1,:);
         end
-    elseif i == naccum
-        for j = acc_depths(i-1):-1:1
+    elseif i == naccum % top of the ice
+        for j = acc_depths(i):-1:1
+            AccumSortedFull(j,:) = Param_sorted(i+2,:);
+        end
+        for j = acc_depths(i-1):-1:acc_depths(i)
             AccumSortedFull(j,:) = Param_sorted(i+1,:);
         end
     else
@@ -121,7 +126,7 @@ set(0,'defaulttextinterpreter','latex')
 figure(15)
 clf
 n=20000;
-cm=colormap(parula((burnin+numsteps)/n));
+cm=colormap(parula((burnin+numsteps)/n+1));
 cnt = 0;
 for i = burnin:n:burnin+numsteps
     cnt = cnt+1;
@@ -140,11 +145,11 @@ print('../figures/accumdepthSorted','-dpng')
 
 
 %% Degrees of freedom plots
-% agediv4 = age;
-% Paramdiv4 = Param;
-% Ardiv4 = Ar;
-% Zrdiv4 = Zr;
-% Drdiv4 = Paramdiv4(end-lp:end,:);
+agediv4 = age;
+Paramdiv4 = Param;
+Ardiv4 = Ar;
+Zrdiv4 = Zr;
+Drdiv4 = Paramdiv4(end-lp:end,:);
 % [~,~,pikDepthUncWD,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(...
 %     agediv4,obsAge1950,D,H,accumFlag,z,burnin,Paramdiv4,datFlag,1,Ardiv4,Zrdiv4,4);
 
@@ -155,7 +160,7 @@ print('../figures/accumdepthSorted','-dpng')
 % Drdiv2 = Paramdiv2(end-lp:end,:);
 
 %[~,~,pikDepthUncWD,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(...
-%    agediv2,obsAge1950,D,H,accumFlag,z,burnin,Paramdiv2,datFlag,1,Ardiv2,Zrdiv2,2);
+%   agediv2,obsAge1950,D,H,accumFlag,z,burnin,Paramdiv2,datFlag,1,Ardiv2,Zrdiv2,2);
 
 % agediv1 = age;
 % Paramdiv1 = Param;
@@ -180,54 +185,170 @@ print('../figures/accumdepthSorted','-dpng')
 % Drdiv10 = Paramdiv10(end-lp:end,:);
 
 %%
-% figure(17);
-% clf
+set(0,'defaulttextinterpreter','latex')
+figure(30);
+clf
 % text(0.25,0,'Depth (m)')
 % text(0.75,0, 'Age (ka)')
 % 
-% subplot(4,2,1)
-% subplot(4,2,2)
-% [ax1,ax2] = plotAgeDepthHisto2_ke(Drdiv1,core,Ardiv1,burnin,1);
-% 
+subplot(4,1,1)
+[ax1] = plotAgeDepthHisto2_ke(Drdiv1,core,Ardiv1,burnin,1);
+
+subplot(4,1,2)
+%subplot(4,2,4)
+[ax2] = plotAgeDepthHisto2_ke(Drdiv2,core,Ardiv2,burnin,2);hold on
+
 % subplot(4,2,3)
-% subplot(4,2,4)
-% [ax3,ax4] = plotAgeDepthHisto2_ke(Drdiv2,core,Ardiv2,burnin,3);
+% [ax3] = plotAgeDepthHisto2_ke(Drdiv4,core,Ardiv4,burnin,3);
 % 
-% subplot(4,2,5)
-% subplot(4,2,6)
-% [ax5,ax6] = plotAgeDepthHisto2_ke(Drdiv4,core,Ardiv4,burnin,5);
-% 
-% subplot(4,2,7)
-% subplot(4,2,8)
-% [ax7,ax8] = plotAgeDepthHisto2_ke(Drdiv5,core,Ardiv5,burnin,7);
+subplot(4,1,4)
+[ax4] = plotAgeDepthHisto2_ke(Drdiv5,core,Ardiv5,burnin,4);
 
 %print('../figures/keCompare','-dpng')
 
 %% Correlation plots
 set(0,'defaulttextinterpreter','latex')
 % Write out to file 
-acc_depths = {'$< 200 m$', '$< 400 m$', '$< 600 m$', '$< 800 m$ ', '$< 1000 m$ ', '$< 1200 m$', '$< 1400 m$', '$< 1600 m$', '$< 1800 m$', '$> 1800 m$'}';
+%acc_depths = {'$< 200 m$', '$< 400 m$', '$< 600 m$', '$< 800 m$ ', '$< 1000 m$ ', '$< 1200 m$', '$< 1400 m$', '$< 1600 m$', '$< 1800 m$', '$> 1800 m$'}';
+labels = {'\boldmath{$q$}','\boldmath{$\dot{a}_{<\,1400\, m}$}', '\boldmath{$\dot{a}_{<\,1600\,m}$}', '\boldmath{$\dot{a}_{<\,1800\, m}$}', '\boldmath{$\dot{a}_{>\, 1800\, m}$}'}';
+n = length(labels);
+
+tmp = Param([1,5,4,3,2],:);
 
 figure(16)
 clf
-[Scatter,SAx,BigAx,Histo,HAx] = plotmatrix_withr(Param(11:-1:2,:)'); % 11 is the shallowest
+%[Scatter,SAx,BigAx,Histo,HAx]= plotmatrix_withr(Param(12:-1:1,burnin:1000:end)'); % 11 is the shallowest
+[Scatter,SAx,BigAx,Histo,HAx]= plotmatrix_withr(tmp(1:end,burnin:1000:end)'); 
 
-for i = 1:naccum
-    SAx(i,1).YLabel.String=string(acc_depths(i));
-    for j = 1:naccum
-        SAx(i,j).XLim = [0 0.25];
-        SAx(i,j).YLim = [0 0.25]; 
+for i = 1:n
+    SAx(i,1).YLabel.String=string(labels(i));
+    SAx(i,1).YLabel.Rotation=0;
+    SAx(i,1).YLabel.FontSize=14;
+    SAx(i,1).YLabel.Units='Normalized';
+    SAx(i,1).YLabel.Position=[-0.3 0.5000 0];
+    for j = 1:n
+        if j > 1 && i > 1  
+%             SAx(i,j).XLim = [0.0 0.25];
+%             SAx(i,j).YLim = [0.0 0.25]; 
+        end
         
-        SAx(end,j).XLabel.String = string(acc_depths(j));
+        SAx(end,j).XLabel.String = string(labels(j));
         SAx(end,j).XLabel.FontWeight = 'bold';
+        SAx(end,j).XLabel.FontSize=14;
     end
-    HAx(i).XLim = [0 0.25];
-    Histo(i).BinWidth = 0.01;
+    if i > 1
+%         HAx(i).XLim = [0.0 0.25];
+        Histo(i).BinWidth = 0.005;
+    end
 end
 
 print('../figures/accumCorrelation','-dpng')
-%%
+%% Depth correlation
+set(0,'defaulttextinterpreter','latex')
+% Write out to file 
+%acc_depths = {'$< 200 m$', '$< 400 m$', '$< 600 m$', '$< 800 m$ ', '$< 1000 m$ ', '$< 1200 m$', '$< 1400 m$', '$< 1600 m$', '$< 1800 m$', '$> 1800 m$'}';
+
+labels={'\boldmath{$d_{firn}$}','\boldmath{${D_1}$}','\boldmath{$D_2$}','\boldmath{$D_3$}','\boldmath{$D_4$}'};
+figure(17)
+clf
+[Scatter,SAx,BigAx,Histo,HAx] = plotmatrix_withr(Param(14:nparam,burnin:1000:end)');
+
+for i = 1:length(labels)
+    SAx(i,1).YLabel.String=string(labels(i));
+    SAx(i,1).YLabel.Rotation=0;
+    SAx(i,1).YLabel.FontSize=14;
+    SAx(i,1).YLabel.Units='Normalized';
+    SAx(i,1).YLabel.Position=[-0.25 0.5000 0];
+    for j = 1:length(labels)
+%         SAx(i,j).XLim = [0 0.25];
+%         SAx(i,j).YLim = [0 0.25]; 
+        
+        SAx(end,j).XLabel.String = string(labels(j));
+        SAx(end,j).XLabel.FontSize=14;
+    end
+%     HAx(i).XLim = [0 0.25];
+%     Histo(i).BinWidth = 0.01;
+end
+
+print('../figures/depthCorrelation','-dpng')
+
+%% Everything correlation
+set(0,'defaulttextinterpreter','latex')
+% Write out to file 
+%acc_depths = {'$< 200 m$', '$< 400 m$', '$< 600 m$', '$< 800 m$ ', '$< 1000 m$ ', '$< 1200 m$', '$< 1400 m$', '$< 1600 m$', '$< 1800 m$', '$> 1800 m$'}';
+
+figure(18)
+clf
+[Scatter,SAx,BigAx,Histo,HAx] = plotmatrix_withr(Param(1:nparam,burnin:1000:end-1)');
+
+% for i = 2:naccum+1
+%     SAx(i,1).YLabel.String=string(acc_depths(i));
+%     SAx(i,1).YLabel.Rotation=0;
+%     SAx(i,1).YLabel.Units='Normalized';
+%     SAx(i,1).YLabel.Position=[-0.5 0.5000 0];
+%     for j = 2:naccum+1
+%         SAx(i,j).XLim = [0 0.25];
+%         SAx(i,j).YLim = [0 0.25]; 
+%         
+%         SAx(end,j).XLabel.String = string(acc_depths(j));
+%         SAx(end,j).XLabel.FontWeight = 'bold';
+%     end
+% %     HAx(i).XLim = [0 0.25];
+% %     Histo(i).BinWidth = 0.01;
+% end
 
 
 
+
+%% Quantify uncertainty in the difference in ages between two layers
+
+% Take the difference between each layer for each iteration
+L = nan(lp-1,numsteps+burnin);
+for i = 1:lp-1
+    L(i,:) = Param(nparam-lp+i+1,:) - Param(nparam-lp+i,:);
+end
+
+
+% Plot the distribution of each layer (any smaller?)
+figure(50)
+clf
+set(0,'defaulttextinterpreter','latex')
+colors=distinguishable_colors(length(L(:,1)));
+colors(3,:) = [0 0.5 0]; %make the green darker so it's not blinding
+    for i=1:lp-1
+        % set plot characteristics so that each pik is a different color
+        f=histogram(L(i,burnin:end)); hold on
+        f.FaceColor=colors(i,:);hold on
+        f.EdgeColor=colors(i,:);hold on
+        %f.FaceAlpha=0.05; hold on
+        f.EdgeAlpha=0.25; hold on
+        %f.BinWidth=0.01; hold on
+        
+        % Label mean and stddev for each histo so they hopefully don't overlap
+        if rem(i,2)
+            text(mean(L(i,burnin:end)),max(f.Values)+1000*0.5,strcat(num2str(round(mean(L(i,burnin:end)),2)),...
+            ' $\pm~$ ',num2str(round(2*std(L(i,burnin:end)),2)),' m'),'Fontsize',15,'Color',colors(i,:),'FontWeight','bold')
+        else
+            text(mean(L(i,burnin:end)),max(f.Values)+1000*.75,strcat(num2str(round(mean(L(i,burnin:end)),2)),...
+            ' $\pm~$ ',num2str(round(2*std(L(i,burnin:end)),2)),' m'),'Fontsize',15,'Color',colors(i,:),'FontWeight','bold')
+        end
+         Nmax(i,1)=max(f.Values);
+    end
+
+%% Compute mean and standard deviation of all params
+
+for i = 1:nparam
+    param_stats(i,1) = median(Param(i,:));
+    param_stats(i,2) = std(Param(i,:));
+end
+
+param_stats(nparam+1,1) = mean(S);
+param_stats(nparam+1,2) = std(S);
+param_stats(nparam+2,1) = mean(reg);
+param_stats(nparam+2,2) = std(reg);
+
+param_stats
+
+    
+    
 toc;

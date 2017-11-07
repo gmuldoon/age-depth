@@ -28,15 +28,17 @@ disp('Running the metropolis algorithm')
 
 %% Set algorithm parameters
     rng(seed);
-    burnin   = 10000;  
-    numsteps = 450000;
+    burnin   = 50000;  
+    numsteps = 350000;
             
     totsteps = numsteps + burnin;
     
     cost = nan(totsteps, 2);
     Param = nan(nparam,totsteps);
     lp = length(pik);
-    sigmaTWTT = estimate_sigmaTWTT(seed);
+    %sigmaTWTT = estimate_sigmaTWTT(seed);
+    sigmaTWTT = 0.14;
+    %sigmaTWTT = 0.01;
    
 %% Initial proposal
     % propose parameter values
@@ -98,8 +100,29 @@ disp('Running the metropolis algorithm')
         propParam = proposeParams2(nparam,paramRange,prevParam,lp,H);
         %propParam(2:11,1) = smooth(propParam(2:11,1),3);
         
+        % To compute error budget, set propParam to optimal value for each
+        % param at a time. 
+        %propParam(13,1) = 1.69e8; %vice
+        %propParam(14,1) = 27.5;
+        %propParam(1,1) = 0.69;
+        %propParam(12,1) = 0.4;
+        
+%         propParam(2,1) = 0.139;
+%         propParam(3,1) = 0.103;
+%         propParam(4,1) = 0.078;
+%         propParam(5,1) = 0.071;
+%         propParam(6,1) = 0.123;
+%         propParam(7,1) = 0.110;
+%         propParam(8,1) = 0.180;
+%         propParam(9,1) = 0.126;
+%         propParam(10,1) = 0.115;
+%         propParam(11,1) = 0.148;
+        
+        
         %calculate proposal cost
         [costAge_prop,S_prop,reg_prop]  = loglikelihoodAge(propParam,H,D,z,obsAge1950,accumFlag,lp);
+        
+%        S_prop = 0.083;
         costTWTT_prop = loglikelihoodTWTT(propParam,lp,pik,sigmaTWTT);
         
         %accept/reject proposal
@@ -119,9 +142,9 @@ disp('Running the metropolis algorithm')
 %             exp(-S_prop*(costAge_prop - costAge))
 %             exp(-(costTWTT_prop - costTWTT))
 %         end
+
         if (costTWTT_prop < costTWTT) || (exp(-(costTWTT_prop - costTWTT)) > random_number2) % accept TWTT
-        if (costAge_prop < costAge) || (exp(-S_prop*(costAge_prop - costAge)) > random_number1) %accept Age params
-            
+            if (costAge_prop < costAge) || (exp(-S_prop*(costAge_prop - costAge)) > random_number1) %accept Age params           
                 % Accept all params if both likelihoods suggest to
                 if i > burnin
                     nAccept=nAccept+1;
