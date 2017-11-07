@@ -172,10 +172,11 @@
 % \altaffilmark will produce footnote;
 % matching \altaffiltext will appear at bottom of page.
 
- \authors{Gail R. Muldoon,\altaffilmark{1}$^\dagger$  Charles S. Jackson,\altaffilmark{1} Duncan A. Young,\altaffilmark{1} 
+ \authors{Gail R. Muldoon,\altaffilmark{1}\altaffilmark{2}$^\dagger$  Charles S. Jackson,\altaffilmark{1} Duncan A. Young,\altaffilmark{1} 
  and Donald D. Blankenship \altaffilmark{1}}
 
-\altaffiltext{1}{Institute for Geophysics, University of Texas at Austin, Austin, Texas, USA.}
+\altaffiltext{1}{University of Texas Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin, Austin, Texas, USA.}
+\altaffiltext{2}{Department of Geological Sciences, Jackson School of Geosciences, University of Texas at Austin, Austin, TX, USA}
 %\correspondingauthor{Gail Muldoon}
 $\dagger${gail.muldoon@utexas.edu}
 % \authors{R. C. Bales,\altaffilmark{1}
@@ -260,8 +261,8 @@ $\dagger${gail.muldoon@utexas.edu}
 % Appendix A: Here Is Appendix Title
 %
 
-\appendix
-	\input{Sections/appendix}
+%\appendix
+%	\input{Sections/appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Optional Glossary or Notation section, goes here
@@ -409,21 +410,21 @@ The authors thank UTIG radar interpreters including Robert Stephany, Shubhanga B
 %\end{tabular}
 %\tablenotetext{a}{Footnote text here.}
 %\end{table}
-\renewcommand{\thetable}{S\arabic{table}} 
+%\renewcommand{\thetable}{S\arabic{table}} 
  \begin{table}
  \centering
- \caption{  Depth and age mean, median, and uncertainty for four radar reflectors near Byrd Station, West Antarctica used in this study. The radar-observed two-way travel time (TWTT) for each reflector is also shown.}
+ \caption{  Depth and age mean and standard deviation for four radar reflectors near Byrd Station, West Antarctica used in this study. The radar-observed two-way travel time (TWTT) for each reflector is also shown.}
  \begin{tabular}{ c c c c c c c}
  %\cline{1-7}
 \multirow{2}{*}{Reflector} & TWTT&  \multicolumn{2}{c}{Depth (m)} &  & \multicolumn{2}{c}{Age  (a)} \\   
 % %& ($\mu$s)& Mean & Median & $\sigma$ & & Mean & Median & $\sigma$ \\
- & ($\mu$s)& Mean  & $2\sigma$ & &Mean  & $2\sigma$ \\
+ & ($\mu$s)& Mean  & $\sigma$ & &Mean  & $\sigma$ \\
  \cline{3-4} \cline{6-7}
-  1 & 8.44    & 537  &  27.5 & & 5150 & 820   \\
+  1 & 8.44    & 525  &  27.7 & & 4830 & 520   \\
   %2 & 9.58    & 633.1  &  6.5 & &1770 & 40   \\
-  2 & 12.54   & 882.9  &  27.2 & & 9110 & 910   \\
-  3 & 17.55   & 1305.9 &  28.3 & &18220 & 1150  \\
-  4 & 22.42   & 1492.5 &  29.3 & &26130 & 1590  \\
+  2 & 12.54   & 870.8 &  29.1 & & 8900 & 550   \\
+  3 & 17.55   & 1294.5 &  29.4 & &17800 & 1130  \\
+  4 & 22.42   & 1481.9 &  29.9 & &25670 & 1450  \\
 %  %6 & 11.10  & 596.9  & 596.9  & 2.3 & &5440 & 5440 & 270   \\
 %  %7 & 12.78  & 738.8  & 738.8  & 2.3 & &7120 & 7110 & 370   \\
 %  %8 & 13.02  & 759.1  & 759.1  & 2.3 & 7350 & 7340 & 390   \\
@@ -435,6 +436,34 @@ The authors thank UTIG radar interpreters including Robert Stephany, Shubhanga B
 %\captionsetup{width=.9\textwidth}
 
  \label{tab:depthunc}
+\end{table}
+
+ \begin{table}
+ \centering
+ \caption{ Mean and standard deviation of parameter values estimated in this study and used to estimate reflector age and depth. }
+ \begin{tabular}{ l c | c c }
+Parameter & Median $\pm$ 1$\sigma$ & Parameter & Median $\pm$ 1$\sigma$  \\   
+ \cline{1-4}
+% %& ($\mu$s)& Mean & Median & $\sigma$ & & Mean & Median & $\sigma$ \\
+% & ($\mu$s)& Mean  & $2\sigma$ & &Mean  & $2\sigma$ \\
+% \cline{3-4} \cline{6-7}
+  $\dot{a}$( d $<$ 200 m )                         & 14.8 $\pm$ 0.2 cm & $q$            &  0.71      $\pm$ 0.16  \\
+  $\dot{a}$( 200 m  $\ge$ d $<$ 400 m)    & 11.5 $\pm$ 0.7 cm & $h$            &  0.40      $\pm$ 0.07   \\
+  $\dot{a}$( 400 m  $\ge$ d $<$ 600 m)    & 12.6 $\pm$ 4.6 cm & $d_{firn}$   &  30.7      $\pm$ 8.4 m    \\
+  $\dot{a}$( 600 m  $\ge$ d $<$ 800 m)    & 18.0 $\pm$ 4.2 cm & $v_{ice}$   & 1.690  $\times 10^8 \pm 2.503 \times 10^5$ m/s     \\
+  $\dot{a}$( 800 m  $\ge$ d $<$ 1000 m)  & 11.0 $\pm$ 3.4 cm & $S$            & 0.083     $\pm$ 0.051  \\
+  $\dot{a}$( 1000 m $\ge$ d $<$ 1200 m) & 12.3 $\pm$ 1.4 cm &  \\
+  $\dot{a}$( 1200 m $\ge$ d $<$ 1400 m) &    7.1 $\pm$ 0.6 cm & \\
+  $\dot{a}$( 1400 m $\ge$ d $<$ 1600 m) &    7.8 $\pm$ 0.9 cm & \\
+  $\dot{a}$( 1600 m $\ge$ d $<$ 1800 m) & 10.3 $\pm$ 1.7 cm & \\
+  $\dot{a}$( 1800 m $\ge$ d )                    & 13.9 $\pm$ 3.0 cm & \\% $R$            & 3.713     $\pm$ 2.624  \\
+ %$\dot{a}$( 2000 m $\ge$ d )                     & 15.4 $\pm$ 3.9 cm &  &    \\
+% %\cline{1-7}
+ \end{tabular}
+%\tablenotetext{a}{Footnote text here.}
+%\captionsetup{width=.9\textwidth}
+
+ \label{tab:paramvals}
 \end{table}
 
 % See below for how to make landscape/sideways figures or tables.
