@@ -17,8 +17,8 @@ function propParam = proposeParams2(nparam,paramRange,param,lp,H)
 %% Propose values for parameters as an offset from previous param value
 %     dpAge = 0.1; % proposal step size
 %     dpDep = 0.1;
-    dpAge = 0.01; % proposal step size
-    dpDep = 0.01;
+    dpAge = 0.05; % proposal step size
+    dpDep = 0.05;
     selecting=true;
     delta=(paramRange(:,2)-paramRange(:,1));
     %delta=(paramRange(1:nparam-lp,2)-paramRange(1:nparam-lp,1));

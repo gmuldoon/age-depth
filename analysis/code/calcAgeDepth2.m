@@ -7,6 +7,7 @@ depthPlotting = 1;          % whether or not to plot depth calculation
 
 %% 1. Set up environment
     addpath('/Users/gail/Documents/Research/Matlab_functions');
+    addpath('/Users/gail/Documents/Research/Matlab_functions/export_fig');
     set(0,'DefaultFigureWindowStyle','docked')
     seed=123;      % seed for reproducibility
 
@@ -43,13 +44,13 @@ plotConvergence(Param,core,burnin,accumFlag,datFlag,paramRange)
 figure(10)
 clf
 [~,~,pikDepthUncWD,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(age,obsAge1950,D,H,accumFlag,z,burnin,Param,datFlag,1,Ar,Zr,1);
-print('../figures/spaghetti','-dpng')
+print('../figures/spaghetti','-dpng','-r1000')
 savefig('../figures/spaghetti.fig')
 %% Plot age-depth histograms
 plotAgeDepthHisto2(Param(nparam-lp+1:nparam,:),core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wdAge1950Unc)
 savefig('../figures/agedepthhisto.fig')
-print('../figures/agedepthhisto','-dpng')
-%% Regularization plot
+print('../figures/agedepthhisto','-dpng','-r1000')
+ %% Regularization plot
 set(0,'defaulttextinterpreter','latex')
 figure(12)
 %plot(reg(burnin:end),'LineWidth',3);
@@ -58,7 +59,7 @@ xlabel('Metropolis iteration','FontSize', 15)
 ylabel('$r$')
 set(gca, 'FontSize', 15)
 %xlim([0 numsteps])
-print('../figures/regularization','-dpng')
+print('../figures/regularization','-dpng','-r1000')
 
 %% Cost plots
 set(0,'defaulttextinterpreter','latex')
@@ -77,7 +78,7 @@ xlabel('Metropolis iteration','FontSize', 15)
 ylabel('$cost_{Age}$','FontSize', 15)
 xlim([0 numsteps])
 set(gca, 'FontSize', 15)
-print('../figures/cost','-dpng')
+print('../figures/cost','-dpng','-r1000')
 
 %% Accumulation depth plot
            
@@ -94,7 +95,7 @@ for i = burnin:1000:burnin+numsteps
 end
 
 set(gca, 'FontSize', 12)
-print('../figures/accumdepth','-dpng')
+print('../figures/accumdepth','-dpng','-r1000')
 
 %% Accumulation paper figure
 %sort accums by age cost
@@ -141,7 +142,22 @@ h=colorbar;
 set(get(h,'title'),'string','Normalized Cost');
 set(gca,'FontSize',15);
 
-print('../figures/accumdepthSorted','-dpng')
+% Add tick marks for Age
+
+ax1=gca;
+ax2 = axes('Position', get(ax1, 'Position'),'Color', 'none');
+set(ax2, 'XAxisLocation', 'top','YAxisLocation','Right');
+% set the same Limits and Ticks on ax2 as on ax1;
+set(ax2, 'XLim', get(ax1, 'XLim'));
+set(ax2, 'XTick', get(ax1, 'XTick'));
+AgeTickLabels= {'0' '1.4' '3.3' '5.4' '7.7' '10.7' '14.8' '21.8' '30.9' '42.1' '63.7'};
+DummyYLabels = {''};
+set(ax2, 'XTickLabel', AgeTickLabels,'YTickLabel',DummyYLabels);
+xlabel('Age (ka)');
+set(gca,'FontSize',15);
+
+
+print('../figures/accumdepthSorted','-dpng','-r1000')
 
 
 %% Degrees of freedom plots
@@ -186,23 +202,23 @@ Drdiv4 = Paramdiv4(end-lp:end,:);
 
 %%
 set(0,'defaulttextinterpreter','latex')
-figure(30);
-clf
-% text(0.25,0,'Depth (m)')
-% text(0.75,0, 'Age (ka)')
+% figure(30);
+% clf
+% % text(0.25,0,'Depth (m)')
+% % text(0.75,0, 'Age (ka)')
+% % 
+% subplot(4,1,1)
+% [ax1] = plotAgeDepthHisto2_ke(Drdiv1,core,Ardiv1,burnin,1);
 % 
-subplot(4,1,1)
-[ax1] = plotAgeDepthHisto2_ke(Drdiv1,core,Ardiv1,burnin,1);
-
-subplot(4,1,2)
-%subplot(4,2,4)
-[ax2] = plotAgeDepthHisto2_ke(Drdiv2,core,Ardiv2,burnin,2);hold on
-
-% subplot(4,2,3)
-% [ax3] = plotAgeDepthHisto2_ke(Drdiv4,core,Ardiv4,burnin,3);
+% subplot(4,1,2)
+% %subplot(4,2,4)
+% [ax2] = plotAgeDepthHisto2_ke(Drdiv2,core,Ardiv2,burnin,2);hold on
 % 
-subplot(4,1,4)
-[ax4] = plotAgeDepthHisto2_ke(Drdiv5,core,Ardiv5,burnin,4);
+% % subplot(4,2,3)
+% % [ax3] = plotAgeDepthHisto2_ke(Drdiv4,core,Ardiv4,burnin,3);
+% % 
+% subplot(4,1,4)
+% [ax4] = plotAgeDepthHisto2_ke(Drdiv5,core,Ardiv5,burnin,4);
 
 %print('../figures/keCompare','-dpng')
 
@@ -223,7 +239,7 @@ clf
 for i = 1:n
     SAx(i,1).YLabel.String=string(labels(i));
     SAx(i,1).YLabel.Rotation=0;
-    SAx(i,1).YLabel.FontSize=14;
+    SAx(i,1).YLabel.FontSize=20;
     SAx(i,1).YLabel.Units='Normalized';
     SAx(i,1).YLabel.Position=[-0.3 0.5000 0];
     for j = 1:n
@@ -234,7 +250,7 @@ for i = 1:n
         
         SAx(end,j).XLabel.String = string(labels(j));
         SAx(end,j).XLabel.FontWeight = 'bold';
-        SAx(end,j).XLabel.FontSize=14;
+        SAx(end,j).XLabel.FontSize=20;
     end
     if i > 1
 %         HAx(i).XLim = [0.0 0.25];
@@ -242,7 +258,10 @@ for i = 1:n
     end
 end
 
-print('../figures/accumCorrelation','-dpng')
+ print('../figures/accumCorrelation','-dpng','-r1000')
+% print('-depsc2', '-loose', '../figures/accumCorrelation.eps');
+% saveas(gcf,'../figures/accumCorrelation.png')
+%  export_fig ../figures/accumCorrelation.png
 %% Depth correlation
 set(0,'defaulttextinterpreter','latex')
 % Write out to file 
@@ -269,8 +288,8 @@ for i = 1:length(labels)
 %     HAx(i).XLim = [0 0.25];
 %     Histo(i).BinWidth = 0.01;
 end
-
-print('../figures/depthCorrelation','-dpng')
+set(gca,'FontSize',15);
+print('../figures/depthCorrelation','-dpng','-r1000')
 
 %% Everything correlation
 set(0,'defaulttextinterpreter','latex')
@@ -347,7 +366,7 @@ param_stats(nparam+1,2) = std(S);
 param_stats(nparam+2,1) = mean(reg);
 param_stats(nparam+2,2) = std(reg);
 
-param_stats
+% param_stats
 
     
     

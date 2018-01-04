@@ -46,7 +46,7 @@ function [cost,S,regularization] = loglikelihoodAge(param,H,D,z,obsAge1950,accum
     %accRefReg = 0.000204421610432737;
     accRefReg = 1.5989e-04;
     regularization = Reg/accRefReg;
-    %regularization = 3.713;
+    regularization = 1.31463282133825;;
     
     E_m = sum((age(ind)-obsAge1950).^2./varAge);
     ke = length(obsAge1950)/4; %number of horizons (assumes independence)

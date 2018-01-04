@@ -50,10 +50,10 @@ disp('Running the metropolis algorithm')
 %      prevParam(4,1) = 0.1013;
 %      prevParam(5,1) = 0.1016;
 %      prevParam(6,1) = 0.1386;
-%      prevParam(7,1) = 0.1560;
-%      prevParam(8,1) = 0.1477;
-%      prevParam(9,1) = 0.1394; 
-%      prevParam(10,1)= 0.1323; 
+     prevParam(7,1) = 0.1560;
+%     prevParam(8,1) = 0.1477;
+%     prevParam(9,1) = 0.1394; 
+%     prevParam(10,1)= 0.1323; 
 %     prevParam(11,1)= 0.1531; %shallowest part
 
 %     prevParam(12,1)= 0.3119;

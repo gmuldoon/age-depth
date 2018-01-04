@@ -1,70 +1,59 @@
-dat = importdata('/Users/gail/Downloads/pik1.dat');
+ function [sigma_ns,sigma_meters,SNR_dB] = radar_power(lp)
+    %% Settings
+    set(0,'defaulttextinterpreter','latex')
+    addpath('../../../../Matlab_functions/distinguishable_colors');
 
-TWTT_microsec = dat(:,1);
-pwr_dBm = dat(:,2);
+    %% Import power data
+    dat = importdata('/Users/gail/Downloads/pik1.dat');
 
+    TWTT_microsec = dat(:,1);
+    pwr_dBm = dat(:,2);
 
-% figure(100)
-% clf
-% plot(pwr_dBm)
-
-pwr_sort = sort(pwr_dBm,'descend');
-%Looking for noise level
-%Examples from different peaks:
-%[-65.33,-70.88]
-%[-60.38,-62.28]
-%[-44.37,-45.08]
-%[-77.81,-76.1]
-%[-61.24,-58.19]
-%[-54.65,-60.53]
-%[-54.87,-48.93]
-%[-76.58,-85.6]
-%[-59.28,-72.27]
-%[-65.33,-70.88]
-noise = mean([-65.33,-70.88]);
-
-%Looking for signal (peak)
-%find average of top 100 values
-%-53.76
-%-48.12
-%-36.39
-%-64.89
-%-46.95
-%-43.15
-%-37.31
-%-68.88
-%-51.64
-%-54.2
-signal = -54.2;
-
-%Computing SNR
-SNR_dB = signal-noise;
-
-%Computing range resolution
-% bandwidth = 15e6;
-% v_ice = 1.685*10^8;
-% delta_r  = v_ice/(2*bandwidth);
-delta_r = 8.4; %from young et al. 2011 because not actually as good as theoretical
-
-%Compute uncertainty in precision
-sigma_meters = delta_r / sqrt(SNR_dB);
-sigma_ns = sigma_meters/v_ice*1e9;
+    %% Align LM surface with the power surface so can overplot reflectors
+    [~,idx] = max(pwr_dBm);
+    pwr_surf = TWTT_microsec(idx); %put in LM units
+    LM_surf = 250/100;
+    surf_diff = pwr_surf - LM_surf;
 
 
-%sigma_ns = 
-%13.1622
-%13.7160
-%17.2674
-%14.3521
-%13.950
-%13.1189
-%13.0512
-%14.2666
-%13.2596
-%13.3688
+    %% Plot
+    y=[0,-100];
+    %   x = pik'; % not at the exact same location as pwr diagram, so don't use
+    x = [ 781,958,1304,1755]/100;
 
-sigma_ns_list = [13.1622, 13.7160, 17.2674,14.3521, 13.950, 13.1189, ...
-    13.0512, 14.2666, 13.2596, 13.3688];
+    figure(100)
+    clf
+    plot(TWTT_microsec,pwr_dBm); hold on
+    plot([4.04,4.04],[0,-100],'k-.','LineWidth',2); hold on %surface
+    plot([29.18,29.18],[0,-100],'k-.','LineWidth',2); hold on %bed
+    colors=distinguishable_colors(lp);
+    colors(3,:) = [0 0.5 0]; %make the green darker so it's no blinding
+    for i = 1:lp  
+        plot([x(i),x(i)]-surf_diff,[0,-100],'Color',colors(i,:),'LineWidth',4); hold on
+    end
+     xlim([0 35])
+     xlabel('TWTT ($\mu$s)')
+     ylabel('Power (dB)')
 
-%mean_sigma_ns = mean(sigma_ns_list);
-% ~ 14 ns
+
+    %% Computing SNR
+    % from plot
+    signal = [-1.504,-17,-28.69,-37.18,-51.44];
+    noise = [-25.24,-27.41,-36.82,-48.81,-72.66];
+
+    SNR_dB = signal-noise;
+    SNR = 10.^(SNR_dB/10);
+
+    %% Computing range resolution
+    % bandwidth = 15e6;
+    v_ice = 1.685*10^8;
+    % delta_r  = v_ice/(2*bandwidth);
+    delta_r = 8.4; %from young et al. 2011 because not actually as good as theoretical
+
+    %% Compute uncertainty in precision
+    sigma_meters = delta_r ./ sqrt(SNR);
+    sigma_ns = sigma_meters/v_ice*1e9;
+
+    %sigmaTWTT = sigma_ns/100;
+
+ end

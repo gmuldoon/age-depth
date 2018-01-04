@@ -30,9 +30,9 @@ function [paramRange,nparam] = setParams2(accumFlag,H,pik)
         paramRange(10,1:2) = [0.01 0.25];
         paramRange(11,1:2) = [0.01 0.25];           % top of the ice
         
-        paramRange(12,1:2)=[0.1 0.5];            % Nye h
+        paramRange(12,1:2)=[0.01 0.5];            % Nye h
         paramRange(13,1:2)=[1.68*10^8 1.695*10^8]; %velocity in glacial ice
-        paramRange(14,1:2)=[6 37];             %firn correction (diff in ice thickness between ice column with/out firn
+        paramRange(14,1:2)=[8.6572 8.6574];             %firn correction (diff in ice thickness between ice column with/out firn
         
          % determine number of parameters
         nparam = length(paramRange(:,1))+lp;
