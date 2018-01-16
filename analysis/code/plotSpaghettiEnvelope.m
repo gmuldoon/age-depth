@@ -50,7 +50,7 @@ function [p,lab,pikDepthUnc,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(ageD
     end
     
     %% Plot reflector age/depth
-    p3 = plot(mean(Ar/1000,2),mean((H-Zr)/H,2),'b^','LineWidth',3,'MarkerSize',10); hold on
+    p3 = plot(mean(Ar/1000,2),mean((H-Zr)/H,2),'b^','LineWidth',3,'MarkerSize',10,'MarkerFaceColor','b' ); hold on
     
     %% Plot WAIS Divide chronology
     filename='../data/WD_chronologyunc.csv';
@@ -71,7 +71,7 @@ function [p,lab,pikDepthUnc,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(ageD
     WD_depth = mean(pikDepthUnc,2);
     wd_age = wdAge1950(round(WD_depth));
 
-    plot(wd_age/1000,WD_depth/Hwd,'b^','LineWidth',4,'MarkerSize',10); hold on
+    plot(wd_age/1000,WD_depth/Hwd,'b^','LineWidth',4,'MarkerSize',10,'MarkerFaceColor','b' ); hold on
     %% Set plot params
     set(gca,'YDir','reverse');
     xlabel('Age (ka)','Fontsize',15)

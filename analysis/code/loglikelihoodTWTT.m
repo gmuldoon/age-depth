@@ -21,7 +21,8 @@ function cost = loglikelihoodTWTT(Param,lp,TWTTpik,sigma_ns)
     Dr = Param(length(Param)-lp+1:length(Param),1);
 
 %% Simulate TWTT of Dr
-    TWTTm = Dr_TWTT(Dr,vIce,sigma_ns/100);
+    sigma_dens = 0.00442673076923077;
+    TWTTm = Dr_TWTT(Dr,vIce,sigma_ns/100,sigma_dens);
     %TWTTpik'
     
 %% Find variance of depth error

@@ -29,7 +29,7 @@ disp('Running the metropolis algorithm')
 %% Set algorithm parameters
     rng(seed);
     burnin   = 50000;  
-    numsteps = 200000;
+    numsteps = 100000;
             
     totsteps = numsteps + burnin;
     
@@ -43,21 +43,25 @@ disp('Running the metropolis algorithm')
     % propose parameter values
     prevParam(1:nparam-lp,1)=paramRange(1:nparam-lp,1)+rand(nparam-lp,1).*(paramRange(1:nparam-lp,2)-paramRange(1:nparam-lp,1));
     %set reasonable estimates of accumulation to start
+%     prevParam(2,1) = 0.14; %deepest part
+%     prevParam(3,1) = 0.14;
+%     prevParam(4,1) = 0.06;
+%     prevParam(5,1) = 0.0805;
+%     prevParam(6,1) = 0.12;
+%     prevParam(7,1) = 0.1275;
+%     prevParam(8,1) = 0.125;
+%     prevParam(9:11,1)= 0.14; %shallowest part
+%     
+    prevParam(2,1) = 0.14; %deepest part
+    prevParam(3,1) = 0.07;
+    prevParam(4,1) = 0.07;
+    prevParam(5,1) = 0.09;
+    prevParam(6,1) = 0.10;
+    prevParam(7,1) = 0.12;
+    prevParam(8,1) = 0.13;
+    prevParam(9:11,1)= 0.14; %shallowest part
 
-%      prevParam(1,1) = 0.3981;
-%      prevParam(2,1) = 0.1575; %deepest part
-%      prevParam(3,1) = 0.1606;
-%      prevParam(4,1) = 0.1013;
-%      prevParam(5,1) = 0.1016;
-%      prevParam(6,1) = 0.1386;
-%      prevParam(7,1) = 0.1560;
-%      prevParam(8,1) = 0.1477;
-%      prevParam(9,1) = 0.1394; 
-%      prevParam(10,1)= 0.1323; 
-%     prevParam(11,1)= 0.1531; %shallowest part
-
-%     prevParam(12,1)= 0.3119;
-%     prevParam(13,1) = 168745989;
+     % prevParam(14,1) = 50;
     
     regularization = nan;
     %prevParam(2:5,1) = normrnd(paramRange(2:5,1),paramRange(2:5,2));
@@ -65,10 +69,11 @@ disp('Running the metropolis algorithm')
     % 
     %prevParam(nparam-lp+1:nparam,1) = [500,600,900,1300,1700]';
     %prevParam(nparam-lp+1:nparam,1) = [400 800 1000 1400 1800];
-    v_est = 1.68*10^8;
-    pik_sec = pik*10^-6;
-    depth_est = v_est*pik_sec/2;
-    prevParam(nparam-lp+1:nparam,1) = depth_est;         
+    prevParam(nparam-lp+1:nparam,1) = [500 850 1275 1450];
+%     v_est = 1.68*10^8;
+%     pik_sec = pik*10^-6;
+%     depth_est = v_est*pik_sec/2;
+%     prevParam(nparam-lp+1:nparam,1) = depth_est;         
                 
     %calculate an initial proposal
     [costAge,~,~] = loglikelihoodAge(prevParam,H,D,z,obsAge1950,accumFlag,lp);
@@ -97,27 +102,33 @@ disp('Running the metropolis algorithm')
         
         % To compute error budget, set propParam to optimal value for each
         % param at a time. 
-%            propParam(13,1) = 168881631.929264; %vice
-        %propParam(14,1) = 27.5;
-%           propParam(1,1) = 0.611;
-%            propParam(12,1) = 0.390597; %h
-        
-%         propParam(2,1)  = 0.142275;
-%         propParam(3,1)  = 0.118138;
-%         propParam(4,1)  = 0.08495;
-%         propParam(5,1)  = 0.0765647;
-%         propParam(6,1)  = 0.118395;
-%         propParam(7,1)  = 0.14147;
-%         propParam(8,1)  = 0.1376075;
-%         propParam(9,1)  = 0.11692;
-%         propParam(10,1) = 0.121137;
-%         propParam(11,1) = 0.14808;
+
+%              propParam(1,1) = 0.4627; %q
+%              propParam(12,1) = 0.2722; %h
+%                propParam(13,1) = 1.6933e8; %vice
+%              propParam(14,1) =   -5.6765e-5; %e_firn
+%              propParam(15,1) = 509.8; %d1
+%               propParam(16,1) = 854.6; %d2
+%               propParam(17,1) = 1277.9; %d3
+%                 propParam(18,1) = 1466.1; %d4
+
+%          propParam(2,1)  = 0.1867;
+%           propParam(3,1)  = 0.1166;
+%           propParam(4,1)  = 0.0810;
+%           propParam(5,1)  = 0.0743;
+%           propParam(6,1)  = 0.1187;
+%           propParam(7,1)  = 0.1321;
+%           propParam(8,1)  = 0.1435;
+%           propParam(9,1)  = 0.1152;
+%           propParam(10,1) = 0.1151;
+%           propParam(11,1) = 0.1484;
 
         
         %calculate proposal cost
         [costAge_prop,S_prop,reg_prop]  = loglikelihoodAge(propParam,H,D,z,obsAge1950,accumFlag,lp);
         
-%         S_prop = 0.03769;
+%            S_prop = 0.1697;
+%              reg_prop = 1.0081;
         costTWTT_prop = loglikelihoodTWTT(propParam,lp,pik,sigma_ns);
         
         %accept/reject proposal

@@ -1,10 +1,18 @@
-function TWTTm_microsec = Dr_TWTT(Dr,vIce,sigma_ns,sigma_firn)
+function TWTTm_microsec = Dr_TWTT(Dr,vIce,sigma_ns,sigma_dens)
 
     % Change normal ice column to one without firn, 
     % so can assume constant velocity in glacial ice
-    dFirn = 8.6621;
-    e_firn = 
-    Dice(:,1) = Dr(:,1) - dFirn;
+    K = 0.85;                                 % [m^3 Mg^-1]
+    c = 2.98925*10^8;                         % speed of light in air [m/s] 
+    vIce = randi([1.68*10^8 1.695*10^8],1,1); % random sample velocity in ice in range from Fujita et al 2000
+    n_ice = c/vIce; 
+    
+    
+    dFirn = 8.6621; %from radardepth
+    sigma_firn =  K/n_ice*sigma_dens/(10^6); %assumes all reflectors are below firn layer
+    dFirn_sample = dFirn + sigma_firn;
+    
+    Dice(:,1) = Dr(:,1) - dFirn_sample;
     
     % Sample ePW
     % Data for pik1 is digitized at 20ns. conservatively, have accuracy of

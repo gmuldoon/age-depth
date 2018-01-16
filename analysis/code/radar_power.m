@@ -21,19 +21,19 @@
     %   x = pik'; % not at the exact same location as pwr diagram, so don't use
     x = [ 781,958,1304,1755]/100;
 
-    figure(100)
-    clf
-    plot(TWTT_microsec,pwr_dBm); hold on
-    plot([4.04,4.04],[0,-100],'k-.','LineWidth',2); hold on %surface
-    plot([29.18,29.18],[0,-100],'k-.','LineWidth',2); hold on %bed
-    colors=distinguishable_colors(lp);
-    colors(3,:) = [0 0.5 0]; %make the green darker so it's no blinding
-    for i = 1:lp  
-        plot([x(i),x(i)]-surf_diff,[0,-100],'Color',colors(i,:),'LineWidth',4); hold on
-    end
-     xlim([0 35])
-     xlabel('TWTT ($\mu$s)')
-     ylabel('Power (dB)')
+%     figure(100)
+%     clf
+%     plot(TWTT_microsec,pwr_dBm); hold on
+%     plot([4.04,4.04],[0,-100],'k-.','LineWidth',2); hold on %surface
+%     plot([29.18,29.18],[0,-100],'k-.','LineWidth',2); hold on %bed
+%     colors=distinguishable_colors(lp);
+%     colors(3,:) = [0 0.5 0]; %make the green darker so it's no blinding
+%     for i = 1:lp  
+%         plot([x(i),x(i)]-surf_diff,[0,-100],'Color',colors(i,:),'LineWidth',4); hold on
+%     end
+%      xlim([0 35])
+%      xlabel('TWTT ($\mu$s)')
+%      ylabel('Power (dB)')
 
 
     %% Computing SNR
