@@ -58,7 +58,7 @@ function [p,lab,pikDepthUnc,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(ageD
     WD=readFloats(filename,ncol);
     [~,Hwd,wdAge1950,wdAge1950Unc] = interpWDobs(WD);
 
-    p4 = plot(wdAge1950/1000,(1:Hwd)/Hwd,'m-','MarkerSize',10); hold on
+    p4 = plot(wdAge1950/1000,(1:Hwd)/Hwd,'k-','MarkerSize',10); hold on
     
     
     %% Plot reflectors at WD
@@ -80,7 +80,7 @@ function [p,lab,pikDepthUnc,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(ageD
     axis([0 95 0 1])
     pbaspect([1 1 1])
     
-    l=legend([p,p4,p2,p3],'Estimated Byrd chronology','WD chronology','Volcanic chronology','Observed Reflectors');
+    l=legend([p,p4,p2,p3],'Estimated Byrd chronology','WAIS Divide chronology','Volcanic chronology','Observed Reflectors');
     l.FontSize =15;
     
     

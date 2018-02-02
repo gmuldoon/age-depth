@@ -44,8 +44,8 @@ depthPlotting = 1;          % whether or not to plot depth calculation
 figure(10)
 clf
 [~,~,pikDepthUncWD,wdAge1950,wdAge1950Unc] = plotSpaghettiEnvelope(age,obsAge1950,D,H,accumFlag,z,burnin,Param,datFlag,1,Ar,Zr,1);
-% print('../figures/spaghetti','-dpng','-r1000')
-% savefig('../figures/spaghetti.fig')
+print('../figures/spaghetti','-dpng','-r1000')
+savefig('../figures/spaghetti.fig')
 %% Plot age-depth histograms
 plotAgeDepthHisto2(Param(nparam-lp+1:nparam,:),core,Ar,burnin,datFlag,pikDepthUncWD,wdAge1950,wdAge1950Unc)
 savefig('../figures/agedepthhisto.fig')
@@ -395,10 +395,15 @@ clf
 set(gca,'FontSize',18)
 set(gca,'XTickLabel','')
 set(0,'defaulttextinterpreter','latex')
+hfig = gcf; 
+
 for i=1:length(param_S(:,1))
     subplot(3,5,i)
     hist(gca,param_S(i,:),30); hold on
     set(gca,'FontSize',15)
+    ylim([0 25000])
+    curtick = get(gca, 'YTick');
+    set(gca, 'YTickLabel', cellstr(num2str(curtick(:))));
     if i ==1
         xlabel('\boldmath{$\dot{a}_{0-200}$ (m/a)}')
     elseif i == 2
@@ -431,6 +436,10 @@ for i=1:length(param_S(:,1))
         xlabel('\boldmath{$S$}')       
     end
     
+    if i <= 10
+        xlim([0.05 0.20])
+    end
+    
     if i == 1 ||i == 6 || i == 11
         ylabel('N')
     end
@@ -441,6 +450,8 @@ for i=1:length(param_S(:,1))
 end
 savefig('../figures/paramHist.fig')
 print('../figures/paramHist','-dpng','-r1000')
-%%
+
+
+
     
 toc;
