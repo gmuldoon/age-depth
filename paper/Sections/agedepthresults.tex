@@ -58,9 +58,10 @@ We estimate the mean radar velocity through ice, $v_{ice}$, to be 168.4 $m/{\mu}
 
 \begin{figure*}[h]
 \centering
-% \makebox[0.7\textwidth][c]{
-\includegraphics[width=1.3\textwidth,trim={1.8in 0 0 0},clip]{/Users/gail/Documents/Research/Projects/age-depth-firninvert/analysis/figures/agedepthhisto}
-% }
+\makebox[\textwidth][c]{
+%width=1.3\textwidth,trim={1.8in 0 0 0}
+\includegraphics[scale=0.4]{/Users/gail/Documents/Research/Projects/age-depth-firninvert/analysis/figures/agedepthhisto}
+}
 %\captionsetup{width=.9\textwidth}
 \caption{Posterior probability distributions of depth (top) and age (bottom) of 4 radar reflectors at the Byrd ice core. The width of the age and depth histograms for the Byrd ice core chronology represent uncertainty estimated by the methods used here.}
 \label{fig:layer_histo}
@@ -69,7 +70,7 @@ We estimate the mean radar velocity through ice, $v_{ice}$, to be 168.4 $m/{\mu}
 \begin{figure*}[h]
 %\begin{center}
 \centering
-\makebox[\textwidth][c]{\includegraphics[scale=0.5]{/Users/gail/Documents/Research/Projects/age-depth-firninvert/analysis/figures/spaghetti}}
+\makebox[\textwidth][c]{\includegraphics[scale=0.6]{/Users/gail/Documents/Research/Projects/age-depth-firninvert/analysis/figures/spaghetti}}
 %\captionsetup{width=.9\textwidth}
 \caption{Modeled age-depth relationship with uncertainty compared to measured volcanic chronology from \citet[]{hammer1997} (open circles). The WAIS Divide ice core chronology \citep{buizert2015} as a black line. Blue triangles show the age-depth of 4 radar reflectors at each of the Byrd and WAIS Divide ice cores; these reflectors are assumed isochronous and so expected to be the same age at either ice core.}
 %\end{center}
@@ -143,7 +144,7 @@ Accumulation rates in localized portions of the ice column do not individually i
 \begin{figure*}[ht]
 %\begin{center}
 \centering
-\makebox[\textwidth][c]{\includegraphics[scale=0.4]{/Users/gail/Documents/Research/Projects/age-depth-firninvert/analysis/figures/paramHist}}
+\makebox[\textwidth][c]{\includegraphics[scale=0.5]{/Users/gail/Documents/Research/Projects/age-depth-firninvert/analysis/figures/paramHist}}
 %\captionsetup{width=.9\textwidth}
 \caption{Posterior probability distributions of inverted parameters, including accumulation rate, $q$, $h$, $v_{ice}$, $\epsilon_{firn}$, and $S$. Accumulation rate paramter values are assigned to 200 m depth intervals indicated by the subscript. While a few parameter distributions appear non-gaussian, parameter values are well sampled and generally single-peaked. The precision parameter, $S$, has an expected gamma distribution and $\epsilon_{firn}$ is normally distributed, as expected.  }
 %\end{center}
