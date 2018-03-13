@@ -4,33 +4,36 @@
 \subsection{Radar depth and error model}
  Radar pulses transmitted into the ice sheet reflect off surfaces of dielectric contrast in the ice that are the result of variations in ice fabric, composition, temperature, and rheology of ice \citep{fujita2000}. The reflected signal is received by the radar system and recorded as two-way travel time (TWTT) from transmission to receipt.  The reflector data in this analysis (Figure~\ref{fig:layergram}) were collected by the University of Texas Institute for Geophysics, including GIMBLE \citep{gimble2017}, AGASEA \citep{holt2006}, CASERTZ \citep{morse2002}, and SOAR/WMB \citep{luyendyk2003} (Figure~\ref{fig:radarmap}). Data used to trace reflectors between Byrd ice core and WAIS Divide ice core were collected from a DC-3 or Twin Otter airborne platform and used the HiCaRS2 coherent radar system with 60 MHz center frequency and 15 MHz bandwidth \citep{young2016}.% or the TUD-derived incoherent radar sounder \citep{blankenship2001} with 4 MHz bandwidth.
 
-\begin{figure}[h]
+\begin{figure*}
 \centering
 \makebox[\textwidth][c]{
 \includegraphics[scale=0.5]{/Users/gail/Documents/Research/Projects/Layers/analysis/figures/WAIS_vel_gray_final}}
 %\captionsetup{width=.9\textwidth}
 \caption{Map of central West Antarctic with available airborne geophysical radar surveys (yellow lines) and  WAIS Divide and Byrd ice core locations (blue triangles) overlain. Gray shading is surface velocity \citep{rignot2011}. The red line denotes the flight line along which the reflectors in this study were observed. }
 \label{fig:radarmap}
-\end{figure}
+\end{figure*}
 
 
 
 In this study, we consider TWTT of four reflectors spanning the ice thickness in the region of central West Antarctica (Figure~\ref{fig:layergram}). These reflectors have been tracked using Halliburton's Landmark seismic interpretation software and can be tied to both the Byrd and WAIS Divide ice cores for dating using observations from the HiCARS system (Figure~\ref{fig:radarmap}). %Determining the depth of the reflectors, $D_r$, may be affected by several sources of uncertainty, including uncertainty in the firn depth, the velocity of the radar pulse in ice, and the pulse-limited precision of radar observations.
 
-\begin{figure}[h]
+\begin{figure*}
 \centering
-\makebox[\textwidth][c]{\includegraphics[scale=0.6]{/Users/gail/Documents/Research/Projects/Layers/paper/figures/radargram-4layers-paper}}
+\makebox[\textwidth][c]{\includegraphics[scale=0.5,trim={0.05cm 0.5cm 0.5cm 1cm},clip]{/Users/gail/Documents/Research/Projects/Layers/paper/figures/radargram-4layers-paper}}
 %\captionsetup{width=.9\textwidth}
 \caption{Radargram showing reflectors of interest near the Byrd ice core along flight line ICP6/MKB2l/F14T01a observed using the HiCARS2 radar system. Short vertical hatches along tracked reflectors show intersections with crosslines.}
 \label{fig:layergram}
-\end{figure}
+\end{figure*}
 
 
 To estimate reflector depths from TWTT ($TWTT_{m,r}(D_r)$), we use a simple relation between the different velocities of the radar signal in air and in ice and incorporate several known sources of uncertainty, including: 1) variations in the radar velocity in ice due to ice temperature and fabric ($v_{ice}$), 2) vertical precision limitations of radar range detection ($\sigma_{prec}$), and 3) uncertainty in the firn correction ($\epsilon_{firn}$) due to measurement errors in the ice density profile:
 
 \begin{equation}\label{deptheqn}
 %D_r= \frac{1}{2}[(TWTT_r + \epsilon_{prec,r}) - (TWTT_{surf} + \epsilon_{prec,surf})] \cdot v_{ice} + d_{firn}\\
-TWTT_{m,r}(D_r) + \sigma_{prec,r} = 2 \frac{D_r - (d_{firn}+\epsilon_{firn})}{v_{ice}} + (TWTT_{surf} + \epsilon_{prec,surf})
+\begin{split}
+TWTT_{m,r}(D_r) + \sigma_{prec,r} = 2 \frac{D_r - (d_{firn}+\epsilon_{firn})}{v_{ice}} \\
++ (TWTT_{surf} + \epsilon_{prec,surf})
+\end{split}
 \end{equation}
 
 The complexity of local ice properties affecting the velocity at any location and depth make it difficult to know the true velocity. Empirical evidence suggests a range of expected velocities and we conservatively assume they are uniformly distributed such that: $p(v_{ice}) ~\sim U[168,169.5]\,m/{\mu}s$ \citep{fujita2000}. In lieu of detailed observations of ice properties with depth, we assume the value of $v_{ice}$ is a constant throughout the ice column and apply it systematically to all reflector depths.

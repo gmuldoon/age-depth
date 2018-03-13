@@ -42,14 +42,15 @@
 % (If you are submitting to a journal other than jgrga,
 % substitute the initials of the journal for "jgrga" below.)
 
-\documentclass[draft,jgrga]{statclim}
+\documentclass[jgrga,draft]{statclim}
 \usepackage{amsmath} %for help with the bracketed conditional equations
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{mathtools}
 \usepackage{chngcntr}
-\usepackage{lineno}
-\linenumbers
+\usepackage[skip=1pt]{caption}
+%\usepackage{lineno}
+%\linenumbers
 \setkeys{Gin}{draft=false}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPTIONAL:
@@ -180,7 +181,11 @@
 \altaffiltext{1}{University of Texas Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin, Austin, Texas, USA}
 \altaffiltext{2}{Department of Geological Sciences, Jackson School of Geosciences, University of Texas at Austin, Austin, TX, USA}
 %\correspondingauthor{Gail Muldoon}
-$\dagger${gail.muldoon@utexas.edu}
+\vspace{5mm}
+$\dagger${~gail.muldoon@utexas.edu \\
+J.J. Pickle Research Campus, Building 196 \\
+10100 Burnet Rd (R2200) \\
+Austin, TX 78758}
 % \authors{R. C. Bales,\altaffilmark{1}
 % E. Mosley-Thompson,\altaffilmark{2} R. Williams,\altaffilmark{3}
 % J. R. McConnell\altaffilmark{4}, and Francesco Visconti\altaffilmark{5}}
