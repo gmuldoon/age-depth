@@ -42,12 +42,15 @@
 % (If you are submitting to a journal other than jgrga,
 % substitute the initials of the journal for "jgrga" below.)
 
-\documentclass[draft,jgrga]{statclim}
+\documentclass[jgrga,draft]{statclim}
 \usepackage{amsmath} %for help with the bracketed conditional equations
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{mathtools}
 \usepackage{chngcntr}
+\usepackage[skip=1pt]{caption}
+%\usepackage{lineno}
+%\linenumbers
 \setkeys{Gin}{draft=false}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OPTIONAL:
@@ -172,13 +175,17 @@
 % \altaffilmark will produce footnote;
 % matching \altaffiltext will appear at bottom of page.
 
- \authors{Gail R. Muldoon,\altaffilmark{1}\altaffilmark{2}$^\dagger$  Charles S. Jackson,\altaffilmark{1} Duncan A. Young,\altaffilmark{1} 
+ \authors{Gail R. Muldoon,\altaffilmark{1,}\altaffilmark{2}$^\dagger$  Charles S. Jackson,\altaffilmark{1} Duncan A. Young,\altaffilmark{1} 
  and Donald D. Blankenship \altaffilmark{1}}
 
-\altaffiltext{1}{University of Texas Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin, Austin, Texas, USA.}
+\altaffiltext{1}{University of Texas Institute for Geophysics, Jackson School of Geosciences, University of Texas at Austin, Austin, Texas, USA}
 \altaffiltext{2}{Department of Geological Sciences, Jackson School of Geosciences, University of Texas at Austin, Austin, TX, USA}
 %\correspondingauthor{Gail Muldoon}
-$\dagger${gail.muldoon@utexas.edu}
+\vspace{5mm}
+$\dagger${~gail.muldoon@utexas.edu \\
+J.J. Pickle Research Campus, Building 196 \\
+10100 Burnet Rd (R2200) \\
+Austin, TX 78758}
 % \authors{R. C. Bales,\altaffilmark{1}
 % E. Mosley-Thompson,\altaffilmark{2} R. Williams,\altaffilmark{3}
 % J. R. McConnell\altaffilmark{4}, and Francesco Visconti\altaffilmark{5}}
@@ -235,6 +242,9 @@ $\dagger${gail.muldoon@utexas.edu}
 
 \section{Posterior distribution of englacial reflector age-depth}\label{byrdchronology}
 	\input{Sections/bayesianInversion}
+	\input{Sections/flowModel}
+	\input{Sections/depthError}\label{radardepth}
+	\input{Sections/metropolis}
 	
 \section{Dated englacial reflectors at the Byrd ice core}\label{agedepthresults}
 	\input{Sections/agedepthresults}
@@ -413,18 +423,19 @@ The authors thank UTIG radar interpreters including Robert Stephany, Shubhanga B
 %\renewcommand{\thetable}{S\arabic{table}} 
  \begin{table}
  \centering
- \caption{  Depth and age mean and standard deviation for four radar reflectors near Byrd Station, West Antarctica used in this study. The radar-observed two-way travel time (TWTT) for each reflector is also shown.}
- \begin{tabular}{ c c c c c c c}
+ \caption{  Depth and age mean and standard deviation for four radar reflectors near Byrd Station, West Antarctica used in this study. The radar-observed two-way travel time (TWTT) to each reflector and its associated signal-to-noise ratio (SNR) used to compute TWTT uncertainty is also shown.}
+ \begin{tabular}{ c c c c c c c c}
  %\cline{1-7}
-\multirow{2}{*}{Reflector} & TWTT&  \multicolumn{2}{c}{Depth (m)} &  & \multicolumn{2}{c}{Age  (a)} \\   
+Reflector & TWTT ($\mu$s)&  \multicolumn{2}{c}{Depth (m)} &  & \multicolumn{2}{c}{Age  (a)} & SNR  (dB) \\   
 % %& ($\mu$s)& Mean & Median & $\sigma$ & & Mean & Median & $\sigma$ \\
- & ($\mu$s)& Mean  & $\sigma$ & &Mean  & $\sigma$ \\
  \cline{3-4} \cline{6-7}
-  1 & 8.44    & 525  &  27.7 & & 4830 & 520   \\
+ & & $\mu$  & $\sigma$ & & $\mu$  & $\sigma$ &\\
+  \cline{1-8}
+  1 & 8.44    & 510.1  &  13.1 & & 4711 & 246  & 10.41\\
   %2 & 9.58    & 633.1  &  6.5 & &1770 & 40   \\
-  2 & 12.54   & 870.8 &  29.1 & & 8900 & 550   \\
-  3 & 17.55   & 1294.5 &  29.4 & &17800 & 1130  \\
-  4 & 22.42   & 1481.9 &  29.9 & &25670 & 1450  \\
+  2 & 12.54   & 854.6 &  18.0 & & 8653 & 318  & 8.13 \\
+  3 & 17.55   & 1277.9 &  10.8 & & 17177 & 413  & 11.63\\
+  4 & 22.42   & 1460.0 &  5.2 & & 24928 & 286 & 21.22 \\
 %  %6 & 11.10  & 596.9  & 596.9  & 2.3 & &5440 & 5440 & 270   \\
 %  %7 & 12.78  & 738.8  & 738.8  & 2.3 & &7120 & 7110 & 370   \\
 %  %8 & 13.02  & 759.1  & 759.1  & 2.3 & 7350 & 7340 & 390   \\
@@ -447,20 +458,20 @@ Parameter & Median $\pm$ 1$\sigma$ & Parameter & Median $\pm$ 1$\sigma$  \\
 % %& ($\mu$s)& Mean & Median & $\sigma$ & & Mean & Median & $\sigma$ \\
 % & ($\mu$s)& Mean  & $2\sigma$ & &Mean  & $2\sigma$ \\
 % \cline{3-4} \cline{6-7}
-  $\dot{a}$( d $<$ 200 m )                         & 14.8 $\pm$ 0.2 cm & $q$            &  0.71      $\pm$ 0.16  \\
-  $\dot{a}$( 200 m  $\ge$ d $<$ 400 m)    & 11.5 $\pm$ 0.7 cm & $h$            &  0.40      $\pm$ 0.07   \\
-  $\dot{a}$( 400 m  $\ge$ d $<$ 600 m)    & 12.6 $\pm$ 4.6 cm & $d_{firn}$   &  30.7      $\pm$ 8.4 m    \\
-  $\dot{a}$( 600 m  $\ge$ d $<$ 800 m)    & 18.0 $\pm$ 4.2 cm & $v_{ice}$   & 1.690  $\times 10^8 \pm 2.503 \times 10^5$ m/s     \\
-  $\dot{a}$( 800 m  $\ge$ d $<$ 1000 m)  & 11.0 $\pm$ 3.4 cm & $S$            & 0.083     $\pm$ 0.051  \\
-  $\dot{a}$( 1000 m $\ge$ d $<$ 1200 m) & 12.3 $\pm$ 1.4 cm &  \\
-  $\dot{a}$( 1200 m $\ge$ d $<$ 1400 m) &    7.1 $\pm$ 0.6 cm & \\
-  $\dot{a}$( 1400 m $\ge$ d $<$ 1600 m) &    7.8 $\pm$ 0.9 cm & \\
-  $\dot{a}$( 1600 m $\ge$ d $<$ 1800 m) & 10.3 $\pm$ 1.7 cm & \\
-  $\dot{a}$( 1800 m $\ge$ d )                    & 13.9 $\pm$ 3.0 cm & \\% $R$            & 3.713     $\pm$ 2.624  \\
+  $\dot{a}$( d $<$ 200 m )                         & 14.8 $\pm$ 0.2 cm & $q$            &  0.9      $\pm$ 0.08  \\
+  $\dot{a}$( 200 m  $\ge$ d $<$ 400 m)    & 11.4 $\pm$ 0.6 cm & $h$            &  0.45     $\pm$ 0.03  \\
+  $\dot{a}$( 400 m  $\ge$ d $<$ 600 m)    & 11.1 $\pm$ 1.4 cm & $v_{ice}$   & 1.684  $\times 10^8 \pm 3.227 \times 10^5$ m/s     \\
+  $\dot{a}$( 600 m  $\ge$ d $<$ 800 m)    & 14.2 $\pm$ 1.2 cm & $S^{*}$            & 0.154; [0.06, 0.32]    \\
+  $\dot{a}$( 800 m  $\ge$ d $<$ 1000 m)  & 13.0 $\pm$ 1.8 cm & \\ 
+  $\dot{a}$( 1000 m $\ge$ d $<$ 1200 m) & 11.2 $\pm$ 0.7 cm & \\
+  $\dot{a}$( 1200 m $\ge$ d $<$ 1400 m) &   6.8 $\pm$ 0.3 cm & \\
+  $\dot{a}$( 1400 m $\ge$ d $<$ 1600 m) &   7.2 $\pm$ 0.5 cm & \\
+  $\dot{a}$( 1600 m $\ge$ d $<$ 1800 m) &   9.2 $\pm$ 1.0 cm & \\
+  $\dot{a}$( 1800 m $\ge$ d )                    & 11.6 $\pm$ 2.5 cm & \\% $R$            & 3.713     $\pm$ 2.624  \\
  %$\dot{a}$( 2000 m $\ge$ d )                     & 15.4 $\pm$ 3.9 cm &  &    \\
 % %\cline{1-7}
  \end{tabular}
-%\tablenotetext{a}{Footnote text here.}
+\tablenotetext{*}{Values provided for S are the median and 95\% confidence interval.}
 %\captionsetup{width=.9\textwidth}
 
  \label{tab:paramvals}

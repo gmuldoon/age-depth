@@ -6,18 +6,22 @@ Due to the inherent stratigraphic dependence of age in the ice column and the no
 \begin{equation}\label{schwander}
 A(z) = \int_{z}^{H} \frac{dz}{\epsilon_z \cdot \dot{a}(z)}
 \end{equation}
-where strain is described by
-%\begin{center}
+
+\noindent where strain is described by \\
+
+\begin{center}
 $    \epsilon_z=
 	\begin{aligned}
     \begin{cases}
                  1-k(H-z), \:\:  h \leq z \leq H  & (upper) \\
-                  kz(q+\frac{1-q}{2h}z), \:\:\: 0 \leq z < h &(lower)
+                  kz(q+\frac{1-q}{2h}z), \:\:\: 0 \leq z < h &(lower) \\
     \end{cases}, 
     \end{aligned}
 $
-%\end{center}
-and $k$ is a constant such that $k = \frac{2}{2H - h(1-q)}$. $H$ is ice thickness, which has been observed to be 2164 m at the Byrd ice core site \citep{gow1968} and $z$ is the height above the bed. We invert for the remaining parameters: $h$, the depth to the Dansgaard-Johnsen shear layer \citep{dansgaardjohnsen1969}; $\dot{a}$, the time-dependent accumulation rate; and $q$, the ratio of horizontal velocity at the surface to that at the bed of the ice sheet.
+\end{center}
+\bigskip
+
+\noindent and $k$ is a constant such that $k = \frac{2}{2H - h(1-q)}$. $H$ is ice thickness, which has been observed to be 2164 m at the Byrd ice core site \citep{gow1968} and $z$ is the height above the bed. We invert for the remaining parameters: $h$, the depth to the Dansgaard-Johnsen shear layer \citep{dansgaardjohnsen1969}; $\dot{a}$, the time-dependent accumulation rate; and $q$, the ratio of horizontal velocity at the surface to that at the bed of the ice sheet.
 
 The ice flow model accounts for two primary factors in the age-depth profile: burial as a function of accumulation rate, $\dot{a}$, and thinning as a function of strain, $\epsilon_z$. In the simplest realization, ice deposited at a given time at the ice sheet surface will be found at a depth corresponding to the amount of subsequent accumulation. However, due to strain thinning at depth, ice of a given age will be less deep than would be expected if accumulation alone is considered. 
 
@@ -36,4 +40,4 @@ p(\dot{a}_{i, i=1...10}) \sim U[0.05,0.25]\,m/a\\
 \end{equation}	
 \end{center}
 
-The prior distributions of flow parameters and accumulation rate history, together denoted as $p(\vec{f})$, assume the shear layer is in the bottom half of the ice sheet depth \citep{cuffey2010} and that ice at the bed of the ice sheet is moving no faster than the surface, which would allow for cases of both plug and creep flow. Accumulation rate as a function of depth, $\dot{a}$, is estimated for 10 distinct depth bins spanning the ice thickness at 200 m intervals. This allows for variability of accumulation over time. 
+The prior distributions of flow parameters and accumulation rate history, together denoted as $p(\vec{f})$, assume the shear layer is in the bottom half of the ice sheet depth \citep{cuffey2010} and that ice at the bed of the ice sheet is moving no faster than the surface, which would allow for cases of both plug and creep flow. Accumulation rate as a function of depth, $\dot{a}$, is estimated for 10 distinct depth bins spanning the ice thickness at 200 m intervals. This allows for variability of accumulation rate over time. 
