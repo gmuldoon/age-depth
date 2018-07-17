@@ -386,9 +386,10 @@ param_stats(nparam+2,2) = std(reg);
 
 
 %% Plotting parameter histograms
-param_S = Param(11:-1:2,:); %exclude depths
-param_S(11,:) = Param(1,:); %exclude depths
-param_S(12:14,:) = Param(12:14,:); %exclude depths
+param_S = Param(11:-1:2,:); %reverse order of accumulation to be shallow to dep
+param_S(11,:) = Param(1,:); %put q after accums
+param_S(12:14,:) = Param(12:14,:); %rest of flow params
+param_S(13,:) = Param(13,:)/1e6; %convert to m/us for ease of plotting
 param_S(15,:) = S;
 figure(40)
 clf
@@ -400,40 +401,40 @@ hfig = gcf;
 for i=1:length(param_S(:,1))
     subplot(3,5,i)
     hist(gca,param_S(i,:),30); hold on
-    set(gca,'FontSize',15)
+    set(gca,'FontSize',10)
     ylim([0 25000])
     curtick = get(gca, 'YTick');
     set(gca, 'YTickLabel', cellstr(num2str(curtick(:))));
     if i ==1
-        xlabel('\boldmath{$\dot{a}_{0-200}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{0-200}$}'    ;'\boldmath{(m/a)}'})
     elseif i == 2
-        xlabel('\boldmath{$\dot{a}_{200-400}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{200-400}$}'  ;'$~$ \boldmath{(m/a)}'})
     elseif i == 3
-        xlabel('\boldmath{$\dot{a}_{400-600}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{400-600}$}'  ;'$~$ \boldmath{(m/a)}'})
     elseif i == 4
-        xlabel('\boldmath{$\dot{a}_{600-800}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{600-800}$}'  ;'$~~$ \boldmath{(m/a)}'})
     elseif i == 5
-        xlabel('\boldmath{$\dot{a}_{800-1000}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{800-1000}$}' ;'$~~~$\boldmath{(m/a)}'})
     elseif i == 6
-        xlabel('\boldmath{$\dot{a}_{1000-1200}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{1000-1200}$}';'$~~~$\boldmath{(m/a)}'})
     elseif i == 7
-        xlabel('\boldmath{$\dot{a}_{1200-1400}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{1200-1400}$}';'$~~~$\boldmath{(m/a)}'})
     elseif i == 8
-        xlabel('\boldmath{$\dot{a}_{1400-1600}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{1400-1600}$}';'$~~~$\boldmath{(m/a)}'})
     elseif i == 9
-        xlabel('\boldmath{$\dot{a}_{1600-1800}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{1600-1800}$}';'$~~~$\boldmath{(m/a)}'})
     elseif i == 10
-        xlabel('\boldmath{$\dot{a}_{1800-2000}$ (m/a)}')
+        xlabel({'\boldmath{$\dot{a}_{1800-2000}$}';'$~~~$\boldmath{(m/a)}'})
     elseif i == 11
-        xlabel('\boldmath{$q$}')
+        xlabel({'\boldmath{$q$}'})
     elseif i == 12
-        xlabel('\boldmath{$h$}')
+        xlabel({'\boldmath{$h$}'})
     elseif i == 13
-        xlabel('\boldmath{$v_{ice}$}')
+        xlabel({'$~$ \boldmath{$v_{ice}$}';'(m/$\mu$s)'})
     elseif i == 14
-        xlabel('\boldmath{$\epsilon_{firn}$}')
+        xlabel({'\boldmath{$\epsilon_{firn}$}';' (m)'})
     elseif i == 15
-        xlabel('\boldmath{$S$}')       
+        xlabel({'\boldmath{$S$}'})       
     end
     
     if i <= 10
@@ -451,7 +452,14 @@ end
 savefig('../figures/paramHist.fig')
 print('../figures/paramHist','-dpng','-r1000')
 
+%% Velocity structure at Byrd:
+meanAge=mean(age(:,burnin:end),2);
+diffDepths=flipud(z);
 
+figure(30)
+clf
+dy = diff(diffDepths)./diff(meanAge);
+plot(diffDepths(2:end),dy);
 
     
 toc;
